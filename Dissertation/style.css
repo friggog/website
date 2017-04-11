@@ -1,0 +1,222 @@
+body {
+    max-width: 900px;
+    margin: auto;
+    text-align: justify;
+    font-family: "Computer Modern Serif";
+    padding: 0 4em;
+    font-size: 13px;
+    counter-reset: figure;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+.tt, .URL, code {
+    font-family: "Computer Modern Typewriter", monospace;
+}
+
+.multicol {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 4em; /* Chrome, Safari, Opera */
+    -moz-column-gap: 4em; /* Firefox */
+    column-gap: 4em;
+}
+
+.multicol>div {
+    display: inline-block;
+    width: 100%;
+}
+
+figure {
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+}
+
+figcaption::before {
+    content: "Figure " counter(h1) "." counter(figure) ": ";
+    counter-increment: figure;
+}
+
+figcaption.let::before {
+    content: "Figure " counter(h1, upper-latin) "." counter(figure) ": ";
+}
+
+figcaption {
+    margin: 1em 0;
+}
+
+.minipage {
+    width: 49%;
+    display: inline-block;
+}
+
+ul {
+    line-height: 1.5em;
+    padding-left: 1.5em;
+}
+
+ul p {
+    margin-bottom: 0.3em;
+}
+
+li {
+    margin: 0.5em 0 0 0;
+}
+
+ul ul {
+    list-style: square url('data:image/gif;base64,R0lGODlhBQAKAIABAAAAAP///yH5BAEAAAEALAAAAAAFAAoAAAIIjI+ZwKwPUQEAOw==');
+}
+
+#front {
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+    margin: auto;
+}
+
+#front img {
+    height: 45vh;
+}
+
+.key {
+    display: none;
+}
+
+.bib td {
+    vertical-align: top;
+}
+
+.Title, .Journal {
+    font-style: italic;
+}
+
+ol {
+    padding-left: 0;
+}
+
+ol ol {
+    padding-left: 1.5em;
+    counter-reset: item;
+}
+
+ol ol ol {
+    padding-left: 2.2em;
+}
+
+ol li {
+    display: block;
+}
+
+ol li:before {
+    content: counters(item, ".");
+    counter-increment: item;
+    padding-right: 1em;
+}
+
+ol li.let:before {
+    content: counter(item, upper-latin);
+}
+
+ol li.let ol li:before {
+    content: counter(item, upper-latin) "." counter(item);
+}
+
+.nonum ol {
+    padding-left: 1.7em;
+}
+
+.nonum:before {
+    content: "" !important;
+    padding: 0 !important;
+}
+
+h1 {
+    counter-reset: h2 figure;
+}
+
+h2 {
+    counter-reset: h3
+}
+
+h1:before {
+    counter-increment: h1;
+    content: counter(h1);
+    padding-right: 1em;
+}
+
+h1.let:before {
+    content: counter(h1, upper-latin);
+}
+
+h2:before {
+    padding-right: 1em;
+    counter-increment: h2;
+    content: counter(h1) "." counter(h2)
+}
+
+h2.let:before {
+    content: counter(h1, upper-latin) "." counter(h2)
+}
+
+h3:before {
+    padding-right: 1em;
+    counter-increment: h3;
+    content: counter(h1) "." counter(h2) "." counter(h3)
+}
+
+h2.nocount:before, h3.nocount:before {
+    content: "";
+    counter-increment: none
+}
+
+#contents-but {
+    position: fixed;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    padding: 1em 2em;
+    background: white;
+}
+
+#contents-but:hover {
+    opacity: 1;
+}
+
+.list-of-figs {
+    list-style: none;
+    padding: 0;
+    counter-reset: lof-S 2 lof-F;
+}
+
+.list-of-figs li:before {
+    content: counter(lof-S) "." counter(lof-F);
+    counter-increment: lof-F;
+    padding-right: 1em;
+}
+
+.list-of-figs .let:before {
+    content: counter(lof-S, upper-latin) "." counter(lof-F);
+}
+
+.list-of-figs>.sec {
+    counter-increment: lof-S;
+    counter-reset: lof-F;
+    height: 0.5em;
+}
+
+a {
+    color: rgb(28, 123, 222);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

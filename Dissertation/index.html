@@ -1,0 +1,1648 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>Procedural generation of tree models for use in computer graphics</title>
+    <meta name="description" content="In this project I intend to develop a system for the procedural generation of highly detailed 3D models of trees and similar plants for use in computer generated imagery (CGI)."></meta>
+    <meta name="keywords" content="procedural generation tree trees blender plugin add-on model cgi computer graphics charlie hewitt university cambridge dissertation project"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Fonts/cmun-serif.css" type="text/css">
+    <link rel="stylesheet" href="Fonts/cmun-typewriter.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, showMathMenu: false });
+    </script>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_SVG"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div id="front">
+        <img src="Figures/Front.png" />
+        <h1 class="nonum">Procedural generation of tree models for use in computer graphics</h1>
+        <h2 class="nonum">Charlie Hewitt<br/>Trinity Hall, University of Cambridge</h2>
+        <h3 class="nonum">April, 2017</h3>
+        <a href="./Dissertation.pdf">PDF Version</a>
+    </div>
+    <a id="contents-but" href="#sec:contents">Contents</a>
+    <h1 class="nonum" id="sec:contents">Contents</h1>
+    <ol>
+        <li class="nonum"><a href="#sec:lof">List of Figures</a></li>
+        <li style="counter-reset: item;"><a href="#sec:intro">Introduction</a>
+            <ol>
+                <li><a href="#sec:mot">Motivation</a></li>
+                <li><a href="#sec:relwork">Related Work</a>
+                    <ol>
+                        <li><a href="#sec:relwork:lsys">Lindenmayer-Systems</a></li>
+                        <li><a href="#sec:relwork:param">Parametric Approach</a></li>
+                        <li><a href="#sec:relwork:modular">Modular Approach</a></li>
+                        <li><a href="#sec:relwork:spacecol">Space Colinisation</a></li>
+                        <li><a href="#sec:relwork:botanic">Botanical Simulation</a></li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li><a href="#sec:prep">Preparation</a>
+            <ol>
+                <li><a href="#sec:prep:req">Requirements Analysis</a>
+                    <ol>
+                        <li><a href="#sec:prep:uc">Use Cases</a></li>
+                        <li><a href="#sec:prep:goals">Goals</a></li>
+                        <li><a href="#sec:prep:plan">Plan</a></li>
+                    </ol>
+                </li>
+                <li><a href="#sec:prep:start">Starting Point</a></li>
+                <li><a href="#sec:prep:prep">Preparative Work</a>
+                    <ol>
+                        <li><a href="#sec:prep:lsys">L-Systems</a></li>
+                        <li><a href="#sec:prep:param"> Weber and Penn</a></li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li><a href="#sec:imp">Implementation</a>
+            <ol>
+                <li><a href="#sec:imp:lsys">L-Systems Approach</a>
+                    <ol>
+                        <li><a href="#sec:imp:lsysimp">L-System Implementation</a></li>
+                        <li><a href="#sec:imp:parsing">Parsing</a></li>
+                        <li><a href="#sec:imp:lsysdes">L-System Design</a></li>
+                    </ol>
+                </li>
+                <li><a href="#sec:imp:param">Parametric Approach</a>
+                    <ol>
+                        <li><a href="#sec:imp:branches">Branches</a></li>
+                        <li><a href="#sec:imp:leaves">Leaves</a></li>
+                    </ol>
+                </li>
+                <li><a href="#sec:imp:ext">Extensions</a>
+                    <ol>
+                        <li><a href="#sec:imp:dimred">Dimensionality Reduction</a></li>
+                        <li><a href="#sec:imp:gen">Genetic Algorithm</a></li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li><a href="#sec:eval">Evaluation</a>
+            <ol>
+                <li><a href="#sec:eval:vis">Visual Result</a></li>
+                <li><a href="#sec:eval:perf">Performance</a>
+                    <ol>
+                        <li><a href="#sec:eval:data">Data Collection</a></li>
+                        <li><a href="#sec:eval:time">Generation Time</a></li>
+                        <li><a href="#sec:eval:comp">Model Complexity</a></li>
+                    </ol>
+                </li>
+                <li><a href="#sev:eval:usability">Usability</a></li>
+                <li><a href="#sec:eval:ext">Extensions</a>
+                    <ol>
+                        <li><a href="#sec:eval:dimred">Dimensionality Reduction</a></li>
+                        <li><a href="#sec:eval:gen">Genetic Alogrithm</a></li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li><a href="#sec:conc">Conclusion</a>
+            <ol>
+                <li><a href="#sec:conc:sum">Summary</a></li>
+                <li><a href="#sec:conc:future">Future Work</a></li>
+            </ol>
+        </li>
+        <li class="nonum"><a href="#sec:bib">Bibliography</a></li>
+        <span style="counter-reset: item"></span>
+        <li class="let"><a href="#sec:renders">Renders of Resulting Tree Models</a>
+            <ol>
+                <li class="let"><a href="#sec:renders:param">Parametric</a></li>
+                <li class="let"><a href="#sec:renders:lsys">L-Systems</a></li>
+            </ol>
+        </li>
+        <li class="let"><a href="#sec:grammars">L-System Grammars</a>
+            <ol>
+                <li class="let"><a href="#sec:grammars:palm">Palm</a></li>
+                <li class="let"><a href="#sec:grammars:pop">Lombardy Poplar</a></li>
+                <li class="let"><a href="#sec:grammars:asp">Quaking Aspen</a></li>
+            </ol>
+        </li>
+        <li class="let"><a href="#sec:paramlist">Parameter Definitions</a></li>
+    </ol>
+
+    <h1 class="nonum" id="sec:lof">List of Figures</h1>
+
+    <ul class="list-of-figs">
+        <li><a href="#fig:monodich">Monopodial (left) and dichotomous (right) branching.</a></li>
+        <li><a href="#fig:weber">Tree diagram from Creation and Rendering of Realistic Trees, Jason Weber and Joseph Penn.</a></li>        <div class="sec"></div>        <li><a href="#fig:tropism_diagram">Application of tropism $\vec{T}$ to branch of initial direction $\vec{D}$ with resultant direction $\vec{D}'$.</a></li>        <li><a href="#fig:branch_type">Alternate, opposite and whorled branching.</a></li>        <li><a href="#fig:trained">Tree presenting distinct influence from human management. In particular, a helical trunk.</a></li>        <li><a href="#fig:tropism">Effect of <b>tropism</b> parameter. No tropism, vertical tropism and vertical and lateral tropism.</a></li>        <li><a href="#fig:prune_ratio">Effect of <b>prune<u>&ensp;</u>ratio</b> parameter for values 0, 0.5 and 1.</a></li>        <li><a href="#fig:pruning_shapes">Spherically, cylindrically and cubically pruned trees.</a></li>        <li><a href="#fig:pruning_wall">Tree pruned based on contextual objects.</a></li>        <div class="sec"></div>        <li><a href="#fig:scores">Scores derived from survey of visual results for 3 different test designs.</a></li>        <li><a href="#fig:comparisons">Raw comparison data by tree type for parametric system against <i>Arbaro</i>.</a></li>        <li><a href="#fig:bad_times">Timing data for generation of 1000 Quaking Aspen models using the parametric system with two alternative timing mechanisms.</a></li>        <li><a href="#fig:timecomp">Generation time for 100 instances of 5 trees types generated using each system.</a></li>        <li><a href="#fig:paramtimes">Timing results for two generation phases of parametric tool.</a></li>        <li><a href="#fig:lsystimes">Timing results for parsing phase of L-systems tool.</a></li>        <li><a href="#fig:compcomp">Branch complexity for 100 instances of 5 trees types generated using each system.</a></li>        <li><a href="#fig:dim_red">Merging (centre) of Quaking Aspen (left) and Silver Birch (right) produced using dimensionality reduction.</a></li>        <li><a href="#fig:gen_prog">Progress of genetic algorithm in determining parameters for various goal types.</a></li>        <li><a href="#fig:genetic">Start, goal and output models of genetic algorithm.</a></li>        <div class="sec"></div>        <li class="nonum">A.1-21&emsp;<a href="#sec:renders:param">Parametric tool renders.</a></li>        <li class="nonum">A.22-28&emsp;<a href="#sec:renders:lsys">L-Systems tool renders.</a></li>    </ul>    <h1 style="counter-reset: h1;" id="sec:intro">Introduction</h1>
+
+    <h2 id="sec:mot">Motivation</h2>
+
+    <p>In this project I intend to develop a system for the procedural generation of highly detailed 3D models of trees and similar plants for use in computer generated imagery (CGI).</p>
+    <p>In recent years CGI has become increasingly prevalent in the entertainment industry; improvements in technology have enabled increasingly large scale and complex scenes to be constructed. Consequently there has been a greater desire to provide fast,
+        effective ways of producing assets which can be used in these scenes. With the significant presence of plants in the real world, it is not surprising that there is a high demand for botanical assets. Therefore, finding a simple a way to generate
+        large numbers of realistic plant models would be of great benefit to artists working on film and game environments.</p>
+    <p>My aim is to implement a system which can produce models of a wide variety of tree species in a pseudo-random manner. I have chosen to create two systems employing alternative techniques with the intention of comparing these approaches and the results
+        achieved. I will be implementing systems based on Aristid Lindenmayer&#8217;s fractal based method <a href="#abop">[PL90]</a>, and Weber and Penn&#8217;s parametric approach <a href="#weberpenn">[WP95]</a>, both described in detail below. I also hope to improve
+        the design process of a tree model for the artist by utilising techniques such as dimensionality reduction and genetic algorithms to simplify/automate some aspects of the task.</p>
+
+    <h2 id="sec:relwork">Related Work</h2>
+
+    <p>There is a reasonable volume of existing work in this field. The most successful commercial offering being SpeedTree <a href="#speedtree">[Inc]</a>, a software package designed specifically for generating plant models for use in games and film. There
+        has also been activity in the research community and a number of completely different approaches to tackle the problem have been suggested.</p>
+
+    <h3 id="sec:relwork:lsys">Lindenmayer-Systems</h3>
+    <p>One technique is the use of Lindemayer-systemes (L-systems), proposed by Przemyslaw Prusinkiewicz and Aristid Lindenmayer in their iconic book of 1990, <i>The Algorithmic Beauty of Plants</i> <a href="#abop">[PL90]</a> and first described in the latter&#8217;s
+        paper of 1968 <a href="#lindf">[Lin68]</a>. L-systems build on the well recognised self-similarity of natural structures, as popularised by Mandelbrot <a href="#fractal">[Man82]</a>, using a fractal style approach to the modelling process. Smith
+        employed this technique with impressive results at Lucasfilm <a href="#flang">[Smi84]</a>, though it has fallen out of favour in recent years.</p>
+    <p>I have chosen to implement a tool based on L-systems, with the aim of incorporating modern techniques not available at the time they were most popular. The principle aspects of L-systems are described in more detail in <a href="#sec:prep:lsys">&sect;2.3.1</a>.</p>
+
+    <h3 id="sec:relwork:param">Parametric Approach</h3>
+    <p>Honda was the first to propose representation of trees through the use of a number of simple parameters <a href="#honda">[Hon71]</a>. This approach was adopted by Aono and Kunii for the purpose of generating 3D models <a href="#aono">[AK84]</a>. Oppenheimer
+        also began to incorporate this method <a href="#oppen">[Opp86]</a>, though both still made use of fractal based structures resulting in somewhat unrealistic models.</p>
+    <p>Weber and Penn later introduced a much more comprehensive parametric description for tree models with impressive results <a href="#weberpenn">[WP95]</a>. Their system takes as input a list of numeric parameters which describe certain aspects of the
+        tree at different levels of specificity; for instance the overall size, the fractional length of the branches relative to their parent and the angle between a branch and its parent. From these, the system recursively constructs a 3D model of the
+        tree, incorporating an element of randomness.</p>
+    <p>I have chosen to implement a system based on Weber and Penn&#8217;s approach given its relative ease of use and impressive visual results. An overview of Weber and Penn&#8217;s model is given in <a href="#sec:prep:param">&sect;2.3.2</a> and all parameters are
+        outlined in <a href="#sec:paramlist">Appendix C</a>.</p>
+
+    <h3 id="sec:relwork:modular">Modular Approach</h3>
+    <p>Another more recent approach is to construct a tree model from a number of smaller blocks, often manually modelled or 3D scanned from real trees. The blocks are arranged and merged in a manner such that each join is contiguous, and the resulting complete
+        tree model is therefore visually pleasing. This allows for very highly detailed and visually interesting model with many complex elements, but limits the scope of generation to those tree sections that have been obtained manually.</p>
+    <p>Impressive results have been achieved using this method <a href="#treeparts">[Xie+15]</a>, and the <i>blender</i> plugin <i>Modular Tree Add-on</i> <a href="#modtree">[MD]</a> uses many aspects of this approach. I have decided not to focus on this
+        method as it requires a significant library of modelled/scanned tree parts which I am not able to easily obtain, and is generally limited in the range of types of tree it can produce.</p>
+
+    <h3 id="sec:relwork:spacecol">Space Colonisation</h3>
+
+    <p>A completely different system was proposed more recently by Runions et al. which proposed modelling of trees using a space colonisation algorithm <a href="#spacecol">[RLP07]</a>. The algorithm uses a botanical informed growth process to colonise an
+        enclosing envelope, and was greatly improved by Pa&#322;ubicki et al. <a href="#selforg">[Pa&lstrok;+09]</a>.</p>
+    <p>There have since been a number of successful implementations, such as <i>TreeSketch</i> <a href="#treesketch">[Lon+12]</a> and the <i>SpaceTree</i> add-on for <i>blender</i> <a href="#spacetree">[And]</a>. The results produced using this method are
+        certainly comparable in realism to those of Weber and Penn&#8217;s approach, but due to time limitation I have decided not to tackle space colonisation in this project.</p>
+
+    <h3 id="sec:relwork:botanic">Botanical Simulation</h3>
+    <p>A somewhat less prominent method is to attempt to accurately model the growth process of the tree in order to create a 3D model. De Reffye et al. achieved relative success with this method <a href="#botanic">[Ref+88]</a>, though there has been little
+        work in this direction recently. This is likely due to the computational complexity of modelling the growth process, when comparable visual results can be achieved with much simpler models such as those proposed above. Consequently I have decided
+        not to explore this approach.</p>
+
+    <h1 id="sec:prep">Preparation</h1>
+    <h2 id="sec:prep:req">Requirements Analysis</h2>
+
+    <h3 id="sec:prep:uc">Use Cases</h3>
+    <p>There is currently a great need in the visual effects industry to create virtual representations of the real world, including natural objects such as trees. This may be for use in films, games or static renders for a myriad of uses. At present these
+        tree models must be created manually by an artist, or generated using commercial systems very similar to those which I intend to develop. Bespoke modelling by an artist is slow and expensive due to the highly skilled nature of the work. My proposed
+        system will allow generation of highly detailed tree models in a much shorter time, without requiring any skill beyond basic use of the <i>blender</i> application <a href="#blender">[Foua]</a>.</p>
+    <p>For a tree that features prominently in a scene, an artist may wish to augment the generated model with bespoke features or more detail, but the vast majority of the modelling work has been automated, reducing the overall cost drastically. In many
+        scenarios the model will be suitable as generated; one particular scenario where there is a clear benefit is in the generation of large groups of trees in the form of woodlands or forests. Previously every tree would need to be modelled separately,
+        or identical trees repeated, with my method a huge number of similar but unique trees can be generated very easily creating a much improved visual result.</p>
+    <h3 id="sec:prep:goals">Goals</h3>
+    <p>More in depth research of the field has enabled me to refine and better specify my success criteria, breaking them down into subgoals that can be more measurably attained. These are as follows:</p>
+    <ul>
+        <li>
+            <p>Develop working tree generation system based on the L-systems approach.</p>
+            <ul>
+                <li>Implement stochastic, parametric L-systems representation in Python.</li>
+                <li>Devise parsing system to convert L-system output into basic geometry within <i>blender</i>.</li>
+                <li>Enhance visual appearance of resultant model through refinement of parsing system.</li>
+            </ul>
+        </li>
+        <li>
+            <p>Develop working tree generation system based on a purely parametric approach.</p>
+            <ul>
+                <li>Implement the core elements of the system outlined in Weber and Penn&#8217;s paper using Python.</li>
+                <li>Modify any aspects of the model which require it to facilitate incorporation into a <i>blender</i> plugin.</li>
+                <li>Enhance any features of the model which I find to be lacking.</li>
+            </ul>
+        </li>
+        <li>
+            <p>Generate a series of test models which can be used for performance comparisons of the two systems.</p>
+            <ul>
+                <li>A limited set of parameter lists are provided in Weber and Penn&#8217;s paper, and others with existing implementations, these can be transcribed for use with my system. A number of further parameter lists will have to be designed from scratch.</li>
+                <li>Very basic L-systems are described in <i>The Algorithmic Beauty of Plants</i> which may provide a basis for my own. New bespoke L-systems will have to be devised to represent a wide enough range of tree types.</li>
+            </ul>
+        </li>
+    </ul>
+    <p>The goals described above are now taken to include provision for leaf modelling which I originally viewed to be an extension goal. I have also refined my other extensions:</p>
+    <ul>
+        <li>Investigate the use of dimensionality reduction for parameter lists with the aim of enabling an artist to design trees for the parametric system more easily.</li>
+        <li>Investigate automation of parameter list design using a genetic algorithm given an image input. The scope of this would likely be quite restricted given the time scale, though will hopefully serve as a proof of concept for automated parameterisation
+            of trees.</li>
+    </ul>
+    <p>Ultimately I would like to assess which of the two system I develop, L-system based or parametric, provides the best overall performance. This will be judged primarily on visual result, though generation time and complexity of use are also considerations.
+        Systems to determine and record these metrics will also have to be developed.</p>
+    <h3 id="sec:prep:plan">Plan</h3>
+    <p>The project is broken into three main implementation stages; for each I intend to employ a spiral model of software development. First working on basic prototypes of the systems, covering the most complex aspects of the implementation. Then iteratively
+        improving these until the system fully satisfies my implementation goals.</p>
+    <div><h4>L-Systems Implementation</h4><p></p></div>
+    <ul>
+        <li>Develop versatile Python implementation of stochastic, parametric L-systems.</li>
+        <li>Implement 2D parsing system for basic L-system definitions.</li>
+        <li>Extend parsing system to 3D, first using just line segments then incorporating B&eacute;zier curves.</li>
+        <li>Augment parsing system with required features to encapsulate fully detailed tree models.</li>
+        <li>Devise series of L-system definitions to use as input to the parsing system which describe a number of different tree types.</li>
+    </ul>
+    <div><h4>Parametric Implementation</h4><p></p></div>
+    <ul>
+        <li>Translate general formulae presented in paper to Python.</li>
+        <li>Basic implementation of parametric system using line segments to represent branches.</li>
+        <li>Extend system to utilise B&eacute;zier curves to model branches, including bevelling of branches.</li>
+        <li>Further refine system, implementing more detailed aspects of the paper, and introduce any modifications as necessary.</li>
+        <li>Devise a number of parameter lists, to use as input to the system, which describe a number of different tree types.</li>
+    </ul>
+    <div><h4>Extensions/Evaluation</h4><p></p></div>
+    <ul>
+        <li>Carry out any final refinements to both systems.</li>
+        <li>Develop any profiling tools required to evaluate the two systems.</li>
+        <li>Investigate extension goals, with potential for implementing genetic algorithm to devise parameter lists from image input.</li>
+    </ul>
+
+    <h2 id="sec:prep:start">Starting Point</h2>
+    <p>To implement the system I chose to utilise <i>blender</i>&#8217;s built in Python scripting functionality. <i>Blender</i> provides a full Python 3 interpreter within the application which can be used to manipulate the modelling environment through calls
+        to a number of libraries which are also provided by <i>blender</i>.</p>
+    <p>The libraries provided are fairly extensive <a href="#blenderlib">[Foub]</a>, though I have used only a small subset of their functionality. Specifically, I made use of <i>blender</i>&#8217;s B&eacute;zier curve modelling tools which require all control
+        points of the curve to be provided, as well as the bevel radii of these points, and produce a 3D mesh of controllable resolution along the resulting curve. I also utilised the <span class="tt">mathutils</span> module for its implementation of
+        basic data structures such as vectors and matrices, and their operators, in order to integrate seamlessly with the other <i>blender</i> libraries required. Standard Python modules such as <span class="tt">random</span> and <span class="tt">math</span>        were also used extensively.</p>
+    <p>There are a number of existing implementations of Weber and Penn&#8217;s system; <i>Arbaro</i> <a href="#arbaro">[Die15]</a> is a standalone Java app which outputs to standard 3D file formats, and <i>Sapling Tree Addon</i> <a href="#sapling">[Hal]</a> is
+        a <i>blender</i> plugin which generates models within the application. Both of these implementations produce impressive results, though neglect some aspects of the original system, as well as maintaining some of its limitations - both are open
+        source and provided some useful reference material, though no code from either project was used.</p>
+    <h2 id="sec:prep:prep">Preparative Work</h2>
+
+    <p>I had not used Python prior to the project so some initial work was required to familiarise myself with the syntax and general programming conventions of the language. This did not require a great deal of effort given Python&#8217;s relative syntactic simplicity,
+        and the familiarity of many general concepts covered by the Computer Science Tripos which are present in the language.</p>
+    <p>Given that the primary objective of the project is to create realistic models of trees, I took care to familiarise myself with some of the botany of trees. For this purpose <i>Cassell&#8217;s Trees of Britain and Northern Europe</i> <a href="#cassell">[MW03]</a>        proved an invaluable resource.</p>
+    <p>There was also a deal of effort required to understand the principles laid out in both Lindenmayer&#8217;s <i>Algorithmic Beauty of Plants</i>, and Weber and Penn&#8217;s 1995 paper. The necessary theoretical knowledge for each system is outlined below.</p>
+
+
+    <h3 id="sec:prep:lsys">L-Systems</h3>
+    <p>The formalism of L-systems was originally introduced to describe the structure of plants in their most basic form, and resembles context free grammars. An axiom string, $s$, is defined along with a set of production rules, $p_i$, mapping an input
+        character to a string of output characters. The system is then iterated a number of times, starting with the axiom. The characters making up the active string at each stage are replaced with the output characters of the applicable production rule,
+        if there is none then the symbol remains unchanged.</p>
+    <p>The following is a basic example of an L-system definition: </p>
+    \begin{align*} s &: a \\p_1 &: a \mapsto bab \\p_2 &: b \mapsto c \end{align*} If we are to iterate the system we obtain the following output: \begin{gather*} a\\bab\\cbabc\\ccbabcc\\... \end{gather*}
+    <p>Clearly this alone is not sufficient to model complex 3D plant structures. Lindenmayer therefore extended the basic definition via the introduction of stochasticity; a production rule can now be defined as a series of constituent mappings each with
+        an associated probability:</p>
+    \begin{alignat*}{3} s &: a && \\p_1 &: a &&\overset{\mbox{0.25}}{\longmapsto} ab \\& &&\overset{\mbox{0.25}}{\longmapsto} ba \\& &&\overset{\mbox{0.50}}{\longmapsto} bab \\p_2 &: b &&\longmapsto c \end{alignat*}
+    <p>This allows for far more natural structures as a degree of random variation can be introduced across the system as a whole. We assume any production with a single constituent mapping introduces no stochasticity, i.e., the probability for that mapping
+        is 1. The probabilities for the constituent mappings of any single production rule must of course sum to 1.</p>
+    <p>Another way in which simple L-systems can be extended is through the introduction of parameters. The parameters of a symbol can then be altered within a production rule, or used as a condition on the production itself. This allows us to propagate
+        useful information through the system, which is critical when producing more complex structures:</p>
+    \begin{alignat*}{3} s &: A(1) && \\p_1 &: A(x) : * &&\mapsto A(x * 2)B(0) \\p_2 &: B(x) : x \le 3 &&\mapsto B(x + 1) \\p_3 &: B(x) : x > 4 &&\mapsto B(x - 1) \end{alignat*}
+    <p>Where $*$ is used to indicate the lack of a condition, i.e., the production always applies.</p>
+    <p>These two augmentations can be combined to create a stochastic, parametric L-system. Another possible extension of the formalism is context sensitivity, though in practice stochastic parametricity is generally adequate to describe sufficiently complex
+        structures.
+    </p>
+    <p>The output of the iterated L-system at this point, however, is just a string&mdash;possibly with associated parameter values. This output string must therefore be parsed in order to convert the symbols into some geometry which will make up the final
+        tree model. This process is described, along with the implementation detail of the above, in <a href="#sec:imp:lsys">&sect;3.1</a>.</p>
+
+
+    <h3 id="sec:prep:param">Weber and Penn</h3>
+    <p>The approach of Weber and Penn considers only numerical parameters as input. The tree is considered as a number of distinct levels of recursion; the first being the trunk, the second the primary level of monopodial branches, the third the child branches
+        of these and so on. They include a number of parameters to describe the tree model as a whole such as the global scale, the number of levels of branching and the flare at the base of the trunk. In addition to these are a series of level specific
+        parameters (these parameters are suffixed <b>[n]</b> to indicate their value at the $n$th level of recursive branching), defined independently for each recursive depth. Many of these parameters are specified relative to the parent branch, such as the length, while others are independent, such as the curve of the branch and the angle it makes from its
+        parent.
+    </p>
+    <figure>
+        <span id="fig:monodich"></span>
+        <img src="Figures/Figs/mono_dich_branching.png" width="50%" />
+        <figcaption>Monopodial (left) and dichotomous (right) branching.</figcaption>
+    </figure>
+
+    <p>Dichotomous branching is also incorporated in the model, with stems able to be &lsquo;cloned&rsquo; at a random point along their length. The two stems then continue to grow in identical condition but using different random seeds. The overall shape of the tree
+        can also be controlled via modification of the first level branch lengths. This is achieved using an overall shape parameter which takes discrete values based on predefined common tree shapes (Conical, spherical, hemispherical, cylindrical, tapered
+        cylindrical, flame, inverse conical and tend flame). In addition the shape can be modified by defining an enclosing envelope and then iteratively shortening branches until they fit within this envelope, similar to the act of pruning.</p>
+    <p>Leaves are included in the model, with their positioning and orientation determined in the same manner as for stems. There is, however, a further modification to the leaves&#8217; orientations&mdash;they are reoriented, depending on the fractional value
+        of a parameter, to face outwards and upwards from the centre of the tree&mdash;to emulate the effect that light has on the growth of the tree.</p>
+    <p>There are many more parameters than described above which influence the resulting 3D model, <a href="#fig:weber">Figure 2.2</a> taken from the original paper illustrates some of these, for a complete description of all parameters consult <a href="#weberpenn">[WP95]</a>.
+        Brief descriptions of all the parameters in my own implementation of the system, broadly similar to the originals, are given in <a href="#sec:paramlist">Appendix C</a>.</p>
+    <p>The geometry of the model is built up recursively; each stem created as a series of segments with all levels of branching for each segment are generated before moving on to the next. This is necessary because many aspects of each stem are calculated
+        based on the attributes of the parent, for example the length of child stems is proportional to the length of the parent. More details on the implementation of the system and additions/alterations of features are described in <a href="#sec:imp:param">&sect;3.2</a>.</p>
+    <figure>
+        <span id="fig:weber"></span>
+        <img src="Figures/weber.png" width="70%" />
+        <figcaption>Tree diagram from <i>Creation and Rendering of Realistic Trees</i>, Jason Weber and Joseph Penn. &copy; 1995 ACM, Inc.</figcaption>
+    </figure>
+
+    <h1 id="sec:imp">Implementation</h1>
+
+
+    <h2 id="sec:imp:lsys">L-Systems Approach</h2>
+
+    <p>My L-systems tool consists of two primary phases; generation and parsing. In the first phase an L-system grammar is iterated a number of times to produce an output string consisting of L-system symbols and associated parameters. This string is then
+        parsed, with all symbols iterated over and actions taken based on their interpretation to construct the output model.</p>
+    <p>In order to ensure the system is robust, my L-system implementation is as general purpose as possible and the generation and parsing phases are completely independent. So in theory an alternative parser could be developed which produces models in
+        an entirely different format to those which my parser currently does. My parser uses a turtle representation to describe geometric operations, and the symbol dictionary is defined in accordance with this.</p>
+    <h3 id="sec:imp:lsysimp">L-System Implementation</h3>
+    <p>My implementation of L-systems in Python includes an <span class="tt">LSystem</span> class which contains the current system state as a list of <span class="tt">LSymbol</span>s. Each <span class="tt">LSymbol</span> is defined by a key character and
+        an optional parameter dictionary. The <span class="tt">LSystem</span> also stores a dictionary of production rules, which map <span class="tt">LSymbol</span> key characters to a function which represents the production rule associated with that
+        symbol, as well as a number of universal parameters for the tree such as leaf shape and tropism.</p>
+    <p>The <span class="tt">LSystem</span> is initialised with a production dictionary and an axiom, which is a list of <span class="tt">LSymbol</span>s. Every time the <span class="tt">LSystem</span> is iterated, the list of <span class="tt">LSymbol</span>s
+        currently stored (initially the axiom) is walked over and the the production rule which corresponds to the key of the current <span class="tt">LSymbol</span> is looked up and executed, replacing the current symbol with the result of executing
+        that production rule. This may be a single <span class="tt">LSymbol</span> or a list of many <span class="tt">LSymbol</span>s, if no production rule exists then the <span class="tt">LSymbol</span> is left unchanged. As only a single symbol is
+        considered at a time, this implementation supports only context free L-Systems, this greatly simplifies the implementation while retaining more than adequate expressivity.</p>
+    <p>Production rules are defined as Python functions. This means that arbitrary code can be executed in order to determine the output set of <span class="tt">LSymbol</span>s the rule generates. Stochasticity can therefore be introduced to the system by
+        utilising the <span class="tt">random</span> library within these production rules. Productions rules are given the current symbol as input, so the parameter dictionary of the symbol is also accessible. Parameter values can therefore be modified
+        and propagated through the system as well as used as conditionals within the production rule.</p>
+    <p>This means that all aspects of the stochastic, parametric L-systems described in <a href="#sec:prep:lsys">&sect;2.3.1</a> can be easily translated. For example, the L-system with formal definition</p>
+    \begin{alignat*}{3} s &: A(1) && \\p_1 &: A(x) : * &&\longmapsto A(x * 2)B(0) \\p_2 &: B(y) : y \le 3 &&\overset{\mbox{0.3}}{\longmapsto} B(y - 1)\\ & &&\overset{\mbox{0.7}}{\longmapsto} B(y + 3) \\p_3 &: B(y) : y > 4 &&\longmapsto B(y)A(y) \end{alignat*}
+    <p>becomes in Python:</p>
+    <pre><code class="python">
+def a_production(sym):
+    return [LSymbol("A", {"x": sym.parameters["x"] * 2}), LSymbol("B", {"y": 0})]
+
+def b_production(sym):
+    res = [sym]
+    if sym.parameters["y"] <= 3:
+        if random() <= 0.3:
+            res = [LSymbol("B", {"y": sym.parameters["y"] - 1})]
+        else:
+            res = [LSymbol("B", {"y": sym.parameters["y"] + 3})]
+    elif sym.parameters["y"] > 4:
+        res = [LSymbol("B", {"y": sym.parameters["y"]}),
+               LSymbol("A", {"x": sym.parameters["y"]})]
+    return res
+
+LSystem(axiom=[LSymbol("A", {"x": 1})], rules={"A": a_production, "B": b_production})
+  </code></pre>
+
+    <p>As shown here, multiple productions for a single symbol are collapsed into a single Python function definition which encapsulates all rules, conditioned as specified in the formal definition.</p>
+    <h3 id="sec:imp:parsing">Parsing</h3>
+
+    <p>A 3D model is then constructed from the symbols and associated parameters generated by the first phase of the process using a parser. Predefined geometric interpretations for various symbols are described using a turtle; these descriptions enable
+        the final output model to be constructed by the parser as a series of B&eacute;zier curves, with a polygonal mesh used for leaves.</p>
+    <div><h4>Turtle Graphics</h4><p></p></div>
+    <p>Turtle graphics in its simplest form describes a 2D turtle which stores its position and direction as well as some state to describe its &lsquo;pen&rsquo;. The turtle can then be controlled using these attributes and instructed to walk forward, drawing a line.
+        I have used an extension of this principle similar to that described in Chapter 2 of <i>The Algorithmic Beauty of Plants</i> to enable use of a turtle in 3D.</p>
+    <p>The turtle&#8217;s orientation is represented using two vectors; the <span class="tt">forward</span> vector determines the direction in which the turtle faces, and the <span class="tt">right</span> vector specifies its roll about the <span class="tt">forward</span>        vector. These, along with the <span class="tt">position</span> vector, fully specify the turtle&#8217;s geometric state. This can then be modified using pitch, turn and roll operations and the standard walk forward command. Instead of a &lsquo;pen&rsquo;, only
+        the current radius of the branch being drawn is stored as an attribute of the turtle, which can also be set dynamically.</p>
+    <div><h4>Symbol Interpretation</h4><p></p></div>
+
+    <p>The following list defines all <span class="tt">LSymbol</span>s which have predefined parsing interpretations and describes the associated action, all bold strings represent parameter names of the <span class="tt">LSymbol</span> in question.</p>
+
+    <table style="max-width:600px;margin:auto;">
+        <col width="60">
+        <tr>
+            <td><span class="tt">!</span></td>
+            <td>Set turtle width to <b>w</b>.</td>
+        </tr>
+        <tr>
+            <td><span class="tt">F</span></td>
+            <td>Move turtle forward by <b>l</b> and draw branch of this length, if <b>leaves</b> is non-zero then distribute that number of leaves along the branch according to <b>leaf<u>&ensp;</u>r<u>&ensp;</u>ang</b> and <b>leaf<u>&ensp;</u>d<u>&ensp;</u>ang</b>.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="tt">A</span> or <span class="tt">%</span>
+            </td>
+            <td>Close end of branch, i.e., taper to 0 radius.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="tt">+</span>
+            </td>
+            <td>
+                Turn turtle left by <b>a</b>.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="tt">-</span>
+            </td>
+            <td>
+                Turn turtle right by <b>a</b>.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="tt">&amp;</span>
+            </td>
+            <td>
+                Pitch turtle down by <b>a</b>.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="tt">&and;</span>
+            </td>
+            <td>
+                Pitch turtle up by <b>a</b>.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="tt">/</span>
+            </td>
+            <td>
+                Roll turtle right by <b>a</b>.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="tt">\</span>
+            </td>
+            <td>
+                Roll turtle left by <b>a</b>.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="tt">L</span>
+            </td>
+            <td>
+                Create leaf according to <b>d<u>&ensp;</u>ang</b> and <b>r<u>&ensp;</u>ang</b>.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="tt">[</span>
+            </td>
+            <td>
+                Start branch.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="tt">]</span>
+            </td>
+            <td>
+                End branch.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="tt">&#36;</span>
+            </td>
+            <td>
+                Reset turtle to vertical.
+            </td>
+        </tr>
+    </table>
+    <p>Most of these definitions are very similar to those given in <i>The Algorithmic Beauty of Plants</i>, though I found that some slight alterations enabled a more fully featured parser which was much easier to design L-system grammars for.</p>
+    <div><h4>Model Construction</h4><p></p></div>
+
+    <p>Interpreting the output of the L-system using a turtle and the symbol interpretations outlined above provides a geometric representation from the input L-system grammar. A 3D model of the tree is then constructed from the basic position, orientation
+        and thickness information the turtle encapsulates. The action associated with the <span class="tt">F</span> symbol is key to this, as it describes drawing a branch.</p>
+    <p>The turtle&#8217;s motion as described above only allows for straight branch sections as the turtle can only move forward in the direction it is currently facing. To achieve the desired curved branches from the turtle geometry obtained during the parsing
+        procedure, the current branch&#8217;s B&eacute;zier spline is extended by one point for each <span class="tt">F</span> encountered. The position of the new point is given by the turtle&#8217;s position after moving forward by the amount specified by the <b>l</b>        parameter of the <span class="tt">F</span> symbol. The first point in each spline is generated either when the trunk is first constructed, or on encountering a <span class="tt">[</span>, so there is always a B&eacute;zier point prior to the one
+        added when encountering a <span class="tt">F</span>.</p>
+    <p>When each new B&eacute;zier point is added to the spline the control points of the previous point, the start point of the segment being constructed, are also updated. The difference vector for the two control points nearest the start point (i.e.,
+        the tangent to the curve at that point) is aligned with the direction of the segment being built and scaled to be proportional to the length of the segment. The resulting branch therefore forms a smooth curve. Some random variation in the segment
+        direction can be introduced to create a more natural winding appearance for the branch. The radius of the branch at the start point is also updated to a linear interpolation of the radius at the point prior to the start point and the turtle&#8217;s
+        current radius value to ensure a smoothly tapering branch.</p>
+    <div><h4>Branching</h4><p></p></div>
+
+    <p>The <span class="tt">[</span> and <span class="tt">]</span> symbols also present an interesting challenge. It is necessary to keep track of the series of turtle states in order to backtrack on completion of the new branch, we also want to minimise
+        the number of B&eacute;zier splines required to construct the tree (rather than simply starting a new spline after backtracking). To solve these issues information is stored on a stack.</p>
+    <p>Whenever a <span class="tt">[</span> is encountered a spline is created for the new branch, which s then constructed as normal. When the <span class="tt">[</span> is encountered a copy of the current turtle is also placed onto the stack, along with
+        the previously active spline. Upon encountering the matching <span class="tt">]</span>, the current turtle and spline are discarded and the previous turtle and spline restored by popping from the stack. Construction of the parent branch can then
+        continue on its original spline, restarting from the position at which the child was produced.</p>
+    <p>An edge case arises if branch, or series of nested branches, is encountered which contain no actual branch segments (i.e., <span class="tt">F</span> symbols). In this case the branch has no visible geometric interpretation so can be ignored.</p>
+    <p>A variable is therefore used to track the validity of each branch, initialised to <span class="tt">FALSE</span>. Upon encountering an <span class="tt">F</span> during traversal of the branch, the value is set to <span class="tt">TRUE</span>. If the
+        end of the branch, <span class="tt">]</span>, is encountered while the branch is still indicated as being invalid then no <span class="tt">F</span> is present whithin the branch so its spline can be safely removed. This indicator of branch validity
+        must also be placed on the stack each time a <span class="tt">[</span> is encountered and restored with the matching <span class="tt">]</span>.</p>
+    <p>If the stack is ever empty then an unmatched end branch symbol, <span class="tt">]</span>, must have been encountered, as the trunk (the spline created upon commencing parsing of the system) should always remain on the stack. An exception is therefore
+        raised as the input string to the parser, and underlying L-system definition, must be invalid. Similarly, if after parsing all symbols the stack contains more than just the trunk then an unmatched start branch symbol, <span class="tt">[</span>,
+        must have been encountered so again raise an exception is raised.</p>
+    <h4 id="sec:imp:tropism">Tropism</h4>
+    <p>In order to enhance the realism of the model, I also included the concept of a tropism vector, similar to that described by Lindenmayer in Chapter 2 of <i>The Algorithmic Beauty of Plants</i> <a href="#abop">[PL90]</a>. At the start of each branch
+        segment, the current direction of the branch, $\vec{D}$, is rotated towards the 3D tropism vector, $\vec{T}$, specified as a parameter of the <span class="tt">LSystem</span>. This is achieved by rotating $\vec{D}$ about the axis $\vec{D}\times\vec{T}$
+        by an angle, $\theta$, proportional to $|\vec{D}\times\vec{T}|$, as demonstrated in <a href="#fig:tropism_diagram">Figure 3.1</a>.</p>
+    <figure>
+        <span id="fig:tropism_diagram"></span>
+        <img src="Figures/SVG/trop.svg" />
+        <figcaption>Application of tropism $\vec{T}$ to branch of initial direction $\vec{D}$ with resultant direction $\vec{D}'$.</figcaption>
+    </figure>
+
+    <p>This causes the tree to appear to grow as if acted on by a force in the direction of the tropism vector, with the severity of this effect proportional to the length of the tropism vector. We can therefore model trees which are affected visibly by gravity (downwards), light (upwards) or a prevailing wind (lateral). The results of using this effect for the parametric system can be seen in <a href="#fig:tropism">Figure 3.4</a>.</p>
+
+    <div><h4>Leaves</h4><p></p></div>
+
+    <p>For the modelling of leaves, Lindenmayer focusses primarily on smaller plants exhibiting complex flowers and leaf shapes. He therefore suggests the use of symbols within the grammar to generate custom polygons allowing leaves and flowers to be specified
+        manually within the L-system definition. This seems inefficient and cumbersome for trees given that we are likely to reuse the same leaf shapes at many points in the grammar and for many different trees. I have instead opted to use the same method
+        as employed in the parametric system, fully described in <a href="#sec:imp:leaves">&sect;3.2.2</a> below. Parameters are instead stored as attributes of the <span class="tt">LSystem</span> and two methods of generating leaves are incorporated
+        within the interpretation of L-systems.</p>
+    <p>Firstly, a single leaf can be generated using the <span class="tt">L</span> symbol, with required parameters <b>d<u>&ensp;</u>ang</b> and <b>r<u>&ensp;</u>ang</b> which are used to calculate the leaf&#8217;s orientation specifying the angle away from and around the stem respectively.
+        Alternatively, leaves can be generated along a stem using the <b>leaves</b> parameter of the <span class="tt">F</span> symbol. This indicates that the specified number of leaves will be distributed uniformly along the stem with <b>leaf<u>&ensp;</u>r<u>&ensp;</u>ang</b> and
+        <b>leaf<u>&ensp;</u>d<u>&ensp;</u>ang</b> used to calculate their orientations. The current rotation angle of the previous leaf around the stem is stored as leaves are constructed along the stem, and incremented by <b>leaf<u>&ensp;</u>r<u>&ensp;</u>ang</b> with each leaf, this allows leaves
+        to be spread uniformly around the stem as well as along it.</p>
+    <p>As the output of the generation phase is parsed, each leaf is added to an array as a position and orientation pair. After initial parsing is complete this array is iterate over and the leaf mesh generated in an identical manner to that described in
+        <a href="#sec:imp:leaves">&sect;3.2.2</a>.</p>
+
+    <h3 id="sec:imp:lsysdes">L-System Design</h3>
+
+    <p>The fixed generation and parsing systems described above are in themselves fairly simple and small in terms of volume of code. A large portion of the complexity of modelling the tree is introduced within the definition of the L-system grammar, that is the axiom and production rules, which is given as input to the system.</p>
+
+    <p>To represent trees realistically the grammar can become quite complex and require a quite large amount of code to specify. The design of the grammar can also be intrinsically difficult as the geometric output we desire must be encoded as a production rule which will be iterated, rather than a more intuitive series of numeric parameters. Code for such grammars, used to generate some of the models in <a href="#app:lsys">Appendix A.2</a>, is provided in <a href="#app:grammars">Appendix B</a>.</p>
+
+    <h2 id="sec:imp:param">Parametric Approach</h2>
+
+    <p>My parametric tool uses a more integrated approach; a parameter list, in the form of a Python dictionary, is given as input and the output model is constructed directly. Any values missing from the input parameters are given default values (those
+        of the Quaking Aspen).</p>
+    <p>The branches are first constructed as a series of B&eacute;zier curves and then the leaves as a polygonal mesh, using locations determined during branch generation. A significant portion of the work was in translating the many definitions within Weber
+        and Penn&#8217;s paper into Python for use within the <i>blender</i> plugin. Most effort, though, was focussed on the generation of the output model from the values that these translated formulae gave about the geometry of the tree. Some of the particular
+        difficulties faced during implementation of the tool are described below.</p>
+    <h3 id="sec:imp:branches">Branches</h3>
+
+    <p>The paper suggests the use of transformation matrices to store orientation data at different points in the tree as it is constructed. I have instead opted to re-use the turtle developed for use with the L-system approach above. This allows me to re-use
+        the existing code and provides a more intuitive representation to work with while developing the system. It is also very simple to construct a new turtle at some arbitrary point along a branch as only two perpendicular vectors are needed to completely
+        specify the turtle&#8217;s orientation.</p>
+    <p>Originally the models were constructed as polygonal meshes directly using a series of tapered cylindrical segments for each branch, as can be seen in <a href="#fig:weber">Figure 2.2</a>. I have instead chosen to use B&eacute;zier curves to model branches,
+        these allow for more smoothly curving representations and are very simple to specify, requiring only four control points for each segment. <i>Blender</i> also provides the ability to dynamically alter the resolution of the B&eacute;zier curve
+        after generation. This provides a major benefit in terms of adaptive levels of detail, as previously the entire mesh would need to be regenerated for each resolution. One issue introduced through the use of B&eacute;zier curves in <i>blender</i>        is that the cross section must be uniform along the length of the spline, this eliminates the possibility for the lobing described in &sect;4.4 of <a href="#weberpenn">[WP95]</a>.</p>
+    <div><h4>Branch Radius</h4><p></p></div>
+
+    <p>With <i>blender</i>&#8217;s B&eacute;zier curve functionality, each point on the curve can be assigned a bevel radius which then informs (via interpolation) the radius of the circular bevel at all offsets along the curve. This enables the uniformly tapering
+        cylinders of the original model to be easily replicated. However, there is also provision in the model for flaring of the trunk near the base and for non-uniform and periodic tapering along the entire length of the stem, these presented a more
+        significant challenge.
+    </p>
+    <p>Ordinarily, the radius of the branch is assigned at each B&eacute;zier point along the branch (typically between 5 and 15, specified by <b>curve<u>&ensp;</u>res[n]</b>) and <i>blender</i> interpolates linearly between these. In the cases of flaring at the base
+        of the trunk and periodic tapering, a higher resolution of radius control along the length of the branch is required. This is achieved by evaluating the curve for each segment at a number of points spaced evenly along its length and taking these
+        as the new B&eacute;zier points, with their control points determined by evaluating the tangent to the original curve at each point. The size of the vectors to each new control point are rescaled in order to preserve the approximate shape of the
+        curve.
+    </p>
+    <p>By carrying out this increase in resolution a much higher degree of control is gained over the radius of extrusion along the curve, without noticeably affecting the path of the curve itself. This operation is fairly expensive and results in unnecessarily
+        high B&eacute;zier point resolution in most ordinary branches. It is, therefore, only performed for the trunk (as flaring is necessary) and for branches which have a value of <b>taper[n]</b> which indicates periodic tapering (see <a href="#sec:paramlist">Appendix C</a>).</p>
+    <p>One small limitation of the model proposed by Weber and Penn is that all branch radii are dependent on only global parameters <b>ratio</b> and <b>ratio<u>&ensp;</u>power</b> and the relative lengths and radii of the child and parent branches. This means that
+        there is no way to account for extraordinary changes in radius between levels of branching, something which does occur fairly commonly in the real world. One clear example of this is the Weeping Willow (<a href="#fig:willow">Figure A.4</a>), where
+        the primary branches conform to the expected relation, but secondary branches are very much thinner and longer than their parents.</p>
+    <p>Using Weber and Penn&#8217;s radius model, defined $$radius_{child} = radius_{parent} * \Bigg(\frac{length_{child}}{length_{parent}}\Bigg)^{\mathbf{ratio\_power}}$$ will not give a visually pleasing result in this case. A na&iuml;ve but effective solution
+        is to introduce a parameter, <b>radius<u>&ensp;</u>mod</b>, which the standard radius is multiplied by to achieve the updated branch radius. For the Weeping Willow $\mathbf{radius\_mod[2]}=0.1$ is used so that the secondary branches are significantly thinner
+        than they would be using the original model.</p>
+
+    <div><h4>Branch Distribution</h4><p></p></div>
+
+    <p>One major shortcoming of Weber and Penn&#8217;s model is the lack of any clear consideration for how the child branches of a stem are distributed along its length. Looking at examples of trees in a botanical context we observe three common types of branch
+        distribution along a stem; alternate, opposite and whorled, as shown in <a href="#fig:branch_type">Figure 3.2</a>. Alternate is by far the most commonly observed type of branching in trees; opposite monopodial branching is quite rare, though perhaps
+        useful for leaf distribution in some cases. Whorled branching is seen almost exclusively in pine trees.</p>
+    <figure>
+        <span id="fig:branch_type"></span>
+        <img src="Figures/Figs/branch_types.png" width="75%" />
+        <figcaption>Alternate, opposite and whorled branching</figcaption>
+    </figure>
+
+    <p>I have chosen to build the tree geometry using a recursive procedure, each stem is built in a series of segments with all child stems for each segment built before moving on to the next segment in the parent branch. This means that we do not have
+        to keep track of all stems and their parameters at a specific level in order to construct each level iteratively. Instead, a recursive call is made for each child branch, stopping when the maximum number of branching levels is reached.</p>
+    <p>The actual number of child branches on each stem is calculated as defined as in &sect;4.3 of <a href="#weberpenn">[WP95]</a>. Though, given the procedure described above, the number of branches on each segment is needed instead. This may not be an
+        integer, so a method similar to Floyd-Steinberg error diffusion <a href="#flst">[FS76]</a> is used to distribute the correct number of branches evenly across the stem.</p>
+    <p>Once the number of children on a segment has been calculated, their fractional offset along the segment can be determined based on the branching pattern (alternate, opposite or whorled) defined by <b>branch<u>&ensp;</u>dist[n]</b>&mdash;a detailed explanation of <b>branch<u>&ensp;</u>dist[n]</b> is given in <a href="#sec:branch_dist_def">Appendix C</a>. Each child is then positioned by evaluating the B&eacute;zier curve between the start and end points of the segment at the fractional offset for that child. The child&#8217;s <span class="tt">forward</span> vector is determined by calculating the tangent to the curve and then modifying this according to <b>down<u>&ensp;</u>angle[n]</b>, <b>rotate[n]</b> and the current branching pattern. Tthe <span class="tt">right</span> vector of the turtle must also be maintained,
+        this is calculated based on the turtle orientation at the end of the segment and the child&#8217;s <span class="tt">forward</span> vector.</p>
+    $$right_{child} = (forward_{seg\_end} \times right_{seg\_end}) \times forward_{child}$$
+    <p>This approximation is valid in general because the branches typically lie within the plane normal to the <span class="tt">right</span> vector of the turtle at the end of the segment. If the branch does not lie within this plane, due to a non-zero
+        <b>bend<u>&ensp;</u>v[n]</b> value, then this method still gives a visually pleasing result while remaining easy to compute. In the case of helices the approximation is not valid, so to preserve a correct orientation along the curve</p>
+    <p>the child turtle&#8217;s <span class="tt">right</span> vector is instead taken as the cross product of the tangent evaluated a short distance further along the curve with the child turtle&#8217;s <span class="tt">forward</span> vector (the tangent at the original
+        location). This ignores the roll of the turtle about the branch at the start of the segment, but provides a consistent <span class="tt">right</span> vector along the helix, so gives a good visual result.</p>
+    <p>The above method will, however, position the start of the child branch at the centre of the cross section of the parent stem. This can give poor visual results for children of stems with a large radius. I therefore chose to shift the start position
+        of the branches toward the circumference of the parent. This is achieved by maintaining a turtle which is positioned at the original start position of the child and is directed normal to the parent curve, at the same rotation about the parent
+        curve as the child&#8217;s direction. Then by moving the turtle forward by an amount equal to the radius of the parent minus the radius of the child, a new start position for the child is determined which is as close as safely possible to the parent&#8217;s
+        circumference.</p>
+
+    <div><h4>Helical Branches</h4><p></p></div>
+    <p>Weber and Penn&#8217;s parameterisation includes an option for stems which form a helical shape, though the paper qualifies this quite poorly, stating only that &ldquo;a special mode is used when <b>curve<u>&ensp;</u>v[n]</b> is negative. In that case, the stem is formed
+        as a helix. The declination angle is specified by the magnitude of <b>curve<u>&ensp;</u>v[n]</b>&rdquo; <a href="#weberpenn">[WP95, &sect;4.1]</a>. No currently available implementations of the system include this functionality as it presents a significant implementation
+        challenge.
+    </p>
+    <p>Firstly, a method to model helices using B&eacute;zier curves must be devised. Ri&#353;kus presents a method to fit a B&eacute;zier curve to a circle of radius $r$, drawing an arc on the circumference through angle $2\alpha$ <a href="#arc2bez">[Ri&scaron;06]</a>.
+        The curve is then defined by the points (in 2D)</p>
+
+    \begin{align*} b0 &= (r\cos{\alpha}, -r\sin{\alpha}) \\b1 &= \Bigg(\frac{4r-r\cos{\alpha}}{3}, -\frac{(r-r\cos{\alpha})(3r-r\cos{\alpha})}{3r\sin{\alpha}}\Bigg) \\b2 &= \Bigg(\frac{4r-r\cos{\alpha}}{3}, \frac{(r-r\cos{\alpha})(3r-r\cos{\alpha})}{3r\sin{\alpha}}\Bigg)
+    \\b3 &= (r\cos{\alpha}, r\sin{\alpha}) \end{align*}
+
+    <p>Where $b0$ and $b3$ and the endpoints of the curve, and $b1$ and $b2$ the control points.</p>
+    <p>To form a helix the $z$ coordinates of these points must also be determined. The definition of a helix parameterised by $t$ states that $z = \frac{pt}{2\pi}$ for any point on the helix, where $p$ is the pitch of the helix. An arc through angle $2\alpha$
+        will therefore rise by $\frac{\alpha p}{\pi}$. So the $z$ coordinates of the endpoints are given by:</p>
+
+    \begin{align*} b0_z &= -\frac{\alpha p}{2\pi} \\b3_z &= \frac{\alpha p}{2\pi} \end{align*}
+
+    <p>The $z$ coordinates of the control points, however, are considerably more complex. Juhasz proposes a method where these $z$ coordinates are constrained such that the osculating plane of the curve at the end of the initial segment is common with the
+        osculating plane at the start of the next segment <a href="#helix">[Juh95]</a>. This retains G2 continuity and gives the following:</p>
+
+    \begin{align*} b1_z &= -\frac{(r-r\cos{\alpha})(3r-r\cos{\alpha})\alpha p}{r\sin{\alpha}(4r-r\cos{\alpha})\tan{\alpha}} \\b2_z &= \frac{(r-r\cos{\alpha})(3r-r\cos{\alpha})\alpha p}{r\sin{\alpha}(4r-r\cos{\alpha})\tan{\alpha}} \end{align*}
+
+    <p>For this application I found that a value of $\frac{\pi}{2}$ for $\alpha$ was sufficient to give an adequately high resolution B&eacute;zier curve, and simplifies the calculation significantly resulting in the B&eacute;zier points:</p>
+
+    \begin{align*} b0 &= \Big(0, -r, -\frac{p}{4} \Big) \\b1 &= \Big(\frac{4r}{3}, -r, 0 \Big) \\b2 &= \Big(\frac{4r}{3}, r, 0 \Big) \\b3 &= \Big(0, r, \frac{p}{4} \Big) \end{align*}
+
+    <p>The input parameters $r$, the radius of the helix, and $p$, the pitch must also be calculated. The paper states that the declination of the helix is $|\mathbf{cure\_v[n]}|$, so $\theta = 90 - |\mathbf{cure\_v[n]}|$ is taken as the angle (in degrees)
+        the tangent to the helix makes with the plane whose normal is the axis of the helix.</p>
+    <p>It follows that $$\tan{\theta} = \frac{b1_z - b0_z}{b1_x - b0_x}$$ as $b1_y = b0_y$. Which gives $$r = \frac{3p}{16\tan{\theta}}$$</p>
+    <p>The length of the branch $L = \mathbf{length[n]}$ is defined within the input parameters, as is the resolution of the curve $m = \mathbf{curve\_res[n]}$. Interpreting $m$ as the number of rotations through $\alpha$ the helix will make along its length,
+        and $L$ as the total height of the helix gives $$L=\frac{\alpha pm}{\pi}$$ and with $\alpha = \frac{\pi}{2}$, $$p = \frac{2L}{m}$$</p>
+
+    <p>This provides all the required information to construct the points describing one half spiral of the helix; now the entire branch must be constructed using this information. Firstly the base spiral points are reoriented so that the axis of the helix
+        and the branch direction are collinear, then the helix is rotated around this axis by a random angle to introduce some variation between branches. The base helix points are then translated so that $b0$ is located at the start position of the branch,
+        and all other points retain their positions relative to $b0$. Looping for $n$ iterations, the rest of the branch is constructed by rotating the base helix points by $\frac{\pi}{2}$ around the axis of the helix (i.e., the branch direction) with
+        each iteration and translating them such that the start point of the current segment is equal to the endpoint of the last.</p>
+    <p>The calculations to determine the characteristics of the helix are therefore only carried out once, with the points then just being rotated and translated with each iteration, making this quite an efficient method of constructing such branches. The
+        radius of the resulting B&eacute;zier curve is tapered using the standard method resulting in an effective approximation to a spiralling branch. This method also enables the resolution of the B&eacute;zier curve to be increased to allow for flaring
+        and periodic tapering, as described above, using the same method as non-helical, branches. Child branches can also be distributed along the stem in the same manner as for ordinary branches.</p>
+    <p>This sort of branch is typically used for small twigs at the third or fourth level of branching such as in the Black Oak (<a href="#fig:black_oak">Figure A.17</a>). Though can also be used to model trees which have been trained by humans for aesthetic
+        effect, such as in <a href="#fig:trained">Figure 3.3</a>.</p>
+    <figure>
+        <span id="fig:trained"></span>
+        <img src="Figures/Figs/trained.png" width="50%" />
+        <figcaption>Tree presenting distinct influence from human management. In particular, a helical trunk.</figcaption>
+    </figure>
+
+    <div><h4>Tropism</h4><p></p></div>
+    <p>Weber and Penn include an <b>attraction<u>&ensp;</u>up</b> parameter which applies to branches in the second and deeper levels of the tree. This affects their growth direction either upward towards light, or downwards due to gravity. While this is a good approximation
+        in many cases, it ignores lateral effects on the tree - usually due to a prevailing wind. I therefore make use of the more general tropism vector described above in <a href="#sec:imp:tropism">&sect;3.1.2</a>, specified using the <b>tropism</b>        parameter.</p>
+    <figure>
+        <span id="fig:tropism"></span>
+        <img src="Figures/Figs/tropism.png" width="90%" />
+        <figcaption>Effect of <b>tropism</b> parameter. No tropism, vertical tropism and vertical and lateral tropism.</figcaption>
+    </figure>
+
+    As with the original <b>attraction<u>&ensp;</u>up</b> parameter, the vertical component of the tropism vector is only applied to secondary or deeper level branches as excessive effects on the trunk and primary branches result in degraded appearance otherwise.
+    Lateral tropism is applied to all levels of the tree, these effects can be observed in <a href="#fig:tropism">Figure 3.4</a>.
+
+    <div><h4>Pruning</h4><p></p></div>
+
+    <p>Pruning is introduced by Weber and Penn to control the shape of particularly unruly trees for which the standard parameters alone cannot adequately describe their overall shape <a href="#weberpenn">[WP95, &sect;4.6]</a>, one clear example is the Weeping
+        Willow.
+    </p>
+    <p>First a test pass is performed in which the basic branch geometry is generated but not added to the final model, and with no recursive calls for child branches. If at all points along its length the branch remains within the envelope then the branch
+        is simply added to the model, otherwise it is retested with a reduced total length. This process is repeated until the branch is contained within the pruning envelope or it is less than 15% of its original length, at which point the branch is
+        discarded entirely. All random aspects of the branch must be identical with each iteration for this method to be valid. Fortunately Python&#8217;s <span class="tt">random</span> module provides the methods <span class="tt">getstate</span> and
+        <span class="tt">setstate</span> which are used to ensure that the pseudo random number generator starts with the same state for each iteration and therefore produces valid pruning results.</p>
+    <figure>
+        <span id="fig:prune_ratio"></span>
+        <img src="Figures/Figs/pruning_ratio.png" width="75%" />
+        <figcaption>Effect of <b>prune<u>&ensp;</u>ratio</b> parameter for values 0, 0.5 and 1.</figcaption>
+    </figure>
+
+    <p>The severity of pruning is controlled by the <b>prune<u>&ensp;</u>ratio</b> parameter, as is visualised in <a href="#fig:prune_ratio">Figure 3.5</a>. This is applied by finding the fitting length for the branch, then interpolating between this and the original
+        length according to the value of <b>prune<u>&ensp;</u>ratio</b>.</p>
+    <figure>
+        <span id="fig:pruning_shapes"></span>
+        <img src="Figures/Figs/pruning_shapes.png" width="75%" />
+        <figcaption>Spherically, cylindrically and cubically pruned trees.</figcaption>
+    </figure>
+
+    <p>The model presented for the pruning envelope is that of a solid of revolution around the $z$-axis. This is generally very good for modelling the shapes of trees, though in some cases we desire a more arbitrary shape. The above method simply requires
+        a point test to determine if the segmentation points of a branch are within the envelope. The point test can, therefore, be arbitrarily defined to generate a wide variety of rotationally non-uniform shapes, such as the cube shaped tree in <a href="#fig:pruning_shapes">Figure 3.6</a>.
+        This can be extended to account for other objects in the environment which real trees would grow around, such as buildings and walls. A basic example is given in <a href="#fig:pruning_wall">Figure 3.7</a>.</p>
+    <figure>
+        <span id="fig:pruning_wall"></span>
+        <img src="Figures/Figs/pruned_for_wall.png" width="55%" />
+        <figcaption>Tree pruned based on contextual objects.</figcaption>
+    </figure>
+
+
+    <div><h4>Multiple Trunks</h4><p></p></div>
+
+    <p>In order to extend the parameterisation to allow for modelling of trees and plants with multiple trunks from ground level, I added the <b>floor<u>&ensp;</u>splits</b> parameter. An example usage of this parameter is the Bamboo in <a href="#fig:bamboo">Figure A.5</a>.</p>
+    <p>The start point of each trunk is distributed within a circle of radius proportional to the radius of each stem using Poisson disc sampling with a minimum separation distance also proportional to the radius of each stem. The start orientation of the
+        trunk is then modified such that it faces outwards from the centre of the circle allowing branches to curve primarily outwards, as seen in the Bamboo. Each trunk is generated using the standard procedure as if it were an isolated tree.
+    </p>
+    <p>If we wished to automate generation of a large collection of trees, such as those in a forest, then a similar method could be used, distributing trunks over a larger area. In this case it would likely be beneficial to use a faster method of Poisson
+        disc sampling such as that proposed by Bridson <a href="#poisson">[Bri07]</a>.</p>
+    <h3 id="sec:imp:leaves">Leaves</h3>
+    <p>Leaves are treated in a very similar way to branches, utilising the values of <b>down<u>&ensp;</u>angle[n]</b>, <b>down<u>&ensp;</u>angle<u>&ensp;</u>v[n]</b>, <b>rotate[n]</b> and <b>rotate<u>&ensp;</u>v[n]</b> in exactly the same way. The number of leaves on a branch is also calculated in a very
+        similar manner to child branches, though is instead based on <b>leaf<u>&ensp;</u>blos<u>&ensp;</u>num</b>. Leaves are added only to the final, deepest, level of branches; so for a tree with $\mathbf{levels} = 3$ the leaves would use the parameters for $n=4$. There are
+        a number of predefined leaf shapes (ovate, linear, cordate, maple, palmate, spiky oak, rounded oak, elliptic, rectangle and triangle), the shape used for a tree is chosen using the parameter <b>leaf<u>&ensp;</u>shape</b> and can be scaled in totality or just
+        in the $x$-direction.</p>
+    <p>To construct the output leaf mesh, an array of leaf positions and orientations is maintained. This is populated as the branches are constructed recursively; when the final level of recursion is reached the position and orientation of the leaf, determined
+        as they would be for child branches, are appended to the array rather than constructing a further level of branching. Then once the branch construction is complete, this array of leaf locations is iterated over and the base leaf polygons defined
+        for the current leaf shape transformed to the relevant location and orientation. The transformed polygons are then added to a single mesh which will ultimately contain all leaves for the tree.</p>
+    <p>When the base polygon is transformed an additional re-orientation is also performed, with its effect fractionally controlled by <b>leaf<u>&ensp;</u>bend</b>. This rotates the leaf such that it faces upwards and outwards to simulate the effect of sunlight on the
+        growth pattern of the tree <a href="#weberpenn">[WP95, &sect;4.9]</a>.</p>
+    <div><h4>Blossom</h4><p></p></div>
+    <p>One common element in the growth cycle of many trees, which Weber and Penn&#8217;s original model ignores entirely, is blossom. Their model can very easily be expanded to accommodate this; I have introduced the <b>blossom<u>&ensp;</u>rate</b> parameter to describe
+        the percentage of the total number of leaves and blossom on the tree which are blossom. The <b>blossom<u>&ensp;</u>shape</b> and <b>blossom<u>&ensp;</u>scale</b> parameters are also introduced to specify the geometry of the blossom themselves, again using a set a predefined
+        shapes (cherry, orange and magnolia).</p>
+    <p>While iterating over the list of leaf positions as described above, a random choice is made for each leaf (based on the value of <b>blossom<u>&ensp;</u>rate</b>) as to whether it will be a leaf or blossom. The rest of the procedure is identical except that the
+        base polygon used is for the selected blossom shape rather than the leaf, and is added to a separate blossom mesh.</p>
+    <p>The results of this simple modification are quite effective, as can be seen in the Apple (<a href="#fig:apple">Figure A.14</a>, $\mathbf{blossom\_rate} = 0.35$) and Hill Cherry (<a href="#fig:cherry">Figure A.20</a>, $\mathbf{blossom\_rate} = 1$).</p>
+
+    <h2 id="sec:imp:ext">Extensions</h2>
+    <p>Given that the parameter list for my implementation of Weber and Penn&#8217;s method is quite extensive and complex, I hoped to simplify the process of tree design in order that artists could more easily utilise the system. I had two ideas as to how this
+        may be easily achieved. Firstly, reducing the number of input parameters required through dimensionality reduction, and secondly, automated determination of parameters given a goal in image form.</p>
+    <h3 id="sec:imp:dimred">Dimensionality Reduction</h3>
+    <p>To perform dimensionality reduction on the parameter list I opted to use the principle component analysis functionality of <span class="tt">scikit-learn</span>. This uses singular value decomposition to project the data to a lower dimensional space.
+        The aim being to map the standard parameters down to just a few parameters which the artist can then easily control.</p>
+    <p>The most intuitive mapping would probably be to a two-dimensional space with labeled points marking specific tree breeds. The artist can then choose a point to represent the blend of trees they want to produce. Alternatively a number of meta-parameters
+        may be identified, though it is hard to devise a suitable number and map these to meaningful behaviours via the full parameter list. The two-dimensional results are somewhat successful, though there are a number of issues with the method as further
+        explored in <a href="#sec:eval:dimred">&sect;4.4.1</a>.</p>
+    <h3 id="sec:imp:gen">Genetic Algorithm</h3>
+
+    <p>To devise parameter lists automatically I chose to use a genetic algorithm. The algorithm starts with a randomised parameter list and generates a population by copying this and permuting a randomly selected parameter by a random amount proportional
+        to its current value. The permutation process also has a small chance of flipping the sign of the parameter value to incorporate the negative flags used for some parameters, these values would not be reached by gradual incrementation alone as
+        the visual result going from positive to negative is non-linear.</p>
+    <p>Each member of the population is then evaluated using a fitness function based on pixel difference to the goal image, this is a fairly crude measure which could certainly be improved upon, but does give a meaningful result. <i>Blender</i>&#8217;s command
+        line interface allows for the generation script to be executed and a render of the resulting model produced automatically. This is then compared to the goal image utilising <span class="tt">misc.imread</span> functionality of the
+        <span class="tt">scipy</span> library. The generation and rendering of each member of the population are preformed in parallel using the <span class="tt">subprocess</span> module.</p>
+    <p>The two fittest parameter lists from the current generation are taken and merged together to form the basis of the next generation. Using the same permutation procedure as above, a new population for this generation is generated and evaluated using
+        the fitness function. This process is repeated for a very large number of generations, hopefully resulting in a parameter list giving a very high fitness value.</p>
+    <p>Initially I chose to use an elitist approach where the current best parameter lists were only taken if the error was an improvement on the previous generation, though I found better results were achieved by always taking the current best, even if
+        they were worse than the last generation, so as to avoid getting stuck in local maxima. During the execution of the genetic algorithm the seed from which the tree is generated was also fixed so that the only change in output image between generations
+        is due to the altered parameter, and not random variation caused by changing the seed.</p>
+    <p>I decided to limit the goal imagery to black and white renders of trees generated using my system with known parameters in order to simplify the implementation due to the time constraints of the project. Though the principle could certainly be expanded
+        to higher information imagery or even evaluation of fitness of the model geometry directly provided an adequate fitness function can be developed.</p>
+    <p>The results of the algorithm can be seen in <a href="#sec:eval:gen">&sect;4.4.2</a>.</p>
+
+
+
+    <h1 id="sec:eval">Evaluation</h1>
+
+
+    <p>There are three critical aspects of evaluation for the two tree generation systems which I have developed. Most importantly is the visual result, this may be in 3D when used in a game or film, or in 2D if rendered to a static image. Secondly is the
+        performance of the system; it must be reasonable for the system to be used as part of the conventional work flow for someone producing content for the forms of media discussed. A sensible benchmark is the time taken for an experienced artist to
+        model a tree by hand, which is in the order of minutes to hours. Finally is the usability of the system, it must be accessible to users who may have no or limited knowledge of programming concepts but are competent artists or content creators.</p>
+    <h2 id="sec:eval:vis">Visual Result</h2>
+
+    <p>For evaluation of the visual results of the systems, I chose to limit my investigation to 2D renders of the resulting trees&mdash;similar to those in <a href="#sec:renders">Appendix A</a>. The conclusions should still be somewhat representative for
+        3D, and it is a great deal more difficult to accurately assess the measures I wished to effectively in 3D; either a video of the tree model must be produced or some interactive game-like environment the user can travel around in to inspect the
+        tree.
+    </p>
+    <p>In order to determine if my implementations are successful I decided to compare them to an existing implementation of Weber and Penn&#8217;s model which, for the purposes of evaluation, I assume to be a successful implementation. This existing system is
+        a Java app called <i>Arbaro</i> <a href="#arbaro">[Die15]</a> which can generate <span class="tt">.OBJ</span> files which can imported into <i>blender</i> and rendered using the exact same method as my own models. In order to asses the relative
+        quality of the rendered models from each system I chose to use a pairwise comparison method similar to that described by Silverstein and Farrell <a href="#pairwise">[SF01]</a>; this was achieved using Rafa&#322; Mantiuk&#8217;s
+        <span class="tt">pwcmp</span> library <a href="#pwcmp">[Man17]</a>.</p>
+    <p>I therefore selected a number of models from each system which were then rendered in an identical way; each survey consisted of a number of pairs of these renders. Each pair used trees of the same type (Aspen with Aspen, Willow with Willow etc.) generated
+        using different systems. The range of different comparisons were evenly distributed across three distinct survey designs, or tests. Participants had to select which of each pair they deemed to be the most realistic. The results were then tabulated
+        and final scores calculated for each system; these can be seen, broken down by test, in <a href="#fig:scores">Figure 4.1</a>.</p>
+    <p>This method gives an average realism score across all tests of $1.313^{+0.600}_{-0.480}$ for the parametric system and $0.325^{+0.418}_{-0.339}$ for the L-system based tool, both relative to a baseline of 0 for <i>Arbaro</i>. This indicates that the
+        parametric system performs better than <i>Arbaro</i> in a significant way and is therefore a successful implementation. The L-systems tool, however, does not outperform <i>Arbaro</i> significantly given the large relative negative uncertainty of
+        the score. It therefore only produces trees of comparable, not definitively higher, quality to <i>Arbaro</i>; this is arguably still a useful implementation as it approximately equals the currently available tool.</p>
+    <figure>
+        <span id="fig:scores"></span>
+        <figcaption>Scores derived from survey of visual results for 3 different test designs.</figcaption>
+        <img src="Figures/SVG/scores.svg" />
+    </figure>
+
+    <p>As visible in <a href="#fig:scores">Figure 4.1</a>, the above conclusions hold on a test by test basis. The parametric tool outperforms <i>Arbaro</i> significantly for all tests, while the L-systems tool outperforms <i>Arbaro</i> in Test 1, is not
+        conclusively better or worse in Test 2, and is significantly worse in Test 3. This demonstrates that the parametric system provides the best visual results across a range of tree types spread across the different survey designs.</p>
+    <figure>
+        <span id="fig:comparisons"></span>
+        <figcaption>Raw comparison data by tree type for parametric system against <i>Arbaro</i>.</figcaption>
+        <img src="Figures/SVG/s_comp.svg" />
+    </figure>
+
+    <p>I do not have a sufficient number of samples to carry out the above analysis for each individual tree type reliably, though looking at the raw comparison data (<a href="#fig:comparisons">Figure 4.2</a>) can provide some insights. As expected we see
+        that in the majority of cases my parametric tool is preferred to <i>Arbaro</i>, with it chosen by all participants for the Lombardy Poplar and Weeping Willow. Though there are still cases where <i>Arbaro</i> does produce models of greater realism,
+        such as the Black Tupelo.</p>
+
+    <h2 id="sec:eval:perf">Performance</h2>
+
+    <h3 id="sec:eval:data">Data Collection</h3> In order to gather data on the performance I included in both tools provision to output times taken to complete various aspects of the generation process, as well as various complexity measures for the resulting models. I then created a short script
+    that would enable a large number of executions of the generation process to be performed automatically with the results written to a file. Initially, I intended to run the entire timing process within the <i>blender</i> application. After some testing
+    I noticed a significant issue with the results obtained; over time the generation times were increasing dramatically as can be seen in <a href="#fig:bad_times">Figure 4.3</a>.
+    <figure>
+        <span id="fig:bad_times"></span>
+        <figcaption>Timing data for generation of 1000 Quaking Aspen models using the parametric system with two alternative timing mechanisms.</figcaption>
+        <img src="Figures/SVG/timing_meth.svg" />
+    </figure>
+
+    <p>After some research, it seems that this was due to <i>blender</i> caching the geometry of the resulting models, even if the model was deleted after each iteration, resulting in increasing memory usage and slowdown. It is not possible to avoid this
+        issue working entirely within <i>blender</i>, so I instead opted to run the timing script externally and invoke the generation script via <i>blender</i>&#8217;s command line interface. The output of the process was then parse and relevant information
+        extracted and written to file. This added some overhead to the timing procedure itself as <i>blender</i> had to be initialised for each execution, but generated reliable results which did not change over time as shown in
+        <a href="#fig:bad_times">Figure 4.3</a>.</p>
+
+    <h3 id="sec:eval:time">Generation Time</h3>
+    <p>Both the parametric and L-system based approaches generate models in a time in the order of seconds, with a maximum of around 400 seconds for Weeping Willow. All these times are far shorter than it would take a skilled artist to create a model of
+        similar quality by hand. In this respect the performance of both systems is certainly adequate to qualify as a successful implementation.</p>
+    <figure>
+        <span id="fig:timecomp"></span>
+        <figcaption>Generation time for 100 instances of 5 trees types generated using each system.</figcaption>
+        <img src="Figures/SVG/t_comp.svg" />
+    </figure>
+
+    <p>It is difficult to make any reasonable conclusions as to the relative speeds of the two systems. In general the time taken to generate the same type of tree using both systems is fairly similar, as shown in <a href="#fig:timecomp">Figure 4.4</a>.
+        There does not seem to be any clear trend for one system to be quicker than the other; in some cases such as the Lombardy Poplar the parametric system is faster, while in others such as the Quaking Aspen the L-system is quicker.</p>
+    <p>The spread of speeds for the L-systems tool for each tree also seem to vary by a much larger amount than the parametric tool. With the Quaking Aspen having a very small spread, while the Acer and Pine have much higher spreads. The L-systems tool&#8217;s performance
+        seems to vary wildly, a result that makes sense given the arbitrary nature of the input L-system grammars. The performance of the parametric tool, however, seems to be a deal more predictable.</p>
+    <figure>
+        <span id="fig:paramtimes"></span>
+        <figcaption>Timing results for two generation phases of parametric tool.</figcaption>
+        <img src="Figures/SVG/param_times.svg" />
+    </figure>
+
+    <p>As shown in <a href="#fig:paramtimes">Figure 4.5A</a>, branch generation time grows exponentially with branch complexity (The number of B&eacute;zier points in the tree, proportional to $\sum_{n}\mathbf{branches[n]}*\mathbf{curve\_res[n]}$),
+        bounded by $O(n^3)$ and $\Omega(n^2)$ - the dashed line plotted on <a href="#fig:paramtimes">Figure 4.5A</a> is raised to a power of 2.7. The constant of proportionality, however, is extremely small giving us reasonable performance, even
+        for very complex trees such as the weeping willow with a branch complexity of $\sim160000$.</p>
+    <figure>
+        <span id="fig:lsystimes"></span>
+        <figcaption>Timing results for parsing phase of L-systems tool.</figcaption>
+        <img src="Figures/SVG/lsys_times.svg" />
+    </figure>
+
+    <p>Again, the results for the L-systems tool seem to vary drastically based on the tree type that is being generated. As can be seen in <a href="#fig:lsystimes">Figure 4.6</a>, the Acer seems to follow an approximately $O(n^2)$ complexity, while
+        the Lombardy Poplar and Small Pine are clearly linear in branch complexity. Others like the Palm and Quaking Aspen are very tightly clustered with no clear trend. This makes it very difficult to predict the performance characteristics of the system
+        in general given that it is largely dictated by the input L-system grammar which is entirely arbitrary.</p>
+    <p>Leaf generation time is $O(n)$ in the number of leaves on the tree, controlled by <b>leaf<u>&ensp;</u>blos<u>&ensp;</u>num</b>. The constant of proportionality is defined by the number of vertices in the leaf and therefore controlled by <b>leaf<u>&ensp;</u>shape</b>. For leaves with
+        a high number of vertices, such as the oak leaf, the constant is significantly higher as can be seen for the Black Oak in <a href="#fig:paramtimes">Figure 4.5B</a>. By contrast leaves with fewer vertices, such as pine leaves, result in a
+        much lower constant as seen for the Douglas and Balsam Firs. The leaf time characteristics for both systems are near identical as the code is largely common between systems.</p>
+    <p>It is possible to drastically improve the speed of generation by exploiting parallelism. <i>Blender</i> does not allow for multi-processing within the application, but as the output of the system is just a series of B&eacute;zier points and polygons
+        we could easily abstract away from <i>blender</i>. The libraries the <i>blender</i> provides can also be used outside of the application, further facilitating this option. Issues may be introduced where determinism is required, such as pruning,
+        as multi-processing would potentially disrupt this. Limiting the level of parallelism to ensure safety in these cases would be certainly be feasible, and in cases where pruning is not required there should be no issue.</p>
+
+    <h3 id="sec:eval:comp">Model Complexity</h3>
+
+    <p>Another aspect of the performance of the system is the complexity of the resulting models. Ideally we want to produce the least complex model possible for a good visual result. Again it is not clear that either the parametric or L-system based tool
+        is best in this respect from <a href="#fig:compcomp">Figure 4.7</a>. As before, the behaviour of the parametric system seems to be more predictable, with variance roughly proportional to the magnitude of complexity. In contrast to the the
+        L-system which varies drastically; from complex models like the Quaking Aspen with very low variance to models with a extremely large range of complexities like the Acer.</p>
+    <p>It is unlikely that either automated system outperforms a skilled human artist in producing visually pleasing models of minimal complexity. A human can optimise specific aspects of the model based on how they perceive it in order to eliminate unnecessary
+        vertices, a task which a computer will struggle greatly to emulate. However, given the much quicker generation process this tradeoff may be acceptable; a human can always manually optimise the generated model post construction. Making use of the
+        B&eacute;zier curve functionality in <i>blender</i> also allows for dynamic alteration of the resolution of the resulting polygon mesh after the model has been generated.</p>
+    <figure>
+        <span id="fig:compcomp"></span>
+        <figcaption>Branch complexity for 100 instances of 5 trees types generated using each system.</figcaption>
+        <img src="Figures/SVG/b_comp.svg" />
+    </figure>
+
+    <h2 id="sec:eval:usability">Usability</h2>
+
+    <p>Usability is also a key aspect of each system. The parametric system has a large number of input parameters, but they are quite intuitive and one can quite easily visualise the effect of changing a numeric parameter on the geometry of the model. With
+        a small amount of use the design process can become fairly quick, and I have found that at the end of the project I can effectively design a new tree type in just a few minutes. By designing each level distinctly, starting with the trunk, and
+        generating only up to the level being designed we can also obtain rapid visual feedback for parameter changes.</p>
+    <p>Currently the input must be defined as text, but it is feasible to develop a user interface for this system with sliders and selection boxes to further simplify the design process for artists. Other methods of simplifying the design process are also
+        explored in <a href="#sec:eval:ext">&sect;4.4</a>.</p>
+    <p>L-system design is a great deal more difficult; it is very challenging to visualise the output geometry of a given system. We first have to determine the result of iterating the production rules and then how this will be geometrically interpreted.
+        As a result developing a new grammar for a new tree type can take far longer than designing for the parametric tool. There is also the issue that the grammar must be specified directly in Python, requiring some programming knowledge from the user.
+        This is not feasible given that the intended users are primarily artists and content creators, not programmers. Alternatively a parsing system to translate formal definitions (as used in <a href="#sec:prep:lsys">&sect;2.3.1</a>) to Python could
+        be developed, though this would further slow and generation process down and still require the theoretical knowledge to design a formally defined L-system.</p>
+    <p>There is some consideration necessary as to the expressivity of each system. The parametric system is comprehensive enough to represent a huge variety of tree types as can be seen in <a href="#sec:renders:param">Appendix A.1</a>, though is still limited to
+        the fixed parameters provided. The L-system approach, by contrast, can represent entirely arbitrary structures. It would even be possible to entirely encapsulate the parametric system within an L-system grammar, though this would be a great deal
+        less efficient. While this enhanced expressivity can be useful there is little need for it given the quite restricted use cases of the tool, particularly with the associated sacrifice in general usability.</p>
+
+    <h2 id="sec:eval:ext">Extensions</h2>
+    <h3 id="sec:eval:dimred">Dimensionality Reduction</h3>
+    <p>The process described in <a href="#sec:imp:dimred">&sect;3.3.1</a> proved somewhat successful at producing appropriate output parameters when mapping down to two dimensions, though had some clear shortcomings. Mapping to a number of dimensions greater
+        than two proved difficult as the resulting dimensions could not be assigned any logical interpretation which an artist could use to visualise the resulting tree.</p>
+    <figure>
+        <span id="fig:dim_red"></span>
+        <img src="Figures/Figs/dim_red.png" width="50%" />
+        <figcaption>Merging (centre) of Quaking Aspen (left) and Silver Birch (right) produced using dimensionality reduction.</figcaption>
+    </figure>
+    <p>As <a href="#fig:dim_red">Figure 4.8</a> demonstrates, we can quite successfully generate parameter lists which merge the appearance of two other trees by extracting the output parameters for a coordinate half way between these two trees in the lower
+        dimensional space. The number of input trees parameters from which the data is being fit (fifteen) is perhaps not sufficient to provide full enough coverage for this to be a useful tool at present, though does serve as a proof of concept that
+        the principle of dimensionality reduction may result in a useful simplification of the parameter selection process.</p>
+    <p>The key issue with this method is the non-linearity of parameters, particularly those using negative flags to specify unusual behaviour. We therefore do not have a direct mapping between parameter value and visual perception. For any parameters (e.g.,
+        <b>length[n]</b>, <b>branches[n]</b>) for which this is not the case, and the reduction works very well. But if we take a merging of, for example, the palm tree and another tree then the taper of the branch will likely appear incorrect due to
+        the non-uniform way in which the <b>taper</b> parameter is defined.</p>
+    <h3 id="sec:eval:gen">Genetic Algorithm</h3>
+    <p>Similarly, the genetic algorithm described in <a href="#sec:imp:gen">&sect;3.3.2</a> has provided some fairly successful results, although in a quite restricted domain. Over the course of a few hours runtime a fitness of around 95-97% based on a measure
+        of pixel accuracy is obtained, see <a href="#fig:gen_prog">Figure 4.9</a>. Perceptually the result is not quite as impressive as these fitness values suggest, but is somewhat successful nonetheless as shown in <a href="#fig:genetic">Figure 4.10</a>.</p>
+    <figure>
+        <span id="fig:gen_prog"></span>
+        <figcaption>Progress of genetic algorithm in determining parameters for various goal types.</figcaption>
+        <img src="Figures/SVG/gen.svg" />
+    </figure>
+    <p>Some aspects of the trees are matched quite accurately; the trunk of the Quaking Aspen is almost exact and the overall shapes of the trees, primarily a result of branch length parameters, are very accurate. Leaves seems to pose a particular problem due to
+        the high fidelity required in assessing their fitness. This is a very restricted application of the genetic algorithm, working only in two dimensions and two colours, but these results demonstrate that the concept is certainly a promising one.
+        The runtime is also an issue, though optimisation is certainly possible - a major issue here was the necessity to render the output for every member of every generation which would be unnecessary if the fitness was evaluated using the geometry
+        of the model directly.</p>
+    <figure>
+        <span id="fig:genetic"></span>
+        <figcaption>Start, goal and output models of genetic algorithm.</figcaption>
+        <img src="Figures/Figs/gen_s.png" />
+        <p>Render of tree made using start parameters of genetic algorithm.</p>
+        <div class="minipage">
+            <img src="Figures/Figs/gen_a_g.png" />
+            <p>Quaking Aspen goal image.</p>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Figs/gen_a_f.png" />
+            <p>Output of genetic algorithm.</p>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Figs/gen_p_g.png" />
+            <p>Lombardy Poplar goal image.</p>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Figs/gen_p_f.png" />
+            <p>Output of genetic algorithm.</p>
+        </div>
+    </figure>
+
+    <p>Stava et al. demonstrate a similar technique making use of Monte Carlo Markov Chains to determine the optimal set of parameters <a href="#inverse">[Sta+14]</a>. They use LiDAR scanning to capture real trees which are used as goals, with fitness evaluated
+        based on the 3D structure of the tree. Their approach generates quite realistic results, given sufficient input data, in times typically under an hour.</p>
+
+    <h1 id="sec:conc">Conclusion</h1>
+
+    <h2 id="sec:conc:sum">Summary</h2>
+
+    <p>In this project I have fulfilled all success criteria; I have implemented tree model generation systems using two alternative approaches and devised a set of input parameter lists and L-system definitions to generate a wide variety of trees (see
+        <a href="#sec:renders">Appendix A</a>). I have also explored both my extension goals. I demonstrated a moderately successful application of dimensionality reduction of the input used by the parametric system. I also implemented a genetic algorithm
+        to automatically devise parameter lists given a goal image which showed significant promise.</p>
+    <p>The parametric system was the most successful of the two. Generation times were much faster than an artist, realism better than existing alternatives and usability was good, with the potential to be improved via my extensions or the implementation
+        of a full UI. The L-system based tool was also successful, with similar generation times and visual results comparable to existing alternatives, though the poor usability of the system let it down as a viable tool for artists.</p>
+    <p>I have enjoyed the project greatly and learned a great deal in its completion. Learning Python as part of the project has been good fun and will likely prove very useful in the future; interpreting and translating research papers was also an interesting
+        challenge and something which I had no previous experience. The project has also given me an experience of academic writing and what it might be like to continue within academia and to do independent research, this is very valuable at a time where
+        I have a choice to pursue further study or go into industry.</p>
+    <h2 id="sec:conc:future">Future Work</h2>
+
+    <p>Going forward I would like to further develop the parametric system. Implementation of a UI within the <i>blender</i> plugin would enable content creators to use the plugin in real world projects. I would like to complete this in the near future and
+        release the finished plugin for free use by the <i>blender</i> community.</p>
+    <p>There are also potential extensions to the generation system itself. In their paper Weber and Penn also outline a methodology for animation of the tree structure to replicate the effects of wind. This could be implemented using <i>blender</i>&#8217;s armature
+        features and would greatly improve the visual results for animated content. An improvement of larger scope would be to implement my own application to perform the modelling of the branch structure from the generated B&eacute;zier points to enable
+        further improvements in realism such as non-uniform branch cross sections. A hybrid system utilising the modular approach described in <a href="#sec:relwork:modular">&sect;1.2.3</a> along with my parametric model is likely to produce the best visual results.</p>
+
+    <h1 class="nonum"  id="sec:bib">Bibliography</h1>
+
+    <table class="bib" cellspacing="10">
+        <col width="60">
+        <tr>
+            <td class="Key" id="aono">[AK84]</td>
+            <td class="Pub">
+                <span class="Title">Botanical Tree Image Generation</span><br />
+                <span class="Author">M. Aono and T. Kunii</span><br />
+                <span class="Journal">IEEE Comput. Graph. Appl.</span>&nbsp;
+                <span class="Volume">4</span>&nbsp;
+                <span class="Pages">10-34</span>&nbsp;
+                (<span class="Date">1984</span>)<br />
+                <span class="URL"><a href="http://dx.doi.org/10.1109/MCG.1984.276141">http://dx.doi.org/10.1109/MCG.1984.276141</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="spacetree">[And]</td>
+            <td class="Pub">
+                <span class="Title">Space Tree Addon</span><br />
+                <span class="Author">M. J. Anders</span><br />
+                <span class="URL"><a href="https://github.com/varkenvarken/spacetree">https://github.com/varkenvarken/spacetree</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="poisson">[Bri07]</td>
+            <td class="Pub">
+                <span class="Title">Fast Poisson Disk Sampling in Arbitrary Dimensions</span><br />
+                <span class="Author">R. Bridson</span><br />
+                (<span class="Date">2007</span>)<br />
+                <span class="URL"><a href="http://www.cs.ubc.ca/~rbridson/docs/bridson-siggraph07-poissondisk.pdf">http://www.cs.ubc.ca/~rbridson/docs/bridson-siggraph07-poissondisk.pdf</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="arbaro">[Die15]</td>
+            <td class="Pub">
+                <span class="Title">Arbaro</span><br />
+                <span class="Author">W. Diestel</span><br />
+                (<span class="Date">2015</span>)<br />
+                <span class="URL"><a href="http://arbaro.sourceforge.net">http://arbaro.sourceforge.net</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="blender">[Foua]</td>
+            <td class="Pub">
+                <span class="Title">Blender</span><br />
+                <span class="Author">B. Foundation</span><br />
+                <span class="URL"><a href="http://www.blender.org/">http://www.blender.org/</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="blenderlib">[Foub]</td>
+            <td class="Pub">
+                <span class="Title">Blender Python API</span><br />
+                <span class="Author">B. Foundation</span><br />
+                <span class="URL"><a href="https://docs.blender.org/api/current/">https://docs.blender.org/api/current/</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="cycles">[Fouc]</td>
+            <td class="Pub">
+                <span class="Title">Cycles Rendering Engine</span><br />
+                <span class="Author">B. Foundation</span><br />
+                <span class="URL"><a href="http://www.blender.org/features/cycles/">http://www.blender.org/features/cycles/</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="flst">[FS76]</td>
+            <td class="Pub">
+                <span class="Title">An Adaptive Algorithm for Spatial Grey Scale</span><br />
+                <span class="Author">R. Floyd and L. Steinburg</span><br />
+                <span class="Journal">Proceedings of the Society of Information Display</spam>
+	                    <span class="Volume">17</span>&nbsp;
+                <span class="Pages">75-77</span>&nbsp;
+                (<span class="Date">1976</span>)
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="sapling">[Hal]</td>
+            <td class="Pub">
+                <span class="Title">Sapling Tree Addon</span><br />
+                <span class="Author">A. Hale</span><br />
+                <span class="URL"><a href="http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts/Curve/Sapling_Tree">http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts/Curve/Sapling_Tree</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="honda">[Hon71]</td>
+            <td class="Pub">
+                <span class="Title">Description of the form of trees by the parameters of the tree-like body: Effects of the branching angle and the branch length on the shape of the tree-like body.</span><br />
+                <span class="Author">H. Honda</span><br />
+                <span class="Journal">Journal of Theoretical Biology</span>&nbsp;
+                <span class="Volume">31</span>&nbsp;
+                <span class="Pages">331-338</span>&nbsp;
+                (<span class="Date">1971</span>)
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="speedtree">[Inc]</td>
+            <td class="Pub">
+                <span class="Title">SpeedTree</span><br />
+                <span class="Author">I. D. V. Inc.</span><br />
+                <span class="URL"><a href="http://www.speedtree.com">http://www.speedtree.com</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="helix">[Juh95]</td>
+            <td class="Pub">
+                <span class="Title">Approximating the helix with rational cubic B&eacute;zier curves</span><br />
+                <span class="Author">I. Juh&aacute;sz</span><br />
+                <span class="Journal">Computer-Aided Design</span>&nbsp;
+                <span class="Volume">27</span>&nbsp;
+                <span class="Pages">587-593</span>&nbsp;
+                (<span class="Date">1995</span>)
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="helix">[Ken]</td>
+            <td class="Pub">
+                <span class="Title">Introduction to Plant Identification</span><br />
+                <span class="Author">University of Kentucky</span><br />
+                <span class="URL"><a href="http://dept.ca.uky.edu/PLS220/Stemmorphbranching.pdf">http://dept.ca.uky.edu/PLS220/Stemmorphbranching.pdf</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="lindf">[Lin68]</td>
+            <td class="Pub">
+                <span class="Title">Mathematical Models for Cellular Interactions in Development</span><br />
+                <span class="Author">A. Lindenmayer</span><br />
+                <span class="Journal">Journal of Theoretical Biology</span>&nbsp;
+                <span class="Volume">8</span>&nbsp;
+                <span class="Pages">300-315</span>&nbsp;
+                (<span class="Date">1968</span>)<br />
+                <span class="URL"><a href="http://www.sciencedirect.com/science/article/pii/0022519368900805">http://www.sciencedirect.com/science/article/pii/0022519368900805</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="treesketch">[Lon+12]</td>
+            <td class="Pub">
+                <span class="Title">TreeSketch</span><br />
+                <span class="Author">S. Longay, A. Runions, F. Boudon and P. Prusinkiewicz</span><br />
+                (<span class="Date">2012</span>)<br />
+                <span class="URL"><a href="http://algorithmicbotany.org/papers/TreeSketch.SBM2012.large.pdf">http://algorithmicbotany.org/papers/TreeSketch.SBM2012.large.pdf</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="pwcmp">[Man17]</td>
+            <td class="Pub">
+                <span class="Title">pwcmp</span><br />
+                <span class="Author">R. Mantiuk</span><br />
+                (<span class="Date">2017</span>)<br />
+                <span class="URL"><a href="https://github.com/mantiuk/pwcmp">https://github.com/mantiuk/pwcmp</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="fractal">[Man82]</td>
+            <td class="Pub">
+                <span class="Title">The fractal geometry of nature</span><br />
+                <span class="Author">B. Mandelbrot</span><br />
+                (<span class="Date">1982</span>)
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="modtree">[MD]</td>
+            <td class="Pub">
+                <span class="Title">Modular Tree Addon</span><br />
+                <span class="Author">H. Maxime and J. Dube</span><br />
+                <span class="URL"><a href="https://github.com/MaximeHerpin/modular_tree">https://github.com/MaximeHerpin/modular_tree</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="cassell">[MW03]</td>
+            <td class="Pub">
+                <span class="Title">Cassell&#8217;s Trees of Britain and Northern Europe</span><br />
+                <span class="Author">D. More and J. White</span><br />
+                (<span class="Date">2003</span>)
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="oppen">[Opp86]</td>
+            <td class="Pub">
+                <span class="Title">Real Time Design and Animation of Fractal Plants and Trees</span><br />
+                <span class="Author">P. E. Oppenheimer</span><br />
+                <span class="Journal">Proceedings of the 13th Annual Conference on Computer Graphics and Interactive Techniques</span>&nbsp;
+                <span class="Pages">55-64</span>&nbsp;
+                (<span class="Date">1986</span>)<br />
+                <span class="URL"><a href="http://doi.acm.org/10.1145/15922.15892">http://doi.acm.org/10.1145/15922.15892</a></span><br />
+                <span class="URL"><a href="http://dx.doi.org/10.1145/15922.15892">http://dx.doi.org/10.1145/15922.15892</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="selforg">[Pa&lstrok;+09]</td>
+            <td class="Pub">
+                <span class="Title">Self-organizing tree models for image synthesis</span><br />
+                <span class="Author">W. Pa&lstrok;ubicki, K. Horel, S. Longay, A. Runions, B. Lane and R. M&ecaron;ch and P. Prusinkiewicz</span><br />
+                (<span class="Date">2009</span>)<br />
+                <span class="URL"><a href="http://algorithmicbotany.org/papers/selforg.sig2009.small.pdf">http://algorithmicbotany.org/papers/selforg.sig2009.small.pdf</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="abop">[PL90]</td>
+            <td class="Pub">
+                <span class="Title">The Algorithmic Beauty of Plants</span><br />
+                <span class="Author">P. Prusinkiewicz and A. Lindenmayer</span><br />
+                (<span class="Date">1990</span>)<br />
+                <span class="URL"><a href="http://algorithmicbotany.org/papers/abop/abop.pdf">http://algorithmicbotany.org/papers/abop/abop.pdf</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="botanic">[Ref+88]</td>
+            <td class="Pub">
+                <span class="Title">Plant Models Faithful to Botanical Structure and Development</span><br />
+                <span class="Author">P. de Reffye, C. Edelin, J. Francon, M. Jaeger and C. Puech</span><br />
+                <span class="Journal">Proceedings of the 15th Annual Conference on Computer Graphics and Interactive Techniques</span>&nbsp;
+                <span class="Pages">151-158</span>&nbsp;
+                (<span class="Date">1988</span>)<br />
+                <span class="URL"><a href="http://doi.acm.org/10.1145/54852.378505">http://doi.acm.org/10.1145/54852.378505</a></span><br />
+                <span class="URL"><a href="http://dx.doi.org/10.1145/54852.378505">http://dx.doi.org/10.1145/54852.378505</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="arc2bez">[Ri&scaron;06]</td>
+            <td class="Pub">
+                <span class="Title">Approximation of a cubic B&eacute;zier curve by circular arcs and vice versa</span><br />
+                <span class="Author">A. Ri&scaron;kus</span><br />
+                (<span class="Date">2006</span>)<br />
+                <span class="URL"><a href="https://people-mozilla.org/~jmuizelaar/Riskus354.pdf">https://people-mozilla.org/~jmuizelaar/Riskus354.pdf</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="spacecol">[RLP07]</td>
+            <td class="Pub">
+                <span class="Title">Modeling Trees with a Space Colonization Algorithm</span><br />
+                <span class="Author">A. Runions, B. Lane and P. Prusinkiewicz</span><br />
+                <span class="Journal">Proceedings of the Third Eurographics Conference on Natural Phenomena</span>&nbsp;
+                <span class="Pages">63-70</span>&nbsp;
+                (<span class="Date">2007</span>)<br />
+                <span class="URL"><a href="http://dx.doi.org/10.2312/NPH/NPH07/063-070">http://dx.doi.org/10.2312/NPH/NPH07/063-070</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="pairwise">[SF01]</td>
+            <td class="Pub">
+                <span class="Title">Efficient method for paired comparison</span><br />
+                <span class="Author">D. Silverstein and J. Farrell</span><br />
+                <span class="Journal">Journal of Electron Imaging</span>&nbsp;
+                <span class="Volume">10</span>&nbsp;
+                <span class="Pages">394-398</span>&nbsp;
+                (<span class="Date">2001</span>)
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="flang">[Smi84]</td>
+            <td class="Pub">
+                <span class="Title">Plants, fractals and formal languages</span><br />
+                <span class="Author">A. R. Smith</span><br />
+                (<span class="Date">1984</span>)<br />
+                <span class="URL"><a href="http://www.alvyray.com/Papers/CG/PlantsFractalsandFormalLanguages.pdf">http://www.alvyray.com/Papers/CG/PlantsFractalsandFormalLanguages.pdf</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="inverse">[Sta+14]</td>
+            <td class="Pub">
+                <span class="Title">Inverse Procedural Modelling of Trees</span><br />
+                <span class="Author">O. Stava, S. Pirk, J. Kratt, B. Chen, R. Mech and O. Deussen and B. Benes</span><br />
+                <span class="Journal">Computer Graphics Forum</span>&nbsp;
+                (<span class="Date">2014</span>)<br />
+                <span class="URL"><a href="http://dx.doi.org/10.1111/cgf.12282">http://dx.doi.org/10.1111/cgf.12282</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="weberpenn">[WP95]</td>
+            <td class="Pub">
+                <span class="Title">Creation and Rendering of Realistic Trees</span><br />
+                <span class="Author">J. Weber and J. Penn</span><br />
+                <span class="Journal">SIGGRAPH 1995</span>&nbsp;
+                <span class="Pages">119-128</span>&nbsp;
+                (<span class="Date">1995</span>)<br />
+                <span class="URL"><a href="http://www.cs.duke.edu/courses/cps124/spring08/assign/07_papers/p119-weber.pdf">http://www.cs.duke.edu/courses/cps124/spring08/assign/07_papers/p119-weber.pdf</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="Key" id="treeparts">[Xie+15]</td>
+            <td class="Pub">
+                <span class="Title">Tree Modeling with Real Tree-Parts Examples</span><br />
+                <span class="Author">K. Xie, F. Yan, A. Sharf, O. Deussen, B. Chen and H. Huang</span><br />
+                <span class="Journal">IEEE Transactions on Visualization and Computer Graphics</span>&nbsp;
+                <span class="Volume">22</span>&nbsp;
+                <span class="Pages">2608-2618</span>&nbsp;
+                (<span class="Date">2015</span>)<br />
+                <span class="URL"><a href="https://www.cs.bgu.ac.il/~asharf/tree.pdf">https://www.cs.bgu.ac.il/~asharf/tree.pdf</a></span>
+            </td>
+        </tr>
+    </table>
+
+
+
+    <span style="counter-reset: h1;"></span>
+    <h1 class="let" id="sec:renders">Renders of Resulting Tree Models</h1>
+    <p>(Tree renders not to scale)</p>
+    <h2 class="let">Parametric</h2>
+    <span id="sec:renders:param"></span>
+    <figure>
+        <div class="minipage">
+            <img src="Figures/Param/aspen.png" width="70%" />
+            <figcaption class="let">Quaking Aspen<br/>(autumn)</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Param/aspen_w.png" width="70%" />
+            <figcaption class="let">Quaking Aspen<br/>(winter)</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Param/willow.png" width="70%" />
+            <figcaption class="let">Weeping Willow<br/>(summer)</figcaption>
+        </div>
+        <div class="minipage">
+            <span id="fig:willow"></span>
+            <img src="Figures/Param/willow_w.png" width="70%" />
+            <figcaption class="let">Weeping Willow<br/>(winter)</figcaption>
+        </div>
+        <div class="minipage">
+            <span id="fig:bamboo"></span>
+            <img src="Figures/Param/bamboo.png" width="70%" />
+            <figcaption class="let">Bamboo</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Param/palm.png" width="70%" />
+            <figcaption class="let">Palm</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Param/poplar.png" width="70%" />
+            <figcaption class="let">Lombardy Poplar<br/>(summer)</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Param/poplar_w.png" width="70%" />
+            <figcaption class="let">Lombardy Poplar<br/>(winter)</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Param/small_pine.png" width="70%" />
+            <figcaption class="let">Small Pine</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Param/acer.png" width="70%" />
+            <figcaption class="let">Acer</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Param/silver_birch.png" width="70%" />
+            <figcaption class="let">Silver Birch</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Param/douglas_fir.png" width="70%" />
+            <figcaption class="let">Douglas Fir</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Param/apple_s.png" width="70%" />
+            <figcaption class="let">Apple<br/>(summer)</figcaption>
+        </div>
+        <div class="minipage">
+            <span id="fig:apple"></span>
+            <img src="Figures/Param/apple_b.png" width="70%" />
+            <figcaption class="let">Apple<br/>(spring)</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Param/tupelo.png" width="70%" />
+            <figcaption class="let">Black Tupelo<br/>(autumn)</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Param/tupelo_w.png" width="70%" />
+            <figcaption class="let">Black Tupelo<br/>(winter)</figcaption>
+        </div>
+        <div class="minipage">
+            <span id="fig:black_oak"></span>
+            <img src="Figures/Param/black_oak.png" width="70%" />
+            <figcaption class="let">Black Oak<br/>(summer)</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Param/black_oak_w.png" width="70%" />
+            <figcaption class="let">Black Oak<br/>(winter)</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Param/european_larch.png" width="70%" />
+            <figcaption class="let">European Larch</figcaption>
+        </div>
+        <div class="minipage">
+            <span id="fig:cherry"></span>
+            <img src="Figures/Param/hill_cherry.png" width="70%" />
+            <figcaption class="let">Hill Cherry<br/>(spring)</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/Param/balsam_fir.png" width="70%" />
+            <figcaption class="let">Balsam Fir</figcaption>
+        </div>
+    </figure>
+
+
+
+
+    <h2 class="let" id="sec:renders:lsys">L-Systems</h2>
+    <figure>
+        <div class="minipage">
+            <img src="Figures/LSys/aspen.png" width="70%" />
+            <figcaption class="let">Quaking Aspen<br/>(autumn)</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/LSys/aspen_w.png" width="70%" />
+            <figcaption class="let">Quaking Aspen<br/>(winter)</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/LSys/poplar.png" width="70%" />
+            <figcaption class="let">Lombardy Poplar<br/>(summer)</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/LSys/poplar_w.png" width="70%" />
+            <figcaption class="let">Lombardy Poplar<br/>(winter)</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/LSys/small_pine.png" width="70%" />
+            <figcaption class="let">Small Pine</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/LSys/acer.png" width="70%" />
+            <figcaption class="let">Acer</figcaption>
+        </div>
+        <div class="minipage">
+            <img src="Figures/LSys/palm.png" width="70%" />
+            <figcaption class="let">Palm</figcaption>
+        </div>
+    </figure>
+
+    <h1 class="let" id="sec:grammars">L-System Grammars</h1>
+    <h2 class="let" id="sec:grammars:palm">Palm</h2>
+    <pre><code class="python">
+__d_t__ = 4
+__t_max__ = 350
+__p_max__ = 0.93
+
+def q_prod(sym):
+    """Production rule for Q"""
+    prop_off = sym.parameters["t"] / __t_max__
+    if prop_off < 1:
+        res = [LSymbol("!", {"w": 0.85 + 0.15 * sin(sym.parameters["t"])}),
+               LSymbol("^", {"a": random() - 0.65})]
+        if prop_off > __p_max__:
+            d_ang = 1 / (1 - __p_max__) * (1 - prop_off) * 110 + 15
+            res.extend([LSymbol("!", {"w": 0.1})])
+            for ind in range(int(random() * 2 + 5)):
+                r_ang = sym.parameters["t"] * 10 + ind * (random() * 50 + 40)
+                e_d_ang = d_ang * (random() * 0.4 + 0.8)
+                res.extend([LSymbol("/", {"a": r_ang}),
+                            LSymbol("&", {"a": e_d_ang}),
+                            LSymbol("["),
+                            LSymbol("A"),
+                            LSymbol("]"),
+                            LSymbol("^", {"a": e_d_ang}),
+                            LSymbol("\\", {"a": r_ang})],)
+            res.append(LSymbol("F", {"l": 0.05}))
+        else:
+            res.append(LSymbol("F", {"l": 0.15}))
+        res.append(LSymbol("Q", {"t": sym.parameters["t"] + __d_t__}))
+    else:
+        res = [LSymbol("!", {"w": 0}),
+               LSymbol("F", {"l": 0.15})]
+    return res
+
+def a_prod(_):
+    """Production rule for A"""
+    res = []
+    num = int(random() * 5 + 30)
+    for ind in range(num):
+        d_ang = (num - 1 - ind) * (80 / num)
+        res.extend([LSymbol("!", {"w": 0.1 - ind * 0.1 / 15}),
+                    LSymbol("F", {"l": 0.1}),
+                    LSymbol("L", {"r_ang": 50 * (random() * 0.4 + 0.8),
+                                  "d_ang": d_ang * (random() * 0.4 + 0.8)}),
+                    LSymbol("L", {"r_ang": -50 * (random() * 0.4 + 0.8),
+                                  "d_ang": d_ang * (random() * 0.4 + 0.8)}),
+                    LSymbol("&", {"a": 1})])
+    return res
+
+def system():
+    """initialize and iterate the system as appropriate"""
+    l_sys = LSystem(axiom=[LSymbol("!", {"w": 0.2}),
+                           LSymbol("/", {"a": random() * 360}),
+                           LSymbol("Q", {"t": 0})],
+                    rules={"Q": q_prod, "A": a_prod},
+                    tropism=Vector([0, 0, -1]),
+                    thickness=0.2,
+                    bendiness=0,
+                    leaf_shape=10,
+                    leaf_scale=1,
+                    leaf_scale_x=0.1,
+                    leaf_bend=0)
+    l_sys.iterate_n(100)
+    return l_sys
+    </code></pre>
+    <h2 class="let" id="sec:grammars:pop">Lombardy Poplar</h2>
+    <pre><code class="python">
+__iterations__ = 10.0
+__base_width__ = 0.7
+
+def q_prod(sym):
+    """Production rule for Q"""
+    ret = []
+    prev_ang = 0
+    for _ in range(int(random() * 2 + 3)):
+        ang = random() * 10 + 30
+        ret.extend([LSymbol("/", {"a": prev_ang + 75 + random() * 10}),
+                    LSymbol("&", {"a": ang}),
+                    LSymbol("!", {"w": sym.parameters["w"] * 0.2}),
+                    LSymbol("["),
+                    LSymbol("A", {"w": sym.parameters["w"] * 0.3,
+                                  "l": 1.5 * sqrt(sym.parameters["w"]) * (random() * 0.2 + 0.9)}),
+                    LSymbol("]"),
+                    LSymbol("!", {"w": sym.parameters["w"]}),
+                    LSymbol("^", {"a": ang}),
+                    LSymbol("F", {"l": sym.parameters["l"]})])
+    ret.append(LSymbol("Q", {"w": max(0, sym.parameters["w"] - __base_width__ / 14),
+                             "l": sym.parameters["l"]}))
+    return ret
+
+def a_prod(sym):
+    """Production rule for A"""
+    ret = []
+    n = int(random() * 5 + 22.5)
+    w_d = sym.parameters["w"] / (n - 1)
+    prev_rot = 0
+    for ind in range(n):
+        wid = sym.parameters["w"] - ind * w_d
+        ang = random() * 10 + 25
+        ret.extend([LSymbol("!", {"w": wid}),
+                    LSymbol("F", {"l": sym.parameters["l"] / 3}),
+                    LSymbol("/", {"a": prev_rot + 140}),
+                    LSymbol("&", {"a": ang}),
+                    LSymbol("!", {"w": wid * 0.3}),
+                    LSymbol("["),
+                    LSymbol("F", {"l": 0.75 * sqrt(n - ind) * sym.parameters["l"] / 3,
+                                  "leaves": 25,
+                                  "leaf_d_ang": 40,
+                                  "leaf_r_ang": 140}),
+                    LSymbol("^", {"a": 20}),
+                    LSymbol("F", {"l": 0.75 * sqrt(n - ind) * sym.parameters["l"] / 3,
+                                  "leaves": 25,
+                                  "leaf_d_ang": 40,
+                                  "leaf_r_ang": 140}),
+                    LSymbol("%"),
+                    LSymbol("]"),
+                    LSymbol("!", {"w": wid}),
+                    LSymbol("^", {"a": ang}),
+                    LSymbol("\\", {"a": prev_rot + 140}),
+                    LSymbol("^", {"a": 1.2})])
+        prev_rot += 140
+    return ret
+
+def system():
+    """initialize and iterate the system as appropriate"""
+    l_sys = LSystem(axiom=[LSymbol("!", {"w": __base_width__}),
+                           LSymbol("/", {"a": 45}),
+                           LSymbol("Q", {"w": __base_width__, "l": 0.5})],
+                    rules={"Q": q_prod, "A": a_prod},
+                    tropism=Vector([0, 0, 0]),
+                    thickness=0.5,
+                    bendiness=0,
+                    leaf_shape=0,
+                    leaf_scale=0.3,
+                    leaf_bend=0.7)
+    l_sys.iterate_n(15)
+    return l_sys
+    </code></pre>
+    <h2 class="let" id="sec:grammars:asp">Quaking Aspen</h2>
+    <pre><code class="python">
+__base_width__ = 0.3
+__base_length__ = 4
+
+def q_prod(sym):
+    """Production rule for Q"""
+    ret = []
+    prev_ang = 0
+    n = int(random() * 2 + 7)
+    for ind in range(8):
+        offset = 1 - (__base_width__ - sym.parameters["w"]) / __base_width__
+        offset += ind / 8 / 12
+        dang = 30 + 85 * offset
+        if offset <= 0.7:
+            b_len = 0.4 + 0.6 * offset / 0.7
+        else:
+            b_len = 0.4 + 0.6 * (1.0 - offset) / 0.3
+        ret.extend([LSymbol("/", {"a": prev_ang + 75 + random() * 10}),
+                    LSymbol("&", {"a": dang}),
+                    LSymbol("!", {"w": sym.parameters["w"] * 0.08 * b_len}),
+                    LSymbol("["),
+                    LSymbol("F", {"l": sym.parameters["w"] / 2}),
+                    LSymbol("A", {"w": 0.08 * b_len,
+                                  "l": 0.6 * b_len}),
+                    LSymbol("]"),
+                    LSymbol("!", {"w": sym.parameters["w"]}),
+                    LSymbol("^", {"a": dang}),
+                    LSymbol("F", {"l": sym.parameters["l"]})])
+    ret.append(LSymbol("Q", {"w": max(0, sym.parameters["w"] - __base_width__ / 11),
+                             "l": sym.parameters["l"]}))
+    return ret
+
+def a_prod(sym):
+    """Production rule for A"""
+    ret = []
+    w_d = sym.parameters["w"] / 14
+    prev_rot = 0
+    n = int(random() * 3 + 15.5)
+    for ind in range(n):
+        wid = sym.parameters["w"] - ind * w_d
+        l_count = int((sqrt(n - ind) + 2) * 4 * sym.parameters["l"])
+        ret.extend([LSymbol("!", {"w": wid}),
+                    LSymbol("F", {"l": sym.parameters["l"] / 3}),
+                    LSymbol("/", {"a": prev_rot + 140}),
+                    LSymbol("&", {"a": 60}),
+                    LSymbol("!", {"w": wid * 0.4}),
+                    LSymbol("["),
+                    LSymbol("F", {"l": sqrt(n - ind) * sym.parameters["l"] / 3,
+                                  "leaves": l_count,
+                                  "leaf_d_ang": 40,
+                                  "leaf_r_ang": 140}),
+                    LSymbol("^", {"a": random() * 30 + 30}),
+                    LSymbol("F", {"l": sqrt(n - ind) * sym.parameters["l"] / 4,
+                                  "leaves": l_count,
+                                  "leaf_d_ang": 40,
+                                  "leaf_r_ang": 140}),
+                    LSymbol("%"),
+                    LSymbol("]"),
+                    LSymbol("!", {"w": wid}),
+                    LSymbol("^", {"a": 60}),
+                    LSymbol("\\", {"a": prev_rot + 140}),
+                    LSymbol("+", {"a": -5 + random() * 10}),
+                    LSymbol("^", {"a": -7.5 + random() * 15})])
+        prev_rot += 140
+    ret.append(LSymbol("F", {"l": sym.parameters["l"] / 2}))
+    return ret
+
+def system():
+    """initialize and iterate the system as appropriate"""
+    axiom = []
+    con = int(__base_length__ / 0.1)
+    s = random() * 0.2 + 0.9
+    for ind in range(con):
+        axiom.append(LSymbol("!", {"w": s * (__base_width__ + ((con - ind) / con) ** 6 * 0.2)}))
+        axiom.append(LSymbol("F", {"l": s * 0.1}))
+    axiom.append(LSymbol("Q", {"w": s * __base_width__, "l": s * 0.1}))
+    l_sys = LSystem(axiom=axiom,
+                    rules={"Q": q_prod, "A": a_prod},
+                    tropism=Vector([0, 0, 0.2]),
+                    thickness=0.5,
+                    bendiness=0,
+                    leaf_shape=3,
+                    leaf_scale=0.17,
+                    leaf_bend=0.2)
+    l_sys.iterate_n(12)
+    return l_sys
+    </code></pre>
+
+    <h1 class="let" id="sec:paramlist">Parameter Definitions</h1>
+    <p>There follows a complete list of parameters for the system, with valid values and brief descriptions. <b>[n]</b> after a parameter name indicates that it has a distinct value at each level of branching.</p>
+    <div class="multicol">
+        <div><h4>shape</h4><p> Integer $0-8$, controls shape of the tree by altering the first level branch length. Predefined options conical, spherical, hemispherical, cylindrical, tapered cylindrical, flame, inverse conical, tend flame and custom respectively. Custom uses the envelope defined by the <b>prune<u>&ensp;</u>*</b> parameters to control the tree shape directly rather than through pruning.</p></div>
+        <div><h4>g<u>&ensp;</u>scale</h4><p> Float $>0$, scale of the entire tree.</p></div>
+        <div><h4>g<u>&ensp;</u>scale<u>&ensp;</u>v</h4><p> Float, maximum variation in <b>g<u>&ensp;</u>scale</b>.</p></div>
+        <div><h4>levels</h4><p> Integer $>0$, number of levels of branching, typically 3 or 4.</p></div>
+        <div><h4>ratio</h4><p> Float $>0$, ratio of the stem length to radius.</p></div>
+        <div><h4>ratio<u>&ensp;</u>power</h4><p> Float, how drastically the branch radius is reduced between levels.</p></div>
+        <div><h4>flare</h4><p> Float, by how much the radius of the base of the trunk increases.</p></div>
+        <div><h4>floor<u>&ensp;</u>splits</h4><p> Integer $\ge0$, number of stems of the tree coming from the floor. See bamboo, <a href="#fig:bamboo">Figure A.5</a>.</p></div>
+        <div><h4>base<u>&ensp;</u>splits</h4><p> Integer, number of splits at base height on trunk, if negative then the number of splits will be randomly chosen up to a maximum of $|\mathbf{base\_splits}|$.</p></div>
+        <div><h4>base<u>&ensp;</u>size[n]</h4><p> Float $\ge0$, proportion of branch on which no child branches/leaves are spawned.</p></div>
+        <div><h4>down<u>&ensp;</u>angle[n]</h4><p> Float, controls the angle of the direction of a child branch (at level $n$) away from that of its parent (at level $n-1$).</p></div>
+        <div><h4>down<u>&ensp;</u>angle<u>&ensp;</u>v[n]</h4><p> Float, maximum variation in down angle <b>down<u>&ensp;</u>angle[n]</b>, if $<0$ then the value of <b>down<u>&ensp;</u>angle<u>&ensp;</u>v[n]</b> is distributed along the parent stem.</p></div>
+        <div><h4>rotate[n]</h4><p> Float, angle about the parent branch (at level $n-1$) between each child branch. If $<0$ then child branches are directed <b>rotate[n]</b> degrees away from the downward direction in their parent local basis. For fanned branches, the fan will spread a total angle of <b>rotate[n]</b> and for whorled branches, each whorl will rotate by <b>rotate[n]</b>.</p></div>
+        <div><h4>rotate<u>&ensp;</u>v[n]</h4><p> Float, maximum variation in <b>rotate[n]</b>. For fanned and whorled branches, each branch will vary in angle by <b>rotate<u>&ensp;</u>v[n]</b>.</p></div>
+        <div><h4>branches[n]</h4><p> Integer $>0$, the maximum number of child branches at level $n$ on each parent stem.</p></div>
+        <div><h4>length[n]</h4><p> Float $>0$, the length of branches at level $n$ as a fraction of their parent branch&#8217;s length.</p></div>
+        <div><h4>length<u>&ensp;</u>v[n]</h4><p> Float, maximum variation in <b>length[n]</b>.</p></div>
+        <div><h4>taper[n]</h4><p> Float $0-3$, controls the tapering of the radius of each branch along its length. If $<1$ then the branch tapers to <b>taper[n]</b> of its base radius at its end, so a value 1 results in conical tapering. At $\mathbf{taper[n]} = 2$ the radius remains uniform until the end of the stem where the branch is rounded off in a hemisphere, fractional values between 1 and 2 interpolate between conical tapering and this rounded end. Values $>2$ result in periodic tapering with a maximum variation in radius equal to $(\mathbf{taper[n]} - 2)$ of the base radius - so a value of 3 results in a series of adjacent spheres.</p></div>
+        <div><h4>seg<u>&ensp;</u>splits[n]</h4><p> Float $0-2$, maximum number of dichotomous branches at each segment of a branch, fractional values are distributed along the stem using a method similar to Floyd-Steinberg error diffusion.</p></div>
+        <div><h4>split<u>&ensp;</u>angle[n]</h4><p> Float, angle between dichotomous branches.</p></div>
+        <div><h4>split<u>&ensp;</u>angle<u>&ensp;</u>v[n]</h4><p> Float, maximum variation in <b>split<u>&ensp;</u>angle[n]</b>.</p></div>
+        <div><h4>curve<u>&ensp;</u>res[n]</h4><p> Integer $>0$, number of segments in each branch.</p></div>
+        <div><h4>curve[n]</h4><p> Float, angle by which the direction of the stem will change from start to end, rotating about the stem&#8217;s local $x$-axis.</p></div>
+        <div><h4>curve<u>&ensp;</u>v[n]</h4><p> Float, maximum variation in <b>curve[n]</b>. Applied randomly at each segment.</p></div>
+        <div><h4>curve<u>&ensp;</u>back[n]</h4><p> Float, angle in the opposite direction to <b>curve[n]</b> that the stem will curve back from half way along, creating S shaped branches.</p></div>
+        <div><h4>bend<u>&ensp;</u>v[n]</h4><p> Float, maximum angle by which the direction of the stem may change from start to end, rotating about the stem&#8217;s local $y$-axis. Applied randomly at each segment.</p></div>
+        <h4 id="sec:branch_dist_def">branch<u>&ensp;</u>dist[n]</h4>Float $\ge0$, controls the distribution of branches along their parent stem. 0 indicates fully alternate branching, interpolating to fully opposite branching at 1. Values $>1$ indicate whorled branching with $n+1$ branches in each
+            whorl. Fractional values result in a rounded integer number of branches in each whorl, with the difference propagated using a method similar to Floyd-Steinberg error diffusion.
+        <div><h4>radius<u>&ensp;</u>mod[n]</h4><p> Float $\ge0$, modifies the base radius of branches, only for use in special cases such as the Weeping Willow (<a href="#fig:willow">Figure A.4</a>) where the standard radius model is not sufficient.</p></div>
+        <div><h4>leaf<u>&ensp;</u>blos<u>&ensp;</u>num</h4><p> Integer $\ge0$, number of leaves or blossom on each of the deepest level of branches.</p></div>
+        <div><h4>leaf<u>&ensp;</u>shape</h4><p> Integer $1-10$, predefined leaf shapes corresponding to ovate, linear, cordate, maple, palmate, spiky oak, rounded oak, elliptic, rectangle and triangle respectively.</p></div>
+        <div><h4>leaf<u>&ensp;</u>scale</h4><p> Float $>0$, scale of leaves</p></div>
+        <div><h4>leaf<u>&ensp;</u>scale<u>&ensp;</u>x</h4><p> Float $>0$, $x$ direction scale of leaves.</p></div>
+        <div><h4>leaf<u>&ensp;</u>bend</h4><p> Float $0-1$, fractional amount by which leaves are reoriented to face the light (upwards and outwards).</p></div>
+        <div><h4>blossom<u>&ensp;</u>shape</h4><p> Integer $1-3$, predefined blossom shapes corresponding to cherry, orange and magnolia respectively.</p></div>
+        <div><h4>blossom<u>&ensp;</u>scale</h4><p> Float $>0$, scale of blossom.</p></div>
+        <div><h4>blossom<u>&ensp;</u>rate</h4><p> Float $0-1$, fractional rate at which blossom occur relative to leaves.</p></div>
+        <div><h4>tropism</h4><p> Float Vector 3D, influence upon the growth direction of the tree in the $x$, $y$ and $z$ directions, the $z$ element only applies to branches in the second level and above ($n \ge 2$).</p></div>
+        <div><h4>prune<u>&ensp;</u>ratio</h4><p> Float $0-1$, fractional amount by which the effect of pruning is applied.</p></div>
+        <div><h4>prune<u>&ensp;</u>width</h4><p> Float $>0$, width of the pruning envelope as a fraction of its height (the maximum height of the tree).</p></div>
+        <div><h4>prune<u>&ensp;</u>width<u>&ensp;</u>peak</h4><p> Float $\ge0$, the fractional distance from the bottom of the pruning up at which the peak width occurs.</p></div>
+        <div><h4>prune<u>&ensp;</u>power<u>&ensp;</u>low</h4><p> Float, the curvature of the lower section of the pruning envelope. $<1$ results in a convex shape, $>1$ in concave.</p></div>
+        <div><h4>prune<u>&ensp;</u>power<u>&ensp;</u>high</h4><p> Float, the curvature of the upper section of the pruning envelope. $<1$ results in a convex shape, $>1$ in concave.</p></div>
+    </div>
+
+<div style="text-align:center">
+<p>&copy; 2017 Charlie Hewitt <p>
+<p style="color:#AAA"><a href="https://highlightjs.org">highlight.js</a> - <a href="https://www.mathjax.org">MathJax</a></p>
+</div>
+</body>
+
+</html>
