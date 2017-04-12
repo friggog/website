@@ -29,7 +29,7 @@ h2 {
     position: relative;
     left: 50%;
     -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     max-width: 1400px;
 }
 
@@ -74,7 +74,7 @@ h2 {
 @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
     .header-bg {
         -webkit-backdrop-filter: saturate(180%) blur(20px);
-                backdrop-filter: saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
         background-color: rgba(255, 255, 255, 0.7);
     }
 }
@@ -88,14 +88,14 @@ h2 {
     transition: left 0.15s ease, transform 0.15s ease;
     transition: left 0.15s ease, transform 0.15s ease, -webkit-transform 0.15s ease;
     -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     z-index: 3;
 }
 
 .header.small>.content {
     left: 1em;
     -webkit-transform: none;
-            transform: none;
+    transform: none;
 }
 
 .menu {
@@ -202,7 +202,7 @@ h2 {
     transition: right 0.15s ease, transform 0.15s ease, -webkit-transform 0.15s ease;
     right: 50%;
     -webkit-transform: translateX(50%);
-            transform: translateX(50%);
+    transform: translateX(50%);
     width: 21em;
     text-align: right;
 }
@@ -210,7 +210,7 @@ h2 {
 .menu.small>.content {
     right: 1em;
     -webkit-transform: none;
-            transform: none;
+    transform: none;
 }
 
 .menu .contact {
@@ -223,6 +223,16 @@ h2 {
     background-color: black;
     min-height: calc(100vh - 12rem);
     color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
 
 
@@ -382,15 +392,27 @@ h2 {
 
 /* OTHER SECTION */
 
+.pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+
 #other {
     max-width: 700px;
-    margin: auto;
-    padding: 1rem;
+    margin-top: auto;
+    padding: 1.5em;
     text-align: center;
 }
 
 #other p a {
     text-decoration: underline;
+}
+
+#other .btn {
+    margin-top: 1em;
 }
 
 
@@ -400,7 +422,7 @@ h2 {
     text-align: center;
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 auto 0;
     background: black;
     color: white;
     padding-top: 0.2em;
