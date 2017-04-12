@@ -1,17 +1,23 @@
 @font-face {
-    font-family: CH_Sofia;
+    font-family: 'CH_Sofia';
     src: url(../Fonts/Sofia.otf);
 }
 
 body {
-    font-family: CH_Sofia, sans-serif;
+    font-family: 'CH_Sofia', sans-serif;
     font-weight: lighter;
-    -webkit-font-smoothing: antialiased;
     color: #222;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3 {
+h1, h3 {
     font-weight: normal;
+}
+
+h2 {
+    font-weight: normal;
+    font-size: 1.3em;
 }
 
 
@@ -22,7 +28,8 @@ h1, h2, h3 {
     height: 5rem;
     position: relative;
     left: 50%;
-    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
     max-width: 1400px;
 }
 
@@ -40,6 +47,7 @@ h1, h2, h3 {
 }
 
 .header-bg {
+    -webkit-transition: opacity 0.15s ease;
     transition: opacity 0.15s ease;
     width: 100vw;
     z-index: 1;
@@ -48,7 +56,7 @@ h1, h2, h3 {
     left: 0;
     top: 0;
     background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 0px 0px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
     opacity: 0;
 }
 
@@ -63,9 +71,10 @@ h1, h2, h3 {
     }
 }
 
-@supports (backdrop-filter: saturate(180%) blur(20px)) {
+@supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
     .header-bg {
-        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+                backdrop-filter: saturate(180%) blur(20px);
         background-color: rgba(255, 255, 255, 0.7);
     }
 }
@@ -74,14 +83,19 @@ h1, h2, h3 {
     display: inline-block;
     position: relative;
     left: 50%;
+    -webkit-transition: left 0.15s ease, -webkit-transform 0.15s ease;
+    transition: left 0.15s ease, -webkit-transform 0.15s ease;
     transition: left 0.15s ease, transform 0.15s ease;
-    transform: translateX(-50%);
+    transition: left 0.15s ease, transform 0.15s ease, -webkit-transform 0.15s ease;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
     z-index: 3;
 }
 
 .header.small>.content {
     left: 1em;
-    transform: none;
+    -webkit-transform: none;
+            transform: none;
 }
 
 .menu {
@@ -108,6 +122,7 @@ h1, h2, h3 {
 }
 
 .menu ul li {
+    -webkit-transition: color 0.15s ease, border 0.15s ease, background-color 0.15s ease;
     transition: color 0.15s ease, border 0.15s ease, background-color 0.15s ease;
     line-height: 1rem;
     padding: 0.45em 1em 0.3em 1em;
@@ -125,7 +140,7 @@ h1, h2, h3 {
 
 @media (max-width: 760px) {
     .menu.small ul {
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 0px 0px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
         background-color: rgba(255, 255, 255, 0.95);
         width: 100vw;
         position: fixed;
@@ -148,7 +163,7 @@ h1, h2, h3 {
     .menu.small ul {
         visibility: hidden;
     }
-    @supports (-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px)) {
+    @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
         .menu.small ul {
             backdrop-filter: saturate(180%) blur(20px);
             -webkit-backdrop-filter: saturate(180%) blur(20px);
@@ -165,12 +180,12 @@ h1, h2, h3 {
         margin-top: 1.5rem;
     }
     .menu.small .contact {
-        color: rgba(28, 123, 222, 1);
-        border: 1px solid rgba(28, 123, 222, 1);
+        color: rgb(28, 123, 222);
+        border: 1px solid rgb(28, 123, 222);
     }
     .menu.small .contact:hover {
         color: white;
-        background-color: rgba(28, 123, 222, 1);
+        background-color: rgb(28, 123, 222);
     }
 }
 
@@ -181,16 +196,21 @@ h1, h2, h3 {
 .menu>.content {
     position: relative;
     display: inline-block;
+    -webkit-transition: right 0.15s ease, -webkit-transform 0.15s ease;
+    transition: right 0.15s ease, -webkit-transform 0.15s ease;
     transition: right 0.15s ease, transform 0.15s ease;
+    transition: right 0.15s ease, transform 0.15s ease, -webkit-transform 0.15s ease;
     right: 50%;
-    transform: translateX(50%);
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
     width: 21em;
     text-align: right;
 }
 
 .menu.small>.content {
     right: 1em;
-    transform: none;
+    -webkit-transform: none;
+            transform: none;
 }
 
 .menu .contact {
@@ -205,16 +225,20 @@ h1, h2, h3 {
     color: white;
 }
 
+
 /* disable header animation on mobile */
 
 @media only screen and (max-width: 760px) {
     .menu>.content {
+        -webkit-transition: none;
         transition: none;
     }
     .header>.content {
+        -webkit-transition: none;
         transition: none;
     }
 }
+
 
 /* PORTFOLIO SECTION */
 
@@ -242,8 +266,6 @@ h1, h2, h3 {
     display: inline-block;
     position: relative;
     padding: 6px 3px 0 3px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -254,18 +276,17 @@ h1, h2, h3 {
 
 .portfolio-overlay {
     font-size: 12px;
+    -webkit-transition: opacity 0.15s ease;
     transition: opacity 0.15s ease;
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     margin: 6px 2px 0 2px;
     height: calc(100% - 6px);
     width: calc(100% - 4px);
     line-height: 1.3em;
-    text-align: justify;
+    text-align: left;
     opacity: 0;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -278,19 +299,17 @@ h1, h2, h3 {
 }
 
 .portfolio-overlay>.content {
-    padding: 1.5em;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+    padding: 1.5em 2em;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.85);
 }
 
-@supports (filter: saturate(180%) blur(20px)) or (-webkit-filter: saturate(180%) blur(20px)) {
+@supports ((-webkit-filter: saturate(180%) blur(20px)) or (filter: saturate(180%) blur(20px))) {
     .portfolio-overlay>.background {
         display: block;
         filter: saturate(180%) blur(20px);
@@ -368,7 +387,6 @@ h1, h2, h3 {
     margin: auto;
     padding: 1rem;
     text-align: center;
-
 }
 
 #other p a {
@@ -398,6 +416,7 @@ h1, h2, h3 {
     height: 1.5em;
     fill: white;
     border-radius: 1em;
+    -webkit-transition: fill 0.15s ease, background-color 0.15s ease;
     transition: fill 0.15s ease, background-color 0.15s ease;
 }
 
@@ -428,8 +447,10 @@ a {
     padding: 0.6em 1em 0.35em 1em;
     display: inline-block;
     color: black;
+    -webkit-transition: background-color 0.15s ease, color 0.15s ease;
     transition: background-color 0.15s ease, color 0.15s ease;
     text-decoration: none;
+    mix-blend-mode: lighten;
 }
 
 .white {

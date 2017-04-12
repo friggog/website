@@ -52,30 +52,31 @@ function getElems() {
 function scrollUpdate(e) {
     "use strict";
     var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-        shouldShrink = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) > (window.innerHeight + 200);
+        shouldShrink = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) > (window.innerHeight + 7 * rem);
 
-    if (distanceY >= 2*rem && breakpoint == 0) {
-        breakpoint = 1;
-        firstBreakGoing(DOWN);
+    if (shouldShrink) {
+        if (distanceY >= 2 * rem && breakpoint == 0) {
+            breakpoint = 1;
+            firstBreakGoing(DOWN);
+        }
+        if (distanceY >= 5.5 * rem && breakpoint == 1) {
+            breakpoint = 2;
+            secondBreakGoing(DOWN);
+        }
+        if (distanceY >= 7 * rem && breakpoint == 2) {
+            breakpoint = 3;
+            thirdBreakGoing(DOWN);
+        }
     }
-    if (distanceY >= 5.5*rem && breakpoint == 1) {
-        breakpoint = 2;
-        secondBreakGoing(DOWN);
-    }
-    if (distanceY >= 7*rem && breakpoint == 2) {
-        breakpoint = 3;
-        thirdBreakGoing(DOWN);
-    }
-
-    if (distanceY < 7*rem && breakpoint == 3) {
+    if (distanceY < 7 * rem && breakpoint == 3) {
         breakpoint = 2;
         thirdBreakGoing(UP);
     }
-    if (distanceY < 5.5*rem && breakpoint == 2) {
+    if (distanceY < 5.5 * rem && breakpoint == 2) {
         breakpoint = 1;
         secondBreakGoing(UP);
     }
-    if (distanceY < 2*rem && breakpoint == 1) {
+    if (distanceY < 2 * rem && breakpoint == 1) {
         breakpoint = 0;
         firstBreakGoing(UP);
     }
@@ -85,8 +86,7 @@ function firstBreakGoing(dir) {
     if (dir == UP) {
         padder.style.cssText = '';
         header.className = 'header';
-    }
-    else {
+    } else {
         padder.style.cssText = 'height:5rem';
         header.className = 'header small';
     }
@@ -97,8 +97,7 @@ function secondBreakGoing(dir) {
         padder.style.cssText = 'height: 5rem';
         menu.className = 'menu';
         menuUl.style.visibility = 'visible';
-    }
-    else {
+    } else {
         padder.style.cssText = 'height: 10rem';
         menu.className = 'menu small';
         if (window.innerWidth <= 760) {
@@ -110,13 +109,13 @@ function secondBreakGoing(dir) {
 function thirdBreakGoing(dir) {
     if (dir == UP) {
         headerBg.className = 'header-bg';
-    }
-    else {
+    } else {
         headerBg.className = 'header-bg active';
     }
 }
 
 var lastWindowSize;
+
 function resizeUpdate() {
     if (lastWindowSize > 760 && window.innerWidth <= 760) {
         if (menu.className == 'menu small') {
@@ -135,8 +134,7 @@ function goToPortfolio() {
         if (window.innerWidth <= 760) {
             showMenu();
         }
-    }
-    else if(document.getElementById('other').className == 'hidden') {
+    } else if (document.getElementById('other').className == 'hidden') {
         window.scrollTo(0, 7 * rem);
         if (window.innerWidth <= 760) {
             showMenu();
@@ -194,8 +192,7 @@ function init() {
         headerBg.className = 'header-bg active';
         padder.style.cssText = 'height: 3rem';
         document.getElementsByClassName('container')[0].style.cssText = 'min-height: calc(100vh - 5rem)';
-    }
-    else {
+    } else {
         setInterval(() => {
             scrollUpdate();
         }, 100);
