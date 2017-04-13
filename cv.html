@@ -6,21 +6,30 @@
 </head>
 <style>
     @font-face {
-        font-family: CH_Sofia;
-        src: url(http://chewitt.me/Fonts/Sofia.otf);
+        font-family: 'CH_Sofia';
+        src: url(Fonts/Sofia.otf);
     }
 
     @media print {
         body {
             font-size: 11px;
         }
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-weight: normal;
+        }
+        .pdf {
+            display: none;
+        }
+        .latex {
+            margin-bottom: -0.2em !important; 
         }
     }
 
     body {
-        font-family: CH_Sofia;
+        font-family: 'CH_Sofia';
         font-weight: lighter;
         -webkit-font-smoothing: antialiased;
         color: #222;
@@ -28,6 +37,7 @@
         padding: 3em;
         max-width: 800px;
         margin: auto;
+        min-width: 390px;
     }
 
     p {
@@ -41,7 +51,7 @@
     }
 
     .col:first-of-type {
-        width: calc( 50% - 1em);
+        width: calc(50% - 1em);
         padding-right: 1em;
     }
 
@@ -111,6 +121,11 @@
         width: 1em;
     }
 
+    .latex {
+        height: 1.1em;
+        margin-bottom: -0.35em;
+    }
+
     ul {
         list-style: none;
         padding: 0 2em;
@@ -128,6 +143,12 @@
 
     #refs a {
         text-decoration: none;
+    }
+
+    #refs:after {
+        clear: both;
+        content: "";
+        display: table;
     }
 </style>
 
@@ -166,15 +187,14 @@
             </script>
             <noscript>
                 21
-            </noscript>
-            year old student currently reading computer science at the University of Cambridge. I'm hoping to secure an internship in the software development field for summer 2017; I'd like to pursue a career in the design and implementation of software systems
-            after graduation. I'm particularly interested in web based, game, graphics and mobile development. A portfolio of my recent work is available at <a href="http://chewitt.me" target="_blank">chewitt.me</a>.</p>
+            </noscript> year old student currently reading computer science at the University of Cambridge. I'm hoping to secure an internship in the software development field for summer 2017; I'd like to pursue a career in the design and
+            implementation of software systems after graduation. I'm particularly interested in web based, game, graphics and mobile development. A portfolio of my recent work is available at <a href="http://chewitt.me" target="_blank">chewitt.me</a>.</p>
     </section>
     <section>
         <h2>Skills</h2>
         <ul>
             <li>Programming in Objective-C using Xcode in the design of applications for the iOS platform.</li>
-            <li>Programming in Java using Eclipse and IntelliJ, including   deployment to Android devices.</li>
+            <li>Programming in Java using Eclipse and IntelliJ, including deployment to Android devices.</li>
             <li>Programming in C# using MS Visual Studio.</li>
             <li>Programming in C/C++, Python and Standard ML.</li>
             <li>Using HTML/CSS, PHP and javascript in the production of websites, including AngularJS and frameworks such as Bootstrap and Foundation.</li>
@@ -182,8 +202,8 @@
             <li>Graphical design experience including UI, UX and icon design using Adobe Photoshop.</li>
             <li>Using the theos development environment to develop mobile substrate tweaks for iOS.</li>
             <li>Using the Cocos2D framework and Box2D physics engine in game development for mobile devices.</li>
-            <li>Proficient user of Mac OSX, Linux and Windows operating systems.</li>
-            <li>Extensive experience with Microsoft Excel, as well as word processing including use of LaTeX.</li>
+            <li>Proficient user of Mac OS, Linux and Windows operating systems.</li>
+            <li>Extensive experience with Microsoft Excel, as well as word processing including use of <img src="latex.svg" class="latex"/>.</li>
         </ul>
     </section>
     <section id="edu">
@@ -223,7 +243,7 @@
             <li>Participant at Hack Cambridge Recurse 2017, successfully producing an IoT mail sensor.</li>
             <li>Lower Boats Captain for Trinity Hall Boat Club.</li>
             <li>Second place at Jane Street's eth0 hackathon 2015 and again at eth1 2016.</li>
-            <li>Design, development and production of 'Flippers Ain't Wings' iOS App (<a href="http://chewitt.me/flipper" target="_blank">chewitt.me/flippers</a>).</li>
+            <li>Design, development and production of 'Flippers Ain't Wings' iOS App.</li>
             <li>Created numerous mobile substrate tweaks with an installation base of over 100,000 iOS devices.</li>
             <li>Winner of 'Most Promising Developer of 2015' and runner up 'Best Novelty Tweak of 2015' at the Jailbreak Awards 2015.</li>
             <li>Row and scull as part of the first men's squad at Trinity Hall Boat Club.</li>
@@ -254,6 +274,7 @@
             <br/><a href="mailto:rob@aston-dive.com">rob@aston-dive.com</a>
         </div>
     </section>
+    <a class="pdf" href="Charlie-Hewitt-CV.pdf" download>PDF</a>
 </body>
 
 </html>
