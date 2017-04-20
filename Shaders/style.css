@@ -1,10 +1,6 @@
-@font-face {
-    font-family: CH_Sofia;
-    src: url(../Fonts/Sofia.otf);
-}
-
+@import '../Fonts/sofia.css';
 body {
-    font-family: CH_Sofia;
+    font-family: 'CH Sofia Pro', sans-serif;
     font-weight: lighter;
     -webkit-font-smoothing: antialiased;
     color: #eee;
@@ -16,40 +12,40 @@ h1, h2, h3 {
 }
 
 a {
-  color: inherit;
+    color: inherit;
 }
 
 .container {
-  padding:40px;
-  margin: auto;
-  max-width: 1000px;
-  text-align: center;
+    padding: 40px;
+    margin: auto;
+    max-width: 1000px;
+    text-align: center;
 }
 
 .container p {
-  line-height: 1.5em;
-  text-align: justify;
+    line-height: 1.5em;
+    text-align: justify;
 }
 
 .container figure {
-  margin-bottom: 3em;
+    margin-bottom: 3em;
 }
 
 .container figcaption {
-  margin-top: 1em;
-  font-size: 0.8em;
+    margin-top: 1em;
+    font-size: 0.8em;
 }
 
 .container img {
-  width: 70%;
-  height: auto;
+    width: 70%;
+    height: auto;
 }
 
 .container video {
-  width: 150px;
-  height: auto;
+    width: 150px;
+    height: auto;
 }
 
 .planet {
-  display: inline-block;
+    display: inline-block;
 }

@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'CH Sofia Pro';
+    src: url('SofiaProRegular.eot');
+    src: url('SofiaProRegular.eot?#iefix') format('embedded-opentype'), url('SofiaProRegular.woff') format('woff'), url('SofiaProRegular.ttf') format('truetype'), url('SofiaProRegular.svg#SofiaProRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CH Sofia Pro';
+    src: url('SofiaProLight.eot');
+    src: url('SofiaProLight.eot?#iefix') format('embedded-opentype'), url('SofiaProLight.woff') format('woff'), url('SofiaProLight.ttf') format('truetype'), url('SofiaProLight.svg#SofiaProLight') format('svg');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CH Sofia Pro';
+    src: url('SofiaProBold.eot');
+    src: url('SofiaProBold.eot?#iefix') format('embedded-opentype'), url('SofiaProBold.woff') format('woff'), url('SofiaProBold.ttf') format('truetype'), url('SofiaProBold.svg#SofiaProBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
