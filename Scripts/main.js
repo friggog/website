@@ -1,3 +1,7 @@
+var isMobile;
+var lastWindowSize;
+var scrollUpdateInterval;
+
 function getEmPixels(element) {
     "use strict";
 
@@ -114,9 +118,19 @@ function thirdBreakGoing(dir) {
     }
 }
 
-var lastWindowSize;
 
 function resizeUpdate() {
+    wasMobile = isMobile;
+    isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+    if (wasMobile && !isMobile) {
+        scrollUpdateInterval = setInterval(() => {
+            scrollUpdate();
+        }, 100);
+    }
+    else if(isMobile && !wasMobile) {
+        clearInterval(scrollUpdateInterval);
+        goMobile();
+    }
     if (lastWindowSize > 760 && window.innerWidth <= 760) {
         if (menu.className == 'menu small') {
             menuUl.style.visibility = 'hidden'
@@ -182,18 +196,23 @@ function toggleVisibilty(el) {
     }
 }
 
+function goMobile() {
+    menu.className = 'menu small';
+    header.className = 'header small';
+    headerBg.className = 'header-bg active';
+    padder.style.cssText = 'height: 3rem';
+    document.getElementsByClassName('container')[0].style.cssText = 'min-height: calc(100vh - 5rem)';
+}
+
 /* menu scroll stuff */
 function init() {
     "use strict";
     getElems();
+    isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
     if (isMobile) {
-        menu.className = 'menu small';
-        header.className = 'header small';
-        headerBg.className = 'header-bg active';
-        padder.style.cssText = 'height: 3rem';
-        document.getElementsByClassName('container')[0].style.cssText = 'min-height: calc(100vh - 5rem)';
+        goMobile();
     } else {
-        setInterval(() => {
+        scrollUpdateInterval = setInterval(() => {
             scrollUpdate();
         }, 100);
     }
@@ -204,4 +223,3 @@ function init() {
 }
 
 window.onload = init;
-var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
