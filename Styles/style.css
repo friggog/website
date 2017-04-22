@@ -34,7 +34,7 @@ h2 {
 
 @media only screen and (min-width: 1400px) {
     .header.small, .menu.small {
-        left: calc( 50vw - 700px );
+        left: calc( 50vw - 700px);
     }
 }
 
@@ -271,7 +271,7 @@ h2 {
 }
 
 .portfolio-overlay {
-    font-size: 12px;
+    font-size: 14px;
     -webkit-transition: opacity 0.15s ease;
     transition: opacity 0.15s ease;
     position: absolute;
@@ -361,7 +361,7 @@ h2 {
 
 /* Larger than tablet */
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1100px) {
     .portfolio-item {
         width: 33%;
     }
@@ -370,9 +370,12 @@ h2 {
 
 /* Larger than desktop */
 
-@media only screen and min-width: 1300px) {
+@media only screen and (min-width: 1300px) {
     .portfolio-item {
         width: 25%;
+    }
+    .portfolio-overlay {
+        font-size: 12px;
     }
 }
 
@@ -417,7 +420,7 @@ h2 {
 
 .social-icons li {
     display: inline-block;
-    margin: 0 0.2em;
+    margin: 0 0.3em;
 }
 
 .social-icons li svg {
@@ -438,6 +441,12 @@ h2 {
 .social-icons li svg:hover {
     background-color: white;
     fill: black;
+}
+
+.copy {
+    font-size: 10px;
+    margin-bottom: 0;
+    color: #444;
 }
 
 
