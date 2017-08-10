@@ -34,6 +34,7 @@ h2 {
 @media only screen and (min-width: 1400px) {
     .header.small, .menu.small {
         left: calc( 50vw - 700px);
+        right: calc( 50vw - 700px);
     }
 }
 
@@ -49,11 +50,11 @@ h2 {
 .header-bg {
     -webkit-transition: opacity 0.15s ease;
     transition: opacity 0.15s ease;
-    width: 100vw;
     z-index: 1;
     height: 5em;
     position: fixed;
     left: 0;
+    right: 0;
     top: 0;
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
@@ -123,7 +124,6 @@ h2 {
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 100px;
     margin-right: 1em;
-    width: 4em;
     text-align: center;
 }
 
@@ -134,9 +134,9 @@ h2 {
     .menu.small ul {
         box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
         background-color: rgba(255, 255, 255, 0.95);
-        width: 100vw;
         position: fixed;
         left: 0;
+        right: 0;
         text-align: center;
         height: auto;
     }
@@ -147,7 +147,8 @@ h2 {
         border: none;
         border-top: 1px solid rgba(0, 0, 0, 0.2);
         padding: 1em 0;
-        width: 100%;
+        left: 0;
+        right: 0;
     }
     .menu.small .hamburger {
         display: block;
