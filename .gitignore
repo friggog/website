@@ -1,2 +1,4 @@
 
-Dissertation/
+vendor/*
+Dissertation
+composer.lock
