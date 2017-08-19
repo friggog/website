@@ -57,6 +57,7 @@ h2 {
     right: 0;
     top: 0;
     background-color: rgba(255, 255, 255, 0.95);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
     box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
     opacity: 0;
 }
@@ -132,6 +133,7 @@ h2 {
 
 @media only screen and (max-width: 760px) {
     .menu.small ul {
+        -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
         box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
         background-color: rgba(255, 255, 255, 0.95);
         position: fixed;
@@ -188,6 +190,7 @@ h2 {
 }
 
 .menu>.content {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0 1em;
     float: right;
@@ -262,6 +265,7 @@ h2 {
     display: inline-block;
     position: relative;
     padding: 6px 3px 0 3px;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -283,6 +287,7 @@ h2 {
     line-height: 1.3em;
     text-align: left;
     opacity: 0;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -296,6 +301,7 @@ h2 {
 
 .portfolio-overlay>.content {
     padding: 1.5em 2em;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
@@ -387,12 +393,11 @@ h2 {
     height: 180px;
     border-radius: 90px;
     overflow: hidden;
-    margin-bottom: 1em;
 }
 
 #other {
     max-width: 700px;
-    margin-top: auto;
+    margin: auto;
     padding: 1.5em;
     text-align: center;
 }
@@ -405,17 +410,12 @@ h2 {
     margin-top: 1em;
 }
 
-
-/* FOOTER */
-
 .social-icons {
     text-align: center;
     list-style: none;
     padding: 0;
-    margin: 0 0 auto 0;
     background: black;
     color: white;
-    padding-top: 0.2em;
 }
 
 .social-icons li {
@@ -443,9 +443,11 @@ h2 {
     fill: black;
 }
 
+/* FOOTER */
+
 .copy {
     font-size: 10px;
-    margin-bottom: 0;
+    margin: 0.5em 0 0 0;
     color: #444;
 }
 
