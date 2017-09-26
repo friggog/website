@@ -1,6 +1,11 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'AirPi',
+        'content' => '<p><a href="https://www.raspberrypi.org/products/raspberry-pi-zero-w/" target="_blank">Raspberry Pi Zero W</a> based AirPlay and Spotify Connect server for use with my desktop speakers.</p>
+                      <p>Uses the <a href="https://www.hifiberry.com/shop/boards/hifiberry-dac-zero/" target="_blank">HiFiBerry DAC+ Zero</a> along with <a href="https://github.com/mikebrady/shairport-sync" target="_blank">shairport-sync</a> and <a href="https://dtcooper.github.io/raspotify/" target="_blank">raspotify</a>.</p>'
+    ),
+    array(
         'title' => 'Cydar',
         'button_link' => 'http://www.cydarmedical.com',
         'button_title' => 'Website',

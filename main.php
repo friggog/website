@@ -85,11 +85,21 @@ $social_icons = array(
                     }
                 ?>
             </ul>
-            <p>I'm a <?php
-                    $bd = new DateTime('1995-09-13');
-                    $diff = $bd->diff(new DateTime());
-                    echo $diff->y;
-                ?> year old student living near London in the UK.</p>
+            <p>I'm a
+                <script type="text/javascript">
+                    var currentTime = new Date();
+                    var month = currentTime.getMonth() + 1;
+                    var day = currentTime.getDate();
+                    var year = currentTime.getFullYear();
+                    var age = currentTime.getFullYear() - 1995;
+                    if (month < 9 || (day < 13 && month == 9))
+                        age -= 1;
+                    document.write(age);
+                </script>
+                <noscript>
+                    22
+                </noscript>
+                year old student living near London in the UK.</p>
             <p>I'm studying for an MEng in computer science at the University of Cambridge.</p>
             <p>I like to design and code things - apps, websites, iOS tweaks, icons &amp; interfaces.</p>
             <p>I also love to play and write music, take photos &amp; row.</p>
