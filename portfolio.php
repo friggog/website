@@ -15,7 +15,7 @@ $portfolio_items = array(
     array(
         'title' => 'Part II Project',
         'image' => 'Trees',
-        'button_link' => './CTH-Dissertation-2017.pdf',
+        'button_link' => './Papers/CTH-Dissertation-2017.pdf',
         'button_title' => 'Read Paper',
         'content' => '<p>For my third year project I\'ve explored the procedural modelling of trees for use in computer graphics.</p>
                       <p>I\'ve implemented two systems which generate tree models of many types within the blender modelling application.</p>
