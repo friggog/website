@@ -1,9 +1,20 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'Emosic',
+        'button_title' => 'Read Paper',
+        'button_link' => './Papers/CTH-Emosic-2018.pdf',
+        'content' => '<p>Music recommendation iOS app using machine learning for emotion recognition and valence/arousal prediction. Implemented in python using
+                      <a href="https://keras.io" target="_blank">Keras</a> with models trained on <a href="http://mohammadmahoor.com/affectnet/" taget="_blank">AffectNet</a>.
+                      The <a href="https://developer.spotify.com/web-api/" target="_blank">Sptofiy Web API</a> is used for song suggestions.</p>
+                      <p>Source code is available on <a href="https://github.com/friggog/Emosic" target="_blank">GitHub</a>.</p>'
+    ),
+    array(
         'title' => 'AirPi',
-        'content' => '<p><a href="https://www.raspberrypi.org/products/raspberry-pi-zero-w/" target="_blank">Raspberry Pi Zero W</a> based AirPlay and Spotify Connect server for use with my desktop speakers.</p>
-                      <p>Uses the <a href="https://www.hifiberry.com/shop/boards/hifiberry-dac-zero/" target="_blank">HiFiBerry DAC+ Zero</a> along with <a href="https://github.com/mikebrady/shairport-sync" target="_blank">shairport-sync</a> and <a href="https://dtcooper.github.io/raspotify/" target="_blank">raspotify</a>.</p>'
+        'content' => '<p><a href="https://www.raspberrypi.org/products/raspberry-pi-zero-w/" target="_blank">Raspberry Pi Zero W</a> based AirPlay and Spotify
+                      Connect server for use with my desktop speakers.</p> <p>Uses the <a href="https://www.hifiberry.com/shop/boards/hifiberry-dac-zero/"
+                      target="_blank">HiFiBerry DAC+ Zero</a> along with <a href="https://github.com/mikebrady/shairport-sync" target="_blank">shairport-sync</a>
+                      and <a href="https://dtcooper.github.io/raspotify/" target="_blank">raspotify</a>.</p>'
     ),
     array(
         'title' => 'Cydar',
@@ -18,20 +29,22 @@ $portfolio_items = array(
         'button_link' => './Papers/CTH-Dissertation-2017.pdf',
         'button_title' => 'Read Paper',
         'content' => '<p>For my third year project I\'ve explored the procedural modelling of trees for use in computer graphics.</p>
-                      <p>I\'ve implemented two systems which generate tree models of many types within the blender modelling application.</p>
+                      <p>I\'ve implemented two systems which generate tree models of many types within the <a href="http://blender.org" target="_blank">Blender</a> modelling application.</p>
                       <p>Source code available on <a href="https://github.com/friggog/tree-gen" target="_blank">GitHub</a>.</p>'
 
     ),
     array(
         'title' => 'ML &amp; AI',
         'image' => 'AI',
-        'content' => '<p>As part of my studies I\'ve been learning a lot about machine learning and artifical intelligence, so I thought I\'d have a go at implementing some of the concepts.</p>
-                      <p>So far I\'ve implemented a Bayesian neural network, Gaussian process regression (pictured) and the Viterbi algorithm - I\'m hoping to implement a support vector machine and more soon!</p>'
+        'content' => '<p>As part of my studies I\'ve been learning a lot about machine learning and artifical intelligence, so I thought I\'d have a go at
+                      implementing some of the concepts.</p> <p>So far I\'ve implemented a Bayesian neural network, Gaussian process regression (pictured)
+                      and the Viterbi algorithm - I\'m hoping to implement a support vector machine and more soon!</p>'
     ),
     array(
         'title' => 'PidgePing',
         'content' => '<p>Project completed as part of the Hack Cambridge hackathon in January 2017.</p>
-                      <p>An IR sensor placed in the user\'s mailbox would communicate via WIFI to our server which then sent out an email notifying them. Ideal for Cambridge students whose mailboxes are often far away from where they live.</p>
+                      <p>An IR sensor placed in the user\'s mailbox would communicate via WIFI to our server which then sent out an email notifying them. Ideal for
+                      Cambridge students whose mailboxes are often far away from where they live.</p>
                       <p>A website allowed users to register and set up their device, as well as check its status.</p>'
     ),
     array(
@@ -58,7 +71,8 @@ $portfolio_items = array(
     array(
         'title' => 'SplitBit',
         'content' => '<p>SplitBit is an online equity, salary and payments negotiation platform aimed at startups, particularly in the tech industry.</p>
-                      <p>The site was created as part of the Cambridge CST group project programme. The group worked with clients Matt Johnson and Eddy Ashton from <a href="http://www.frontier.co.uk/" target="=_blank">Frontier</a>, a games company based in Cambridge.</p>'
+                      <p>The site was created as part of the Cambridge CST group project programme. The group worked with clients Matt Johnson and Eddy Ashton from
+                      <a href="http://www.frontier.co.uk/" target="=_blank">Frontier</a>, a games company based in Cambridge.</p>'
     ),
     array(
         'title' => 'THBC Site Redesign',
