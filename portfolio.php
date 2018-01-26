@@ -1,6 +1,13 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'THJE Website',
+        'button_title' => 'View Website',
+        'button_link' => './Files/THJE',
+        'content' => '<p>Website design and other graphics for the 2018 Trinity Hall June Event, in addition to managing the ticketing service.</p>',
+        'image' => 'THJE'
+    ),
+    array(
         'title' => 'Emosic',
         'button_title' => 'Read Paper',
         'button_link' => './Papers/CTH-Emosic-2018.pdf',
@@ -50,7 +57,7 @@ $portfolio_items = array(
     array(
         'title' => 'OpenGL Shaders',
         'image' => 'Shaders',
-        'button_link' => './Shaders/',
+        'button_link' => './Files/Shaders/',
         'button_title' => 'Read More',
         'content' => '<p>Playing around with some space themed planet shaders in GLSL.</p>
                       <p>Including:</p>
@@ -152,7 +159,7 @@ $portfolio_items = array(
     array(
         'title' => 'Flippers Ain\'t Wings',
         'image' => 'Flippers',
-        'button_link' => './Flippers/',
+        'button_link' => './Files/Flippers/',
         'button_title' => 'More Info',
         'content' => '<p>Block jumping, arcade style game for all iOS devices.</p>
                       <p>Follow the story of Percy the Penguin in his adventure to discover the source of mysterious ice blocks falling from the sky.</p>'
