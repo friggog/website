@@ -4,7 +4,7 @@ $portfolio_items = array(
         'title' => 'THJE Website',
         'button_title' => 'View Website',
         'button_link' => './Files/THJE',
-        'content' => '<p>Website design and other graphics for the 2018 Trinity Hall June Event, in addition to managing the ticketing service.</p>',
+        'content' => '<p>Website design and other graphics for the 2018 Trinity Hall June Event, in addition to managing the ticketing service provided through <a href="https://getqpay.com" target="_blank">Qpay</a>.</p>',
         'image' => 'THJE'
     ),
     array(
