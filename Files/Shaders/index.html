@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Charlie Hewitt - Space Shaders</title>
+    <meta name="description" content="Charlie Hewitt's personal portfolio site."></meta>
+    <meta name="keywords" content="charlie hewitt"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Styles/normalize.css" type="text/css">
+    <link rel="stylesheet" href="./style.css" type="text/css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Charlie Hewitt - Space Shaders</h1>
+        <p>I've been playing around with a space sandbox type game idea, with a chunk based universe generation system using a poisson disk methodology for entity spacing. On a larger scale it would be good to introduce clumping of entities into galaxies. The ultimate goal is an open world game where the player flies around completing quests, though I doubt this will ever be realised...</p>
+        <figure>
+            <img src="universe.png" />
+            <figcaption>Rendering of universe generated using methods described above</figcaption>
+        </figure>
+        <p>Solar systems are all unique, with a number of orbiting planets and potentially asteroid belt(s). The planets also may have a number of moons orbiting them. I'd like to add support for more entity types than just solar systems/stars, such as nebulae, binary systems, pulsars and black holes.</p>
+        <figure>
+            <video autoplay loop style="width:400px">
+              <source src="SolarSys.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Solar system with asteroid belt (not rendered brilliantly at this zoom level)</figcaption>
+        </figure>
+        <p>As part of this project I decided to attempt to create shaders which would render stars and rocky and gas type planets, generating them procedurally from only random noise. I'm fairly pleased with the results, though they could certainly only be
+            classed as proof of concept.</p>
+        <figure class="planet">
+            <video autoplay loop>
+              <source src="Earth.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Earth type planet</figcaption>
+        </figure>
+        <figure class="planet">
+            <video autoplay loop>
+              <source src="Gas.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Gas type planet</figcaption>
+        </figure>
+        <figure class="planet">
+            <video autoplay loop>
+              <source src="Star.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Star</figcaption>
+        </figure>
+        <p>I also became interested about how one might achieve a pixel art style using these shaders to generate graphics on the fly. So created a 'pixel art' shader which clamps colours to bands and forces pixelated rendering.</p>
+        <figure class="planet">
+            <video autoplay loop>
+              <source src="Earth_p.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Pixelated Earth type planet</figcaption>
+        </figure>
+        <figure class="planet">
+            <video autoplay loop>
+              <source src="Star_p.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Pixelated star</figcaption>
+        </figure>
+        <p>This is as far as I've gotten for the minute (internships and university have waylaid any further progress), though I hope to come back to this project some time in the future. In the meantime feel free to <a href="mailto:contact@chewitt.me">get in touch</a> with any questions.</p>
+    </div>
+
+</body>
+
+</html>
