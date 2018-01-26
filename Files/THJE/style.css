@@ -1,0 +1,539 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400');
+
+@font-face {
+    font-family: 'Didot';
+    src: url('fonts/Didot.woff2') format('woff2'),
+    url('fonts/Didot.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+body {
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: lighter;
+    color: #FAF4E2;
+    background: black;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+section:not(.sponsors) {
+    position: relative;
+    text-align: center;
+    padding: 5vh;
+}
+
+h1 {
+    font-family: 'Didot', serif;
+    font-weight: normal;
+}
+
+h2 {
+    font-family: 'Didot', serif;
+    font-weight: normal;
+    font-size: 2.2em;
+}
+
+h3 {
+    font-size: .3em;
+    font-weight: lighter;
+}
+
+h4 {
+    font-weight: lighter;
+    letter-spacing: .2em;
+    margin: 0.7em 0;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+#bg {
+    overflow: hidden;
+}
+
+/* GROUND */
+
+#bg .ground {
+    position: relative;
+    overflow: hidden;
+    padding-top: 40vh;
+    margin-top: -40vh;
+}
+
+#bg .ground .circle {
+    background: black;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    position: absolute;
+}
+
+#bg .ground .circle.one {
+    width: 400%;
+    padding-bottom: 400%;
+    top: 30vh;
+    left: -220%;
+}
+
+#bg .ground .circle.two {
+    width: 500%;
+    padding-bottom: 500%;
+    top: 30vh;
+    left: -110%;
+}
+
+#bg .ground .circle.three {
+    width: 600%;
+    padding-bottom: 600%;
+    top: 32vh;
+    left: calc(-300% + 50vw);
+}
+
+#bg .ground .henge {
+    position: absolute;
+    height: 10vh;
+    width: 20vh;
+    left: calc(50vw - 10vh);
+    top: 24vh;
+}
+
+#bg .ground .content {
+    margin: 0;
+    position: relative;
+}
+
+#bg .ground .sun {
+    position: absolute;
+    left: calc(50vw - 25vh);
+    top: 3vh;
+    width: 50vh;
+    height: 50vh;
+}
+
+#bg .ground .sun circle {
+    fill: #FEE130;
+}
+
+#bg .ground .sun.one {
+    -webkit-animation: spin 60s linear infinite;
+    -moz-animation: spin 60s linear infinite;
+    animation: spin 60s linear infinite;
+}
+
+#bg .ground .sun.one path {
+    fill: #FEBD14;
+}
+
+#bg .ground .sun.two {
+    -webkit-animation: spin 60s linear infinite reverse;
+    -moz-animation: spin 60s linear infinite reverse;
+    animation: spin 60s linear infinite reverse;
+}
+
+#bg .ground .sun.two path {
+    fill: #C1782A;
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/* SKY */
+
+#bg .sky {
+    background: red;
+    background: linear-gradient(to bottom, black 0%, #271658 50%, #B26339 100%);
+    position: relative;
+    padding-bottom: 40vh;
+}
+
+/* FLOWERS */
+
+.sky>img {
+    display: none;
+}
+
+@supports (mix-blend-mode: overlay) {
+    .sky>img {
+        display: block;
+        position: absolute;
+        mix-blend-mode: overlay;
+    }
+}
+
+.sky>img:nth-of-type(1) {
+    top: 0;
+    left: -35vh;
+    height: 90vh;
+    transform: rotate(50deg);
+}
+
+.sky>img:nth-of-type(2) {
+    top: 40vh;
+    right: -10vh;
+    height: 60vh;
+    transform: rotate(20deg);
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+    .sky>img:nth-of-type(1) {
+        width: 50vh;
+        top: -10vh;
+        left: -10vh;
+    }
+    .sky>img:nth-of-type(2) {
+        width: 40vh;
+    }
+}
+
+/* GENERAL */
+
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
+/* FRONT */
+
+.title {
+    font-size: 2.5em;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title h4 {
+    margin: 0.5em 0;
+}
+
+@media screen and (min-width: 900px) {
+    .title h4:first-of-type {
+        margin-bottom: 0.3em;
+    }
+}
+
+.title h1,
+.title h2 {
+    margin: 0;
+}
+
+.title .logo {
+    width: 100%;
+    height: auto;
+    max-width: 680px;
+}
+
+.title .th,
+.title .je {
+    font-size: 0.95em;
+}
+
+.button {
+    padding: 1em 1.5em 0.7em 1.5em;
+    font-size: 0.4em;
+    background: #FAF4E2;
+    color: black;
+    text-shadow: none;
+    margin: 0.5em 0 0 0;
+    border-radius: 1.5em;
+    font-weight: normal;
+}
+
+.button:hover {
+    text-decoration: none;
+    background: white;
+    color: black;
+}
+
+.scroller {
+    opacity: 0;
+    font-size: 0.3em;
+    position: absolute;
+    bottom: 2em;
+    transition: opacity 1s ease;
+}
+
+.scroller p {
+    margin: 0;
+}
+
+.timer {
+    font-size: 0.6em;
+    margin: 0.6em 0 0 0;
+}
+
+.info {
+    text-align: justify;
+    font-size: 1.2em;
+}
+
+/* TICKETS */
+
+.tick-ps {
+    box-sizing: border-box;
+    width: 30%;
+    padding: 1.2em;
+    display: inline-block;
+}
+
+@media screen and (max-width: 500px) {
+    .tick-ps {
+        width: 100% !important;
+    }
+}
+
+.tick-ps h4 {
+    margin: 0;
+}
+
+.tick-ps p {
+    font-size: 2em;
+    margin: 0.6em 0 0 0;
+}
+
+.tick .button {
+    color: #271658;
+}
+
+/* COMMITTEE */
+
+.comm {
+    max-width: 900px;
+}
+
+.comm a {
+    text-decoration: none;
+}
+
+.comm-mem {
+    display: inline-block;
+    width: 24%;
+    padding: 1em 0;
+    vertical-align: top;
+}
+
+.comm-mem p {
+    margin: 0.5em 0;
+}
+
+.comm-mem img {
+    display: none;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    /*border: 1px solid #FAF4E2;*/
+    border-radius: 50%;
+}
+
+.comm-mem:hover img {
+    /*border: 1px solid white;*/
+    filter: brightness(2);
+    -webkit-filter: brightness(2);
+}
+
+/* WORKERS */
+
+/* CHARITIES */
+
+.char-item {
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+    vertical-align: top;
+}
+
+.char-item:first-of-type {
+    padding-right: 1em;
+}
+
+.char-item:last-of-type {
+    padding-left: 1em;
+}
+
+.char-item svg {
+    width: 100%;
+    height: 125px;
+}
+
+.char-item svg:hover .a,
+.char-item svg:hover .b {
+    fill: white;
+}
+
+.char-item a:hover {
+    text-decoration: none;
+}
+
+.char-item h4 {
+    margin-top: 1.5em;
+}
+
+.char-item p {
+    text-align: justify;
+}
+
+/* SPONSORS */
+
+.sponsors {
+    text-align: center;
+}
+
+.spons-item {
+    display: inline-block;
+    width: 32%;
+    padding: 2em;
+    color: #2F2E2B;
+}
+
+.spons-item svg>* {
+    fill: #2F2E2B;
+}
+
+.spons-item svg {
+    width: 10vh;
+    max-width: 5em;
+}
+
+.spons-item:hover {
+    color: #45433F;
+}
+
+.spons-item:hover svg>* {
+    fill: #45433F;
+}
+
+.spons-item,
+.comm-mem,
+.char-item {
+    box-sizing: border-box;
+}
+
+/* FOOTER */
+
+footer {
+    margin: auto;
+    padding-top: 5vh;
+    max-width: 600px;
+    font-size: 0.7em;
+    color: #403F3B;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+footer a:hover {
+    color: #67645F;
+}
+
+footer ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+footer ul li {
+    display: inline-block;
+    padding: 0 1em;
+}
+
+@media screen and (max-width: 1100px) {
+    .comm-mem {
+        width: 32%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .comm-mem,
+    .spons-item {
+        width: 49%
+    }
+    .char-item {
+        width: 100%;
+    }
+    .char-item {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+    .char-item svg {
+        height: auto;
+        width: 100%;
+        max-width: 250px;
+    }
+    section:not(.sponsors):not(.title) {
+        padding: 1.5em;
+    }
+    section.title {
+        height: calc( 100vh - 2em);
+        padding: 1em;
+    }
+    .title img {
+        max-width: 400px;
+    }
+    .title h4 {
+        font-size: 0.9em;
+        margin: 0.6em 0;
+    }
+    .title h4 span {
+        display: block;
+    }
+    .title h4 .th {
+        font-size: 0.85em;
+    }
+    .title h4 .date {
+        font-size: 0.92em;
+    }
+    .comm-mem h4 {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .title img {
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .title h4 {
+        font-size: 0.7em;
+        margin: 0.6em 0;
+    }
+    .spons-item {
+        width: 100%;
+    }
+    .comm-mem h4 {
+        font-size: 0.7em;
+    }
+}
