@@ -43,7 +43,7 @@ $portfolio_items = array(
     array(
         'title' => 'ML &amp; AI',
         'image' => 'AI',
-        'content' => '<p>As part of my studies I\'ve been learning a lot about machine learning and artifical intelligence, so I thought I\'d have a go at
+        'content' => '<p>As part of my studies I\'ve been learning a lot about machine learning and artificial intelligence, so I thought I\'d have a go at
                       implementing some of the concepts.</p> <p>So far I\'ve implemented a Bayesian neural network, Gaussian process regression (pictured)
                       and the Viterbi algorithm - I\'m hoping to implement a support vector machine and more soon!</p>'
     ),
@@ -94,7 +94,7 @@ $portfolio_items = array(
         'button_link' => 'http://cydia.saurik.com/package/me.chewitt.fingal/',
         'button_title' => 'More Info',
         'content' => '<p>Animated icon theming platform (similar to Winterboard) for iOS 8 and 9.</p>
-                      <p>Available for free from the ModMyi Cydia repo. Source code available <a href="https://github.com/friggog/Fingal" target="=_blank">on github</a>.</p>'
+                      <p>Available for free from the ModMyi Cydia repo. Source code available <a href="https://github.com/friggog/Fingal" target="=_blank">on GitHub</a>.</p>'
     ),
     // array(
     //     'title' => 'JS Raytracer',
@@ -118,14 +118,14 @@ $portfolio_items = array(
         'button_link' => 'http://cydia.saurik.com/package/me.chewitt.seng/',
         'button_title' => 'More Info',
         'content' => '<p>Seng is a sleek and highly customisable replacement for your iOS 8 &amp; 9 app switcher and control center, providing 2 core features; Multi Centre and Hot Corners.</p>
-                      <p>Available to purcahse from the Cydia Store.</p>'
+                      <p>Available to purchase from the Cydia Store.</p>'
     ),
     array(
         'title' => 'CustomCover',
         'button_link' => 'http://cydia.saurik.com/package/me.chewitt.customcover/',
         'button_title' => 'More Info',
         'content' => '<p>Customise the iOS LockScreen Now Playing view and Music app. Packed full of features and compatible with all devices running iOS 7 through 9.</p>
-                      <p>Available to purcahse from the Cydia Store.</p>
+                      <p>Available to purchase from the Cydia Store.</p>
                       <p><a href="http://chewitt.me/Info/CustomCoverAPI.html" target="_blank">Developer Info</a></p>'
     ),
     array(
@@ -133,7 +133,7 @@ $portfolio_items = array(
         'image' => 'MC',
         'button_link' => 'http://cydia.saurik.com/package/me.chewitt.mcpro/',
         'button_title' => 'More Info',
-        'content' => '<p>The most fully featured tweak available for modifying the iOS Messages app. Messages Customiser is the one stop solution for tweaking your texting experience on all devices runnning iOS 7 - 9</p>
+        'content' => '<p>The most fully featured tweak available for modifying the iOS Messages app. Messages Customiser is the one stop solution for tweaking your texting experience on all devices running iOS 7 - 9</p>
                       <p>Free and Premium version available from the Cydia Store.</p>'
     ),
     array(
