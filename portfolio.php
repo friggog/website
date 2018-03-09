@@ -54,13 +54,13 @@ $portfolio_items = array(
                       <p>Source code available on <a href="https://github.com/friggog/tree-gen" target="_blank">GitHub</a>.</p>'
 
     ),
-    array(
-        'title' => 'ML &amp; AI',
-        'image' => 'AI',
-        'content' => '<p>As part of my studies I\'ve been learning a lot about machine learning and artificial intelligence, so I thought I\'d have a go at
-                      implementing some of the concepts.</p> <p>So far I\'ve implemented a Bayesian neural network, Gaussian process regression (pictured)
-                      and the Viterbi algorithm - I\'m hoping to implement a support vector machine and more soon!</p>'
-    ),
+    //array(
+    //    'title' => 'ML &amp; AI',
+    //    'image' => 'AI',
+    //    'content' => '<p>As part of my studies I\'ve been learning a lot about machine learning and artificial intelligence, so I thought I\'d have a go at
+    //                  implementing some of the concepts.</p> <p>So far I\'ve implemented a Bayesian neural network, Gaussian process regression (pictured)
+    //                  and the Viterbi algorithm - I\'m hoping to implement a support vector machine and more soon!</p>'
+    //),
     array(
         'title' => 'PidgePing',
         'content' => '<p>Project completed as part of the Hack Cambridge hackathon in January 2017.</p>
@@ -89,12 +89,12 @@ $portfolio_items = array(
         'content' => '<p>I\'m joining the team at Jagex Games Studio for three months in the summer of 2016 as an intern.</p>
                       <p>I\'ll be working on a project as part of a small team aimed at exploring new areas which Jagex may be interested in expanding into in the future.</p>'
     ),
-    array(
-        'title' => 'SplitBit',
-        'content' => '<p>SplitBit is an online equity, salary and payments negotiation platform aimed at startups, particularly in the tech industry.</p>
-                      <p>The site was created as part of the Cambridge CST group project programme. The group worked with clients Matt Johnson and Eddy Ashton from
-                      <a href="http://www.frontier.co.uk/" target="=_blank">Frontier</a>, a games company based in Cambridge.</p>'
-    ),
+    //array(
+    //    'title' => 'SplitBit',
+    //    'content' => '<p>SplitBit is an online equity, salary and payments negotiation platform aimed at startups, particularly in the tech industry.</p>
+    //                  <p>The site was created as part of the Cambridge CST group project programme. The group worked with clients Matt Johnson and Eddy Ashton from
+    //                  <a href="http://www.frontier.co.uk/" target="=_blank">Frontier</a>, a games company based in Cambridge.</p>'
+    //),
     array(
         'title' => 'THBC Site Redesign',
         'image' => 'THBC',
