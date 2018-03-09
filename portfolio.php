@@ -1,21 +1,35 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'Leaf Identification',
+        'button_title' => 'Read Paper',
+        'button_link' => './Papers/CTH-Tree-ID-2018.pdf',
+        'content' => '<p>Paper presenting a novel feature set for shape-only leaf identification from images. Over 90% accuracy is achieved on all but one public dataset, with top-four accuracy for these datasets over 98%.</p><p>Source code available <a href="https://github.com/friggog/tree-id" target="=_blank">on GitHub</a>.</p>',
+        'image' => 'TreeID'
+    ),
+    array(
+        'title' => 'GP Confidences for CNNs',
+        'button_title' => 'Read Paper',
+        'button_link' => './Papers/CTH-CNN-Conf-2018.pdf',
+        'content' => '<p>Paper presenting a hybrid classification technique using Gaussian processes fitted on features extracted by a convolutional neural network to enable estimation of prediction confidence. The classifer is evaluated on the MNIST dataset and shown to have somewhat meaningful implications for confidence estimation.</p>',
+        'image' => 'CNNConf'
+    ),
+    array(
         'title' => 'THJE Website',
         'button_title' => 'View Website',
         'button_link' => './Files/THJE',
         'content' => '<p>Website design and other graphics for the 2018 Trinity Hall June Event, in addition to managing the ticketing service provided through <a href="https://getqpay.com" target="_blank">Qpay</a>.</p>',
         'image' => 'THJE'
     ),
-    array(
-        'title' => 'Emosic',
-        'button_title' => 'Read Paper',
-        'button_link' => './Papers/CTH-Emosic-2018.pdf',
-        'content' => '<p>Music recommendation iOS app using machine learning for emotion recognition and valence/arousal prediction. Implemented in python using
-                      <a href="https://keras.io" target="_blank">Keras</a> with models trained on <a href="http://mohammadmahoor.com/affectnet/" taget="_blank">AffectNet</a>.
-                      The <a href="https://developer.spotify.com/web-api/" target="_blank">Sptofiy Web API</a> is used for song suggestions.</p>
-                      <p>Source code is available on <a href="https://github.com/friggog/Emosic" target="_blank">GitHub</a>.</p>'
-    ),
+    //array(
+    //    'title' => 'Emosic',
+    //    'button_title' => 'Read Paper',
+    //    'button_link' => './Papers/CTH-Emosic-2018.pdf',
+    //    'content' => '<p>Music recommendation iOS app using machine learning for emotion recognition and valence/arousal prediction. Implemented in python using
+    //                  <a href="https://keras.io" target="_blank">Keras</a> with models trained on <a href="http://mohammadmahoor.com/affectnet/" taget="_blank">AffectNet</a>.
+    //                  The <a href="https://developer.spotify.com/web-api/" target="_blank">Sptofiy Web API</a> is used for song suggestions.</p>
+    //                  <p>Source code is available on <a href="https://github.com/friggog/Emosic" target="_blank">GitHub</a>.</p>'
+    //),
     array(
         'title' => 'AirPi',
         'content' => '<p><a href="https://www.raspberrypi.org/products/raspberry-pi-zero-w/" target="_blank">Raspberry Pi Zero W</a> based AirPlay and Spotify
