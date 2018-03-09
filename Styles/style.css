@@ -15,7 +15,6 @@ h2 {
     font-size: 1.3em;
 }
 
-
 /* HEADER */
 
 .header, .menu {
@@ -309,6 +308,11 @@ h2 {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.85);
+    text-align: justify;
+}
+
+.portfolio-overlay>.content ul {
+    padding-left: 1.2em;
 }
 
 @supports ((-webkit-filter: saturate(180%) blur(20px)) or (filter: saturate(180%) blur(20px))) {
