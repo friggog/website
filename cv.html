@@ -1,301 +1,298 @@
 <!DOCTYPE HTML>
 <html>
+    <head>
+        <title>Charlie Hewitt - CV</title>
+        <style>
+            @import 'Fonts/sofia.css';
 
-<head>
-    <title>Charlie Hewitt - CV</title>
-<style>
-    @import 'Fonts/sofia.css';
+            @media print {
+                body {
+                    font-size: 11px;
+                }
+                h1,
+                h2,
+                h3,
+                h4 {
+                    font-weight: normal;
+                }
+                .pdf {
+                    display: none;
+                }
+                .latex {
+                    margin-bottom: -0.2em !important;
+                }
+            }
 
-    @media print {
-        body {
-            font-size: 11px;
-        }
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-weight: normal;
-        }
-        .pdf {
-            display: none;
-        }
-        .latex {
-            margin-bottom: -0.2em !important;
-        }
-    }
+            body {
+                font-family: 'CH Sofia Pro';
+                font-weight: lighter;
+                -webkit-font-smoothing: antialiased;
+                color: #222;
+                line-height: 1.5em;
+                padding: 3em;
+                max-width: 800px;
+                margin: auto;
+                min-width: 390px;
+            }
 
-    body {
-        font-family: 'CH Sofia Pro';
-        font-weight: lighter;
-        -webkit-font-smoothing: antialiased;
-        color: #222;
-        line-height: 1.5em;
-        padding: 3em;
-        max-width: 800px;
-        margin: auto;
-        min-width: 390px;
-    }
+            p {
+                text-align: justify;
+            }
 
-    p {
-        text-align: justify;
-    }
+            .col {
+                width: 50%;
+                float: left;
+                margin-bottom: 2em;
+            }
 
-    .col {
-        width: 50%;
-        float: left;
-        margin-bottom: 2em;
-    }
+            .col:first-of-type {
+                width: calc(50% - 1em);
+                padding-right: 1em;
+            }
 
-    .col:first-of-type {
-        width: calc(50% - 1em);
-        padding-right: 1em;
-    }
+            @media (max-width: 550px) {
+                .col {
+                    width: 100%;
+                }
+            }
 
-    @media (max-width: 550px) {
-        .col {
-            width: 100%;
-        }
-    }
+            h1, h2 {
+                font-weight: normal;
+            }
 
-    h1, h2 {
-        font-weight: normal;
-    }
+            h2 {
+                text-transform: uppercase;
+                font-size: 1.2em;
+                margin-top: 1.7em;
+            }
 
-    h2 {
-        text-transform: uppercase;
-        font-size: 1.2em;
-        margin-top: 1.7em;
-    }
+            h3 {
+                font-weight: lighter;
+                text-transform: uppercase;
+                font-size: 1em;
+                margin-bottom: 0.2em;
+            }
 
-    h3 {
-        font-weight: lighter;
-        text-transform: uppercase;
-        font-size: 1em;
-        margin-bottom: 0.2em;
-    }
+            h3 .pdf {
+                float: right;
+                font-size: 0.7em;
+            }
+            #edu p,
+            #edu ul,
+            #exp p,
+            #exp ul,
+            #research p {
+                margin: 0;
+            }
 
-    h3 .pdf {
-        float: right;
-        font-size: 0.7em;
-    }
-    #edu p,
-    #edu ul,
-    #exp p,
-    #exp ul {
-        margin: 0;
-    }
+            #info h2 {
+                margin-top: 0;
+                margin-bottom: 0.5em;
+            }
 
-    #info h2 {
-        margin-top: 0;
-        margin-bottom: 0.5em;
-    }
+            #info {
+                text-align: right;
+            }
 
-    #info {
-        text-align: right;
-    }
+            #info a {
+                text-decoration: none;
+            }
 
-    #info a {
-        text-decoration: none;
-    }
+            #info::after {
+                content: '';
+                display: block;
+                clear: both;
+            }
 
-    #info::after {
-        content: '';
-        display: block;
-        clear: both;
-    }
+            #profile {
+                margin-top: 4em;
+            }
 
-    #profile {
-        margin-top: 4em;
-    }
+            .info-name {
+                text-align: right;
+                padding-right: 1em;
+                float: right;
+            }
 
-    .info-name {
-        text-align: right;
-        padding-right: 1em;
-        float: right;
-    }
+            .info-address {
+                text-align: left;
+                padding-left: 1em;
+                border-left: 2px solid black;
+                float: right;
+            }
 
-    .info-address {
-        text-align: left;
-        padding-left: 1em;
-        border-left: 2px solid black;
-        float: right;
-    }
+            .fixed-width {
+                display: inline-block;
+                width: 1em;
+            }
 
-    .fixed-width {
-        display: inline-block;
-        width: 1em;
-    }
+            .latex {
+                height: 1.1em;
+                margin-bottom: -0.35em;
+            }
 
-    .latex {
-        height: 1.1em;
-        margin-bottom: -0.35em;
-    }
+            ul {
+                list-style: none;
+                padding: 0 2em;
+            }
 
-    ul {
-        list-style: none;
-        padding: 0 2em;
-    }
+            ul li::before {
+                content: '-';
+                padding-right: 1em;
+                margin-left: -1.5em;
+            }
 
-    ul li::before {
-        content: '-';
-        padding-right: 1em;
-        margin-left: -1.5em;
-    }
+            a {
+                color: inherit;
+            }
 
-    a {
-        color: inherit;
-    }
+            #refs a {
+                text-decoration: none;
+            }
 
-    #refs a {
-        text-decoration: none;
-    }
-
-    #refs:after {
-        clear: both;
-        content: "";
-        display: table;
-    }
-</style>
-</head>
-<body>
-    <section id="info">
-        <div class="info-address">
-            Amhurst
-            <br/> Hedgerley Hill
-            <br/> Hedgerley
-            <br/> SL2 3RJ
-            <br/>
-            <br/>
-            <span class="fixed-width">T</span> +44 7463757345
-            <br/>
-            <span class="fixed-width">E</span> <a href="mailto:charlie@thehewitts.biz">charlie@thehewitts.biz</a>
-            <br/>
-            <span class="fixed-width">W</span> <a href="http://chewitt.me" target="_blank">chewitt.me</a>
-            <br/>
-        </div>
-        <div class="info-name">
-            <h2>Charlie Hewitt</h2> Curriculum Vitae
-        </div>
-    </section>
-    <section id="profile">
-        <h2>Profile</h2>
-        <p>I'm a
-            <script type="text/javascript">
-                var currentTime = new Date();
-                var month = currentTime.getMonth() + 1;
-                var day = currentTime.getDate();
-                var year = currentTime.getFullYear();
-                var age = currentTime.getFullYear() - 1995;
-                if (month < 9 || (day < 13 && month == 9))
-                    age -= 1;
-                document.write(age);
-            </script>
-            <noscript>
-                22
-            </noscript> year old student currently reading for a masters in computer science at the University of Cambridge. I'm hoping to secure an internship or apprenticeship
-                in the software research &amp; development field starting summer 2018; I'd like to pursue a career in the design and implementation of software systems after
-                finishing my studies. I'm particularly interested in graphics, vision and interaction. A portfolio of my recent work is available at <a href="http://chewitt.me" target="_blank">chewitt.me</a>.</p>
-    </section>
-    <section>
-        <h2>Skills</h2>
-        <ul>
-            <li>Programming in Python, C#, C/C++, Java, Objective-C, Swift and SML/OCaml.</li>
-            <li>Machine learning using tools such as SciKit, Keras and TensorFlow.</li>
-            <li>Deploying software to a number of platforms including Windows, iOS and Android devices.</li>
-            <li>Using HTML/CSS, PHP and JavaScript in the production of websites, including use of frameworks such as React, Angular, Bootstrap and Foundation.</li>
-            <li>Source code management using Git.</li>
-            <li>OpenGL shader programming in GLSL.</li>
-            <li>Database management using SQL.</li>
-            <li>Graphical design experience including UI, UX and icon design using Adobe Photoshop.</li>
-            <li>Proficient user of Mac OS, Linux and Windows operating systems.</li>
-            <li>Extensive experience with Microsoft Excel, as well as word processing including use of <img src="Fonts/latex.svg" class="latex" alt="LaTeX"/>.</li>
-        </ul>
-    </section>
-    <section id="exp">
-        <h2>Experience</h2>
-        <h3>Webmaster/Ticketing Officer - Trinity Hall June Event - 2018</h3>
-        <p>Design and development of event website and management of ticketing prior to and on the night of the event.</p>
-        <h3>Intern - Cydar - Summer 2017</h3>
-        <p>Two month internship working as part of the team at Cydar in Cambridge, helping to develop imaging technologies for surgeons to use in the OR.</p>
-        <h3>Intern - Jagex Game Studios - Summer 2016</h3>
-        <p>Three month internship as part of a small team, focussed on projects involving the prototyping and development of potential future business opportunities for Jagex.</p>
-        <h3>Webmaster - Trinity Hall Boat Club - 2014-2017</h3>
-        <p>Maintaining and updating the club website (<a href="http://trinityhallbc.co.uk" target="_blank">trinityhallbc.co.uk</a>), including complete website redesign, mobile
-            compatibility update and implementation of online captaincy election system.</p>
-        <h3>Treasurer - Trinity Hall June Event - 2016</h3>
-        <p>Management of &pound;150,000 budget and assistance in production of event hosting 2000 guests celebrating the end of the academic year.</p>
-    </section>
-    <section id="research">
-        <h2>Research</h2>
-        <h3>Identifying plant species from leaf images using shape features<a class="pdf" href="./Papers/CTH-Tree-ID-2018.pdf" target="_blank">PDF</a></h3>
-        <p>Paper presenting a novel feature set for shape-only leaf identification from images. Over 90% accuracy is achieved on all but one public dataset, with top-four accuracy for these datasets over 98%.</p>
-        <h3>Confidence measures for CNN classification using Gaussian processes<a class="pdf" href="./Papers/CTH-CNN-Conf-2018.pdf" target="_blank">PDF</a></h3>
-        <p>Paper presenting a hybrid classification technique using Gaussian processes fitted on features extracted by a convolutional neural network to enable estimation of prediction confidence. The classifer is evaluated on the MNIST dataset and shown to have somewhat meaningful implications for confidence estimation.</p>
-        <h3>Procedural generation of tree models for use in computer graphics - 2017<a class="pdf" href="./Papers/CTH-Dissertation-2017.pdf" target="_blank">PDF</a></h3>
-        <p>Project and associated dissertation produced for part II of the Cambridge BA course evaluating the effectiveness of
-            Lindenmeyer-Systems and a fully parametric approach in producing realistic 3D models of trees for CGI. Implemented
-            two systems in python for use with Blender, as well as an investigation of automatic design using genetic algorithms.</p>
-    </section>
-    <section id="edu">
-        <h2>Education</h2>
-        <h3>Trinity Hall, University of Cambridge - 2014-Present</h3>
-        <p>Studying for an MEng in computer science</p>
-        <p>BA (first class) in computer science</p>
-        <h3>John Hampden Grammar School - 2007-14</h3>
-        <p>A Level</p>
-        <ul>
-            <li>A* in Mathematics, Further Mathematics and Chemistry</li>
-            <li>A in Physics</li>
-        </ul>
-        <p>AS Level</p>
-        <ul>
-            <li>A in Mathematics, Further Mathematics, Chemistry, Physics and Geography</li>
-        </ul>
-        <p>Cambridge iGCSE</p>
-        <ul>
-            <li>A* in Mathematics</li>
-        </ul>
-        <p>GCSE</p>
-        <ul>
-            <li>A* in Mathematics, Physics, Chemistry, Biology, Music, Industrial Technology, Geography, English Literature, French, Religious Studies (half course) and ICT (half course)</li>
-            <li>B in English Language</li>
-        </ul>
-    </section>
-    <section id="achievements">
-        <h2>Achievements / Interests</h2>
-        <ul>
-            <li>Participant at Hack Cambridge Recurse 2017, producing an IoT mail sensor, and at Hack Cambridge Ternary 2018, producing a VR photo gallery with automatic captioning.</li>
-            <li>Second place at Jane Street's eth0 hackathon 2015 and again at eth1 2016.</li>
-            <li>Lower Boats Captain and coach for Trinity Hall Boat Club.</li>
-            <li>Rowed and sculled as part of the first men's squad at Trinity Hall Boat Club.</li>
-            <li>Design, development and production of 'Flippers Ain't Wings' iOS App.</li>
-            <li>Created numerous mobile substrate tweaks with an installation base of over 100,000 iOS devices.</li>
-            <li>Winner of 'Most Promising Developer of 2015' and runner up 'Best Novelty Tweak of 2015' at the Jailbreak Awards 2015.</li>
-            <li>JHGS Orchestra (2010-11), Jazz Band (2011-14) and Senior Jazz Band (2012-14).</li>
-        </ul>
-    </section>
-    <section id="refs">
-        <h2>References</h2>
-        <div class="col">
-            Prof. Simon Moore
-            <br/> Director of Studies, Computer Science
-            <br/> Trinity Hall
-            <br/> Trinity Lane
-            <br/> Cambridge
-            <br/> CB2 1TJ
-            <br/> <a href="mailto:simon.moore@cl.cam.ac.uk">simon.moore@cl.cam.ac.uk</a>
-        </div>
-        <div class="col">
-            Robert Hague
-            <br/> CTO
-            <br/> Cydar Ltd.
-            <br/> Bulbeck Mill
-            <br/> Barrington
-            <br/> CB22 7QY
-            <br/><a href="mailto:rob.hague@cydar.co.uk">rob.hague@cydar.co.uk</a>
-        </div>
-    </section>
-    <a class="pdf" href="Charlie-Hewitt-CV.pdf" download>PDF</a>
-</body>
-
+            #refs:after {
+                clear: both;
+                content: "";
+                display: table;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="info">
+            <div class="info-address">
+                Amhurst
+                <br/> Hedgerley Hill
+                <br/> Hedgerley
+                <br/> SL2 3RJ
+                <br/>
+                <br/>
+                <span class="fixed-width">T</span> +44 7463757345
+                <br/>
+                <span class="fixed-width">E</span> <a href="mailto:charlie@thehewitts.biz">charlie@thehewitts.biz</a>
+                <br/>
+                <span class="fixed-width">W</span> <a href="http://chewitt.me" target="_blank">chewitt.me</a>
+                <br/>
+            </div>
+            <div class="info-name">
+                <h2>Charlie Hewitt</h2> Curriculum Vitae
+            </div>
+        </section>
+        <section id="profile">
+            <h2>Profile</h2>
+            <p>I'm a
+                <script type="text/javascript">
+                    var currentTime = new Date();
+                    var month = currentTime.getMonth() + 1;
+                    var day = currentTime.getDate();
+                    var year = currentTime.getFullYear();
+                    var age = currentTime.getFullYear() - 1995;
+                    if (month < 9 || (day < 13 && month == 9))
+                        age -= 1;
+                    document.write(age);
+                </script>
+                <noscript>
+                    22
+                </noscript> year old student currently reading for a masters in computer science at the University of Cambridge. I'm hoping to secure an internship or apprenticeship
+                    in the software research &amp; development field starting summer 2018; I'd like to pursue a career in the design and implementation of software systems after
+                    finishing my studies. I'm particularly interested in graphics, vision and interaction. A portfolio of my recent work is available at <a href="http://chewitt.me" target="_blank">chewitt.me</a>.</p>
+        </section>
+        <section>
+            <h2>Skills</h2>
+            <ul>
+                <li>Programming in Python, C#, C/C++, Java, Objective-C, Swift and SML/OCaml.</li>
+                <li>Machine learning using tools such as SciKit, Keras and TensorFlow.</li>
+                <li>Deploying software to a number of platforms including Windows, iOS and Android devices.</li>
+                <li>Using HTML/CSS, PHP and JavaScript in the production of websites, including use of frameworks such as React, Angular, Bootstrap and Foundation.</li>
+                <li>Source code management using Git.</li>
+                <li>OpenGL shader programming in GLSL.</li>
+                <li>Database management using SQL.</li>
+                <li>Graphical design experience including UI, UX and icon design using Adobe Photoshop.</li>
+                <li>Proficient user of Mac OS, Linux and Windows operating systems.</li>
+                <li>Extensive experience with Microsoft Excel, as well as word processing including use of <img src="Fonts/latex.svg" class="latex" alt="LaTeX"/>.</li>
+            </ul>
+        </section>
+        <section id="exp">
+            <h2>Experience</h2>
+            <h3>Intern - Cydar - Summer 2017</h3>
+            <p>Two month internship working as part of the team at Cydar in Cambridge, helping to develop imaging technologies for surgeons to use in the OR.</p>
+            <h3>Intern - Jagex Game Studios - Summer 2016</h3>
+            <p>Three month internship as part of a small team, focussed on projects involving the prototyping and development of potential future business opportunities for Jagex.</p>
+            <h3>Webmaster - Trinity Hall Boat Club - 2014-2017</h3>
+            <p>Maintaining and updating the club website (<a href="http://trinityhallbc.co.uk" target="_blank">trinityhallbc.co.uk</a>), including complete website redesign, mobile
+                compatibility update and implementation of online captaincy election system.</p>
+            <h3>Treasurer - Trinity Hall June Event - 2016</h3>
+            <p>Management of &pound;150,000 budget and assistance in production of event hosting 2000 guests celebrating the end of the academic year.</p>
+        </section>
+        <section id="research">
+            <h2>Research</h2>
+            <h3>Identifying plant species from leaf images using shape features<a class="pdf" href="./Papers/CTH-Tree-ID-2018.pdf" target="_blank">PDF</a></h3>
+            <p>Paper presenting a novel feature set for shape-only leaf identification from images. Over 90% accuracy is achieved on all but one public dataset, with top-four accuracy for these datasets over 98%.</p>
+            <h3>Confidence measures for CNN classification using Gaussian processes<a class="pdf" href="./Papers/CTH-CNN-Conf-2018.pdf" target="_blank">PDF</a></h3>
+            <p>Paper presenting a hybrid classification technique using Gaussian processes fitted on features extracted by a convolutional neural network to enable estimation of prediction confidence. The classifer is evaluated on the MNIST dataset and shown to have somewhat meaningful implications for confidence estimation.</p>
+            <h3>Procedural generation of tree models for use in computer graphics - 2017<a class="pdf" href="./Papers/CTH-Dissertation-2017.pdf" target="_blank">PDF</a></h3>
+            <p>Project and associated dissertation produced for part II of the Cambridge BA course evaluating the effectiveness of
+                Lindenmeyer-Systems and a fully parametric approach in producing realistic 3D models of trees for CGI. Implemented
+                two systems in python for use with Blender, as well as an investigation of automatic design using genetic algorithms.</p>
+        </section>
+        <section id="edu">
+            <h2>Education</h2>
+            <h3>Trinity Hall, University of Cambridge - 2014-Present</h3>
+            <p>Studying for an MEng in computer science</p>
+            <p>BA (first class) in computer science</p>
+            <h3>John Hampden Grammar School - 2007-14</h3>
+            <p>A Level</p>
+            <ul>
+                <li>A* in Mathematics, Further Mathematics and Chemistry</li>
+                <li>A in Physics</li>
+            </ul>
+            <p>AS Level</p>
+            <ul>
+                <li>A in Mathematics, Further Mathematics, Chemistry, Physics and Geography</li>
+            </ul>
+            <p>Cambridge iGCSE</p>
+            <ul>
+                <li>A* in Mathematics</li>
+            </ul>
+            <p>GCSE</p>
+            <ul>
+                <li>A* in Mathematics, Physics, Chemistry, Biology, Music, Industrial Technology, Geography, English Literature, French, Religious Studies (half course) and ICT (half course)</li>
+                <li>B in English Language</li>
+            </ul>
+        </section>
+        <section id="achievements">
+            <h2>Achievements / Interests</h2>
+            <ul>
+                <li>Participant at Hack Cambridge Recurse 2017, producing an IoT mail sensor, and at Hack Cambridge Ternary 2018, producing a VR photo gallery with automatic captioning.</li>
+                <li>Second place at Jane Street's eth0 hackathon 2015 and again at eth1 2016.</li>
+                <li>Lower Boats Captain and coach for Trinity Hall Boat Club.</li>
+                <li>Rowed and sculled as part of the first men's squad at Trinity Hall Boat Club.</li>
+                <li>Design, development and production of 'Flippers Ain't Wings' iOS App.</li>
+                <li>Created numerous mobile substrate tweaks with an installation base of over 100,000 iOS devices.</li>
+                <li>Winner of 'Most Promising Developer of 2015' and runner up 'Best Novelty Tweak of 2015' at the Jailbreak Awards 2015.</li>
+                <li>JHGS Orchestra (2010-11), Jazz Band (2011-14) and Senior Jazz Band (2012-14).</li>
+            </ul>
+        </section>
+        <section id="refs">
+            <h2>References</h2>
+            <div class="col">
+                Prof. Simon Moore
+                <br/> Director of Studies, Computer Science
+                <br/> Trinity Hall
+                <br/> Trinity Lane
+                <br/> Cambridge
+                <br/> CB2 1TJ
+                <br/> <a href="mailto:simon.moore@cl.cam.ac.uk">simon.moore@cl.cam.ac.uk</a>
+            </div>
+            <div class="col">
+                Robert Hague
+                <br/> CTO
+                <br/> Cydar Ltd.
+                <br/> Bulbeck Mill
+                <br/> Barrington
+                <br/> CB22 7QY
+                <br/><a href="mailto:rob.hague@cydar.co.uk">rob.hague@cydar.co.uk</a>
+            </div>
+        </section>
+        <a class="pdf" href="Charlie-Hewitt-CV.pdf" download>PDF</a>
+    </body>
 </html>
