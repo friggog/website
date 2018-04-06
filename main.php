@@ -108,7 +108,7 @@ $social_icons = array(
                 Get in touch
             </a>
         </section>
-        <div class="copy">&copy; 2017</div>
+        <div class="copy">&copy; <?php echo date("Y"); ?></div>
     </div>
 </body>
 

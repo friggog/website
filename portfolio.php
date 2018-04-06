@@ -1,5 +1,12 @@
 <?php
 $portfolio_items = array(
+    array(
+        'title' => 'Microsoft Research',
+        'button_title' => 'Website',
+        'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
+        'content' => '<p>I\'m joining Microsoft Research in Cambridge for a three month research internship over the summer of 2018</p><p>I\'ll be working on the graphics pipeline for a <a target="-blank" href="https://www.microsoft.com/en-us/research/project/holographic-near-eye-displays-virtual-augmented-reality/">prototype near-eye holoraphic display</a>.</p>',
+        'image' => 'MSR'
+    ),
     //array(
     //    'title' => 'Leaf Identification',
     //    'button_title' => 'Read Paper',
