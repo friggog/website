@@ -1,12 +1,12 @@
 <?php
 $portfolio_items = array(
-    array(
-        'title' => 'Leaf Identification',
-        'button_title' => 'Read Paper',
-        'button_link' => './Papers/CTH-Tree-ID-2018.pdf',
-        'content' => '<p>Paper presenting a novel feature set for shape-only leaf identification from images. Over 90% accuracy is achieved on all but one public dataset, with top-four accuracy for these datasets over 98%.</p><p>Source code available <a href="https://github.com/friggog/tree-id" target="=_blank">on GitHub</a>.</p>',
-        'image' => 'TreeID'
-    ),
+    //array(
+    //    'title' => 'Leaf Identification',
+    //    'button_title' => 'Read Paper',
+    //    'button_link' => './Papers/CTH-Tree-ID-2018.pdf',
+    //    'content' => '<p>Paper presenting a novel feature set for shape-only leaf identification from images. Over 90% accuracy is achieved on all but one public dataset, with top-four accuracy for these datasets over 98%.</p><p>Source code available <a href="https://github.com/friggog/tree-id" target="=_blank">on GitHub</a>.</p>',
+    //    'image' => 'TreeID'
+    //),
     array(
         'title' => 'GP Confidences for CNNs',
         'button_title' => 'Read Paper',
