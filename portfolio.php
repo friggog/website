@@ -7,13 +7,13 @@ $portfolio_items = array(
         'content' => '<p>I\'m joining Microsoft Research in Cambridge for a three month research internship over the summer of 2018</p><p>I\'ll be working on the graphics pipeline for a <a target="-blank" href="https://www.microsoft.com/en-us/research/project/holographic-near-eye-displays-virtual-augmented-reality/">prototype near-eye holoraphic display</a>.</p>',
         'image' => 'MSR'
     ),
-    array(
-        'title' => 'Leaf Identification',
-        'button_title' => 'Read Paper',
-        'button_link' => './Papers/CTH-Tree-ID-2018.pdf',
-        'content' => '<p>Paper presenting a novel feature set for shape-only leaf identification from images. Over 90% accuracy is achieved on all but one public dataset, with top-four accuracy for these datasets over 98%.</p><p>Source code available <a href="https://github.com/friggog/tree-id" target="=_blank">on GitHub</a>.</p>',
-        'image' => 'TreeID'
-    ),
+    //array(
+    //    'title' => 'Leaf Identification',
+    //    'button_title' => 'Read Paper',
+    //    'button_link' => './Papers/CTH-Tree-ID-2018.pdf',
+    //    'content' => '<p>Paper presenting a novel feature set for shape-only leaf identification from images. Over 90% accuracy is achieved on all but one public dataset, with top-four accuracy for these datasets over 98%.</p><p>Source code available <a href="https://github.com/friggog/tree-id" target="=_blank">on GitHub</a>.</p>',
+    //    'image' => 'TreeID'
+    //),
     array(
         'title' => 'GP Confidences for CNNs',
         'button_title' => 'Read Paper',
