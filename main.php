@@ -102,7 +102,7 @@ $social_icons = array(
                 year old student living near London in the UK.</p>
             <p>I'm studying for an MEng in computer science at the University of Cambridge.</p>
             <p>I like to design and code things - apps, websites, iOS tweaks, icons &amp; interfaces.</p>
-            <p>I also love to play and write music, take photos &amp; row.</p>
+            <p>I also love to play and write music, travel &amp; row.</p>
             <p>A full CV is available <a href="cv.html" target="_blank">here</a>.</p>
             <a class="btn white" href="mailto:contact@chewitt.me" target="_blank">
                 Get in touch
