@@ -99,8 +99,8 @@ $social_icons = array(
                 <noscript>
                     22
                 </noscript>
-                year old student living near London in the UK.</p>
-            <p>I'm studying for an MEng in computer science at the University of Cambridge.</p>
+                year old computer scientist living near London in the UK.</p>
+            <p>I'm interested in graphics, computer vision and human-computer interaction.</p>
             <p>I like to design and code things - apps, websites, iOS tweaks, icons &amp; interfaces.</p>
             <p>I also love to play and write music, travel &amp; row.</p>
             <p>A full CV is available <a href="cv.html" target="_blank">here</a>.</p>
