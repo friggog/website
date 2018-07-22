@@ -1,0 +1,3 @@
+[submodule "cam-glyco"]
+	path = cam-glyco
+	url = https://github.com/friggog/cam-glyco.git
