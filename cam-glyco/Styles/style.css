@@ -1,0 +1,318 @@
+/*
+#F06449
+#4B80C1
+#A7C73F
+#2F3232
+#565A5B
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700|Raleway');
+
+body {
+    font-weight: lighter;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Raleway", sans-serif;
+    color: #2F3232;
+}
+
+h1, h2 {
+    font-family: "Montserrat";
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+h2 {
+    letter-spacing: 0.1em;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    letter-spacing: 0;
+}
+
+p {
+    text-align: justify;
+}
+
+
+nav .logo {
+    font-family: "Montserrat";
+    display: flex;
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
+nav .logo>img {
+    height: 1.7em;
+}
+
+nav .logo>.text {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+nav .logo .cam {
+    line-height: 1em;
+    margin-top: auto;
+}
+
+nav .logo .glyco {
+    font-size: 0.78em;
+    line-height: 1em;
+    margin-bottom: auto;
+}
+
+nav {
+    background-color: rgba(47, 50, 50, 0.9);
+    padding: 1em 2em;
+    font-family: Montserrat;
+    letter-spacing: 0.2em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+nav>.content>a:hover  {
+    color: inherit;
+}
+
+nav>.content {
+    color: white;
+    max-width: 960px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+nav>.content .logo .glyco {
+    color: #A7C73F;
+}
+
+nav>.content .logo>.text {
+    margin-left: 0.2em;
+}
+
+nav>.content>.menu {
+    font-size: 1em;
+}
+
+nav ul {
+    margin: 0;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 0.7em 1em;
+    margin: 0;
+}
+
+section {
+    padding: 2em 0;
+}
+
+#intro {
+    background-image: url("../Images/info_bg.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 40rem;
+    padding-top: 9rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+#intro>section {
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+}
+
+#intro>button {
+    height: auto;
+    padding: 1em 3em;
+    font-size: 1.3rem;
+    margin: 2em 0 0 0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+#about>.row {
+    text-align: center;
+}
+
+#about>.row>.columns {
+    text-align: center;
+    padding: 1em 0;
+}
+
+#about>.row>.columns>img {
+    height: 8rem;
+}
+
+#support {
+    text-align: center;
+}
+
+#support>.graphic>div {
+    height: 10rem;
+    display: inline-block;
+}
+
+#support>.graphic>.base {
+    background-image: url("../Images/graphic_b.png");
+    background-repeat: repeat-x;
+    width: calc(50% - 5rem);
+    background-size: contain;
+}
+
+#support>.graphic>.mid {
+    background-image: url("../Images/graphic_m.png");
+    background-size: cover;
+    background-position: bottom;
+    width: 10rem;
+}
+
+#support>.full {
+    background-color: #4B80C1;
+    margin: -2px 0;
+}
+
+#support h1 {
+    color: white;
+    margin: 0;
+}
+
+#support .container {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+#support .container img {
+    height: 6rem;
+    padding: 1.5rem;
+    margin: auto;
+}
+
+#support>.base-u {
+    background-image: url("../Images/graphic_b_r.png");
+    background-repeat: repeat-x;
+    background-size: contain;
+    height: 2.5rem;
+}
+
+
+#people>.row>.columns {
+    text-align: center;
+}
+
+#people>.row>.columns>img {
+    width: 60%;
+    border-radius: 50%;
+}
+
+footer {
+    background-color: #2F3232;
+    padding: 2em 0;
+    color: white;
+}
+
+footer .logo {
+    font-size: 1.5em;
+    font-family: "Montserrat";
+    font-weight: bold;
+    text-align: center;
+    line-height: 1em;
+}
+
+footer .logo>img {
+    width: 3em;
+    margin-bottom: 0.3em;
+}
+
+footer .logo>.text {
+    color: #565A5B;
+    margin-right: 0.2em;
+}
+
+footer .logo .glyco {
+    font-size: 0.6em;
+}
+
+footer .columns {
+    padding: 1em 0;
+}
+
+footer .copy {
+    margin-top: 3em;
+    color: #565A5B;
+}
+
+footer .copy>span {
+    display: inline-block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #A7C73F;
+}
+
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    font-family: Montserrat;
+    letter-spacing: 0.2em;
+    font-weight: bold;
+    line-height: inherit;
+}
+
+@media (max-width: 550px) {
+    nav>.content {
+        padding-top: 1em;
+        flex-direction: column;
+        align-items: center;
+    }
+    nav>.content>.menu {
+        font-size: 0.8em;
+    }
+    nav ul li {
+        padding: 0.5em;
+    }
+    #intro {
+        padding-top: 15rem;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 550px) {
+    footer .logo {
+        display: none;
+    }
+    footer .copy {
+        font-size: 0.8em;
+    }
+}
+
