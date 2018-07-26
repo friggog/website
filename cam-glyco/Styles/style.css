@@ -2,6 +2,7 @@
 #F06449
 #4B80C1
 #A7C73F
+#FFCB3F
 #2F3232
 #565A5B
  */
@@ -17,7 +18,7 @@ body {
 }
 
 h1, h2 {
-    font-family: "Montserrat";
+    font-family: "Montserrat", sans-serif;
     letter-spacing: 0.1em;
     font-weight: bold;
     text-decoration: none;
@@ -45,10 +46,15 @@ p {
 
 
 nav .logo {
-    font-family: "Montserrat";
+    display: block;
+    font-family: "Montserrat", sans-serif;
     display: flex;
     font-size: 1.7em;
     font-weight: bold;
+}
+
+nav .logo:hover {
+    color: inherit;
 }
 
 nav .logo>img {
@@ -73,7 +79,7 @@ nav .logo .glyco {
 }
 
 nav {
-    background-color: rgba(47, 50, 50, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 1em 2em;
     font-family: Montserrat;
     letter-spacing: 0.2em;
@@ -84,12 +90,8 @@ nav {
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 
-nav>.content>a:hover  {
-    color: inherit;
-}
-
 nav>.content {
-    color: white;
+    color: #2F3232;
     max-width: 960px;
     margin: auto;
     display: flex;
@@ -125,9 +127,9 @@ section {
 }
 
 #intro {
-    background-image: url("../Images/info_bg.png");
+    background-image: url("../Images/cake.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: right;
     background-attachment: fixed;
     height: 40rem;
     padding-top: 9rem;
@@ -153,17 +155,32 @@ section {
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 
-#about>.row {
-    text-align: center;
+#about>.ns-row {
+    max-width: 700px;
+    margin: auto;
+    display: flex;
+    align-items: center;
 }
 
-#about>.row>.columns {
-    text-align: center;
-    padding: 1em 0;
+#about>.ns-row:nth-child(odd) {
+    flex-direction: row-reverse;
 }
 
-#about>.row>.columns>img {
-    height: 8rem;
+#about>.ns-row>div {
+    padding: 0 0 0 2em;
+    flex-grow: 1;
+}
+
+#about>.ns-row:nth-child(odd)>div {
+    padding: 0 2em 0 0;
+}
+
+#about>.ns-row p {
+    margin: 0;
+}
+
+#about>.ns-row>img {
+    height: 15rem;
 }
 
 #support {
@@ -249,7 +266,7 @@ footer .logo>img {
 
 footer .logo>.text {
     color: #565A5B;
-    margin-right: 0.2em;
+    /*margin-right: 0.2em;*/
 }
 
 footer .logo .glyco {
@@ -305,6 +322,12 @@ input[type="button"] {
         padding-top: 15rem;
         font-size: 2rem;
     }
+    #about>.ns-row, #about>.ns-row:nth-child(odd) {
+        flex-direction: column;
+    }
+    #about>.ns-row>div, #about>.ns-row:nth-child(odd)>div {
+        padding: 1em 0;
+    }
 }
 
 @media (max-width: 550px) {
@@ -316,3 +339,36 @@ input[type="button"] {
     }
 }
 
+
+
+
+#privacy .logo {
+    display: block;
+    font-size: 1.5em;
+    font-family: "Montserrat";
+    font-weight: bold;
+    text-align: center;
+    line-height: 1em;
+    margin: 1.5em 0;
+}
+
+#privacy .logo:hover {
+    color: inherit;
+}
+
+#privacy .logo>img {
+    width: 3em;
+    margin-bottom: 0.3em;
+}
+
+#privacy .logo>.text {
+}
+
+#privacy .logo .glyco {
+    font-size: 0.83em;
+}
+
+#privacy h2 {
+    text-align: center;
+    margin-bottom: 2em;
+}
