@@ -1,12 +1,5 @@
 <?php
 $portfolio_items = array(
-    array(
-        'title' => 'Microsoft Research',
-        'button_title' => 'Website',
-        'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
-        'content' => '<p>I\'m joining Microsoft Research in Cambridge for a three month research internship over the summer of 2018</p><p>I\'ll be working on the graphics pipeline for a <a target="-blank" href="https://www.microsoft.com/en-us/research/project/holographic-near-eye-displays-virtual-augmented-reality/">prototype near-eye holoraphic display</a>.</p>',
-        'image' => 'MSR'
-    ),
     //array(
     //    'title' => 'Leaf Identification',
     //    'button_title' => 'Read Paper',
@@ -14,6 +7,20 @@ $portfolio_items = array(
     //    'content' => '<p>Paper presenting a novel feature set for shape-only leaf identification from images. Over 90% accuracy is achieved on all but one public dataset, with top-four accuracy for these datasets over 98%.</p><p>Source code available <a href="https://github.com/friggog/tree-id" target="=_blank">on GitHub</a>.</p>',
     //    'image' => 'TreeID'
     //),
+    array(
+        'title' => 'Microsoft Research',
+        'button_title' => 'Website',
+        'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
+        'content' => '<p>I\'m joining Microsoft Research in Cambridge for a three month research internship over the summer of 2018</p><p>I\'ll be working on the graphics pipeline for a <a target="-blank" href="https://www.microsoft.com/en-us/research/project/holographic-near-eye-displays-virtual-augmented-reality/">prototype near-eye holoraphic display</a>.</p>',
+        'image' => 'MSR'
+    ),
+    array(
+        'title' => 'Emosic',
+        'button_title' => 'Read Paper',
+        'button_link' => 'https://arxiv.org/abs/1807.08775',
+        'content' => '<p>Paper focussing on the design, deployment and evaluation of Convolutional Neural Network (CNN) architectures for facial affect analysis on mobile devices. The proposed architectures equal the dataset baseline while minimising storage requirements. A user study demonstrates the feasibility of deploying the models for real-world applications.</p>
+        <p>Source code is available on <a href="https://github.com/friggog/Emosic" target="_blank">GitHub</a>.</p>'
+    ),
     array(
         'title' => 'GP Confidences for CNNs',
         'button_title' => 'Read Paper',
@@ -28,28 +35,19 @@ $portfolio_items = array(
         'content' => '<p>Website design and other graphics for the 2018 Trinity Hall June Event, in addition to managing the ticketing service provided through <a href="https://getqpay.com" target="_blank">Qpay</a>.</p>',
         'image' => 'THJE'
     ),
-    //array(
-    //    'title' => 'Emosic',
-    //    'button_title' => 'Read Paper',
-    //    'button_link' => './Papers/CTH-Emosic-2018.pdf',
-    //    'content' => '<p>Music recommendation iOS app using machine learning for emotion recognition and valence/arousal prediction. Implemented in python using
-    //                  <a href="https://keras.io" target="_blank">Keras</a> with models trained on <a href="http://mohammadmahoor.com/affectnet/" taget="_blank">AffectNet</a>.
-    //                  The <a href="https://developer.spotify.com/web-api/" target="_blank">Sptofiy Web API</a> is used for song suggestions.</p>
-    //                  <p>Source code is available on <a href="https://github.com/friggog/Emosic" target="_blank">GitHub</a>.</p>'
-    //),
     array(
         'title' => 'AirPi',
         'content' => '<p><a href="https://www.raspberrypi.org/products/raspberry-pi-zero-w/" target="_blank">Raspberry Pi Zero W</a> based AirPlay and Spotify
-                      Connect server for use with my desktop speakers.</p> <p>Uses the <a href="https://www.hifiberry.com/shop/boards/hifiberry-dac-zero/"
-                      target="_blank">HiFiBerry DAC+ Zero</a> along with <a href="https://github.com/mikebrady/shairport-sync" target="_blank">shairport-sync</a>
-                      and <a href="https://dtcooper.github.io/raspotify/" target="_blank">raspotify</a>.</p>'
+        Connect server for use with my desktop speakers.</p> <p>Uses the <a href="https://www.hifiberry.com/shop/boards/hifiberry-dac-zero/"
+        target="_blank">HiFiBerry DAC+ Zero</a> along with <a href="https://github.com/mikebrady/shairport-sync" target="_blank">shairport-sync</a>
+        and <a href="https://dtcooper.github.io/raspotify/" target="_blank">raspotify</a>.</p>'
     ),
     array(
         'title' => 'Cydar',
         'button_link' => 'http://www.cydarmedical.com',
         'button_title' => 'Website',
         'content' => '<p>I\'ll be joining the team at Cydar in Cambridge for a two month internship over the summer of 2017.</p>
-                      <p>I will help to develop technologies for medical imaging to be used by surgeons during operations.</p>'
+        <p>I will help to develop technologies for medical imaging to be used by surgeons during operations.</p>'
     ),
     array(
         'title' => 'Part II Project',
