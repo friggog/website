@@ -48,35 +48,10 @@ p {
 
 nav .logo {
     display: block;
-    font-family: "Montserrat", sans-serif;
-    display: flex;
-    font-size: 1.7em;
-    font-weight: bold;
-}
-
-nav .logo:hover {
-    color: inherit;
 }
 
 nav .logo>img {
-    height: 1.7em;
-}
-
-nav .logo>.text {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-}
-
-nav .logo .cam {
-    line-height: 1em;
-    margin-top: auto;
-}
-
-nav .logo .glyco {
-    font-size: 0.78em;
-    line-height: 1em;
-    margin-bottom: auto;
+    height: 100%;
 }
 
 nav {
@@ -106,10 +81,6 @@ nav>.content .logo .glyco {
 
 nav>.content .logo>.text {
     margin-left: 0.2em;
-}
-
-nav>.content>.menu {
-    font-size: 1em;
 }
 
 nav ul {
@@ -204,6 +175,7 @@ section {
 
 #about .ns-row>img {
     height: 15rem;
+    width: 15rem;
 }
 
 
@@ -368,7 +340,7 @@ input[type="button"] {
         max-width: 100%;
         left: 0;
         right: 0;
-        margin: auto;
+        margin: 0 auto;
     }
     #intro>section>div>.bottom {
         margin-bottom: 8em;
@@ -393,9 +365,12 @@ input[type="button"] {
         margin-left: 0;
     }
     nav>.content {
-        padding-top: 1em;
+        padding-top: 0.7em;
         flex-direction: column;
         align-items: center;
+    }
+    nav .logo>img {
+        height: 4.5rem;
     }
     nav>.content>.menu {
         font-size: 0.8em;
