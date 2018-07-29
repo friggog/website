@@ -65,6 +65,7 @@ nav {
     left: 0;
     right: 0;
     z-index: 2;
+    font-size: 1.5rem;
 }
 
 nav>.content {
@@ -272,6 +273,7 @@ footer {
     background-color: #2F3232;
     padding: 2em 0 1em 0;
     color: white;
+    font-size: 1.5rem;
 }
 
 footer .logo {
