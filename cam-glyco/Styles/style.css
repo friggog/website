@@ -38,6 +38,7 @@ h2 {
 h3 {
     font-size: 1.5rem;
     letter-spacing: 0;
+    margin-bottom: 1em;
 }
 
 p {
@@ -122,8 +123,11 @@ nav ul li {
     margin: 0;
 }
 
+
+
+
 section {
-    padding: 2em 0 0 0;
+    padding: 2em 0;
 }
 
 #intro {
@@ -134,6 +138,7 @@ section {
     box-sizing: border-box;
     height: 100vh;
     background-color: #4B80C1;
+    overflow: hidden;
 }
 
 #intro>section {
@@ -143,7 +148,7 @@ section {
 #intro img {
     position: absolute;
     bottom: 0;
-    right: -30vh;
+    right: -35vh;
     max-height: 80vh;
 }
 
@@ -171,8 +176,6 @@ section {
 
 
 #about {
-    border-top: 3px solid white;
-    box-shadow: inset 0 4px 0 #2F3232;
 }
 
 #about .ns-row {
@@ -207,7 +210,9 @@ section {
 
 
 #people {
+    background-color: #4B80C1;
     color: white;
+    padding: 2em 0 1em 0;
 }
 
 #people .row {
@@ -234,35 +239,8 @@ section {
     width: 60%;
     border-radius: 50%;
     max-width: 200px;
+    margin-bottom: 1em;
 }
-
-#people>.graphic>div {
-    height: 10rem;
-    display: inline-block;
-}
-
-#people>.graphic>.base {
-    background-image: url("../Images/graphic_b.png");
-    background-repeat: repeat-x;
-    width: calc(50% - 5rem);
-    background-size: contain;
-}
-
-#people>.graphic>.mid {
-    background-image: url("../Images/graphic_m.png");
-    background-size: cover;
-    background-position: bottom;
-    width: 10rem;
-}
-
-#people>.full {
-    background-color: #4B80C1;
-    margin: -2px 0;
-    border-bottom: 4px solid #2F3232;
-    box-shadow: inset 0 -3px 0 white;
-    padding-bottom: 0.5em;
-}
-
 
 
 
@@ -279,7 +257,7 @@ section {
 }
 
 #support .container img {
-    max-height: 4rem;
+    max-height: 5rem;
     padding: 1.5rem;
     margin: auto;
     max-width: calc(100% - 3rem);
@@ -287,11 +265,8 @@ section {
 
 
 #mailing {
-    border-top: 4px solid #2F3232;
-    box-shadow: inset 0 3px 0 white;
     background-color: #A7C73F;
     padding-bottom: 2em;
-    margin-top: 2em;
     color: white;
 }
 
@@ -382,18 +357,20 @@ input[type="button"] {
 @media (max-aspect-ratio: 1/1) {
     #intro>section>div {
         width: 100%;
-        justify-content: flex-start;
-        padding-top: 2em;
         text-align: center;
     }
     #intro>section>div>p {
         text-align: center;
     }
     #intro>section>img {
-        height: 40%;
+        max-height: 40%;
+        max-width: 100%;
         left: 0;
         right: 0;
         margin: auto;
+    }
+    #intro>section>div>.bottom {
+        margin-bottom: 8em;
     }
 }
 
@@ -469,6 +446,21 @@ input[type="button"] {
     }
 }
 
+@media (max-height: 550px) {
+    #intro {
+        font-size: 2rem;
+    }
+    #intro img {
+        height: 70vh;
+    }
+}
+
+@media (max-height: 350px) {
+    #intro {
+        font-size: 1.5rem;
+    }
+}
+
 #privacy .logo {
     display: block;
     font-size: 1.5em;
@@ -485,15 +477,24 @@ input[type="button"] {
 }
 
 #privacy .logo>img {
-    width: 3em;
-    margin-bottom: 0.3em;
+    width: 10rem;
 }
 
 #privacy .logo .glyco {
     font-size: 0.6em;
 }
 
-#privacy h2 {
-    text-align: center;
+#privacy h1 {
+    text-align: left;
+    font-size: 1.7em;
+}
+
+@media (max-width: 550px) {
+    #privacy h1 {
+        text-align: center;
+    }
+}
+
+#privacy>div {
     margin-bottom: 2em;
 }
