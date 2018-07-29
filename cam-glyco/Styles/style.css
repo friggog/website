@@ -155,6 +155,11 @@ section {
     margin: auto;
     display: flex;
     align-items: center;
+    padding: 1em 0 0 0;
+}
+
+#about .ns-row:first-of-type {
+    padding: 0;
 }
 
 #about .ns-row:nth-child(odd) {
@@ -372,6 +377,7 @@ input[type="button"] {
     }
     nav .logo>img {
         height: 4.5rem;
+        width: 26rem;
     }
     nav>.content>.menu {
         font-size: 0.8em;
@@ -392,7 +398,7 @@ input[type="button"] {
         flex-direction: column;
     }
     #about .ns-row>div, #about .ns-row:nth-child(odd)>div {
-        padding: 1em 0;
+        padding: 1em 0 0 0;
     }
     footer .row>.ns-column {
         width: 100%;
