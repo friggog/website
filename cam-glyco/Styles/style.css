@@ -150,6 +150,7 @@ section {
     bottom: 0;
     right: -35vh;
     max-height: 80vh;
+    pointer-events: none;
 }
 
 #intro>section>div {
