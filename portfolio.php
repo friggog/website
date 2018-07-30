@@ -8,6 +8,13 @@ $portfolio_items = array(
     //    'image' => 'TreeID'
     //),
     array(
+        'title' => 'CamGlyco Website',
+        'button_title' => 'View Website',
+        'button_link' => 'http://camglyco.com',
+        'content' => '<p>Website for Cambridge Glycoscience, a startup developing the next generation of sugar substitutes.</p>',
+        'image' => 'CamGlyco'
+    ),
+    array(
         'title' => 'Microsoft Research',
         'button_title' => 'Website',
         'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
@@ -66,13 +73,13 @@ $portfolio_items = array(
     //                  implementing some of the concepts.</p> <p>So far I\'ve implemented a Bayesian neural network, Gaussian process regression (pictured)
     //                  and the Viterbi algorithm - I\'m hoping to implement a support vector machine and more soon!</p>'
     //),
-    array(
-        'title' => 'PidgePing',
-        'content' => '<p>Project completed as part of the Hack Cambridge hackathon in January 2017.</p>
-                      <p>An IR sensor placed in the user\'s mailbox would communicate via WIFI to our server which then sent out an email notifying them. Ideal for
-                      Cambridge students whose mailboxes are often far away from where they live.</p>
-                      <p>A website allowed users to register and set up their device, as well as check its status.</p>'
-    ),
+    //array(
+    //    'title' => 'PidgePing',
+    //    'content' => '<p>Project completed as part of the Hack Cambridge hackathon in January 2017.</p>
+    //                  <p>An IR sensor placed in the user\'s mailbox would communicate via WIFI to our server which then sent out an email notifying them. Ideal for
+    //                  Cambridge students whose mailboxes are often far away from where they live.</p>
+    //                  <p>A website allowed users to register and set up their device, as well as check its status.</p>'
+    //),
     array(
         'title' => 'OpenGL Shaders',
         'image' => 'Shaders',
