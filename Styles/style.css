@@ -1,7 +1,9 @@
-@import '../Fonts/sofia.css';
+/*@import '../Fonts/sofia.css';*/
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+
+
 body {
-    font-family: 'CH Sofia Pro', sans-serif;
-    font-weight: lighter;
+    font-family: 'Work Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -82,7 +84,7 @@ h2 {
 }
 
 .header.small>.content {
-    width: 15em;
+    width: 17em;
 }
 
 .header h1 {
@@ -174,14 +176,6 @@ h2 {
         margin-top: 1.5rem;
         overflow: hidden;
     }
-    .menu.small .contact {
-        color: rgb(28, 123, 222);
-        border: 1px solid rgb(28, 123, 222);
-    }
-    .menu.small .contact:hover {
-        color: white;
-        background-color: rgb(28, 123, 222);
-    }
 }
 
 .menu ul li:hover {
@@ -200,12 +194,10 @@ h2 {
 }
 
 .menu.small>.content {
-    width: 23em;
+    width: 24em;
 }
 
 .menu .contact {
-    border: 1px solid rgba(28, 123, 222, 0);
-    background-color: rgba(28, 123, 222, 0);
     margin-right: 0;
 }
 
@@ -283,7 +275,7 @@ h2 {
     margin: 6px 2px 0 2px;
     height: calc(100% - 6px);
     width: calc(100% - 4px);
-    line-height: 1.3em;
+    line-height: 1.4em;
     text-align: left;
     opacity: 0;
     -webkit-box-sizing: border-box;
@@ -467,10 +459,10 @@ a {
 .btn {
     border: 1px solid black;
     border-radius: 100px;
-    line-height: 1em;
-    padding: 0.6em 1em 0.35em 1em;
+    padding: 0.4em 1em;
     display: inline-block;
     color: black;
+    margin-top: 0.2em;
     -webkit-transition: background-color 0.15s ease, color 0.15s ease;
     transition: background-color 0.15s ease, color 0.15s ease;
     text-decoration: none;
