@@ -42,13 +42,13 @@ $portfolio_items = array(
         'content' => '<p>Website design and other graphics for the 2018 Trinity Hall June Event, in addition to managing the ticketing service provided through <a href="https://getqpay.com" target="_blank">Qpay</a>.</p>',
         'image' => 'THJE'
     ),
-    array(
-        'title' => 'AirPi',
-        'content' => '<p><a href="https://www.raspberrypi.org/products/raspberry-pi-zero-w/" target="_blank">Raspberry Pi Zero W</a> based AirPlay and Spotify
-        Connect server for use with my desktop speakers.</p> <p>Uses the <a href="https://www.hifiberry.com/shop/boards/hifiberry-dac-zero/"
-        target="_blank">HiFiBerry DAC+ Zero</a> along with <a href="https://github.com/mikebrady/shairport-sync" target="_blank">shairport-sync</a>
-        and <a href="https://dtcooper.github.io/raspotify/" target="_blank">raspotify</a>.</p>'
-    ),
+    //array(
+    //    'title' => 'AirPi',
+    //    'content' => '<p><a href="https://www.raspberrypi.org/products/raspberry-pi-zero-w/" target="_blank">Raspberry Pi Zero W</a> based AirPlay and Spotify
+    //    Connect server for use with my desktop speakers.</p> <p>Uses the <a href="https://www.hifiberry.com/shop/boards/hifiberry-dac-zero/"
+    //    target="_blank">HiFiBerry DAC+ Zero</a> along with <a href="https://github.com/mikebrady/shairport-sync" target="_blank">shairport-sync</a>
+    //    and <a href="https://dtcooper.github.io/raspotify/" target="_blank">raspotify</a>.</p>'
+    //),
     array(
         'title' => 'Cydar',
         'button_link' => 'http://www.cydarmedical.com',
@@ -80,20 +80,20 @@ $portfolio_items = array(
     //                  Cambridge students whose mailboxes are often far away from where they live.</p>
     //                  <p>A website allowed users to register and set up their device, as well as check its status.</p>'
     //),
-    array(
-        'title' => 'OpenGL Shaders',
-        'image' => 'Shaders',
-        'button_link' => './Files/Shaders/',
-        'button_title' => 'Read More',
-        'content' => '<p>Playing around with some space themed planet shaders in GLSL.</p>
-                      <p>Including:</p>
-                      <ul>
-                          <li>Poisson distributed galactic environment generation.</li>
-                          <li>Solar system generation with dynamic lighting.</li>
-                          <li>Earth-like planet, gas planet and star shaders.</li>
-                          <li>Pixel art shader.</li>
-                      </ul>'
-    ),
+    //array(
+    //    'title' => 'OpenGL Shaders',
+    //    'image' => 'Shaders',
+    //    'button_link' => './Files/Shaders/',
+    //    'button_title' => 'Read More',
+    //    'content' => '<p>Playing around with some space themed planet shaders in GLSL.</p>
+    //                  <p>Including:</p>
+    //                  <ul>
+    //                      <li>Poisson distributed galactic environment generation.</li>
+    //                      <li>Solar system generation with dynamic lighting.</li>
+    //                      <li>Earth-like planet, gas planet and star shaders.</li>
+    //                      <li>Pixel art shader.</li>
+    //                  </ul>'
+    //),
     array(
         'title' => 'Jagex',
         'button_link' => 'http://www.jagex.com',
