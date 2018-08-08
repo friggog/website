@@ -263,7 +263,7 @@ h2 {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
+    height: calc(100% - 3px);
     width: 100%;
     line-height: 1.4em;
     text-align: left;
@@ -274,7 +274,7 @@ h2 {
 
 .portfolio-overlay>.background {
     width: 100%;
-    height: 99%;
+    height: 100%;
     background-size: cover;
     display: none;
     overflow: hidden;
@@ -284,7 +284,7 @@ h2 {
     padding: 1.5em 2em;
     box-sizing: border-box;
     width: 100%;
-    height: 99%;
+    height: 100%;
     overflow: hidden;
     position: absolute;
     top: 0;

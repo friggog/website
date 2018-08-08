@@ -31,7 +31,7 @@ $social_icons = array(
 
 <head>
     <title>Charlie Hewitt</title>
-    <meta name="description" content="Charlie Hewitt's personal site."></meta>
+    <meta name="description" content="Charlie Hewitt's personal website."></meta>
     <meta name="keywords" content="charlie hewitt"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Styles/normalize.css" type="text/css">
