@@ -34,6 +34,7 @@ $social_icons = array(
     <meta name="description" content="Charlie Hewitt's personal website."></meta>
     <meta name="keywords" content="charlie hewitt"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://indestructibletype-fonthosting.github.io/jost.css" type="text/css" charset="utf-8" />
     <link rel="stylesheet" href="Styles/normalize.css" type="text/css">
     <link rel="stylesheet" href="Styles/style.css" type="text/css">
     <script src="Scripts/main.js" type="text/javascript"></script>

@@ -1,9 +1,5 @@
-/*@import '../Fonts/sofia.css';*/
-@import url('https://fonts.googleapis.com/css?family=Work+Sans');
-
-
 body {
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Jost*', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -41,7 +37,6 @@ h2 {
 
 .header h1 {
     margin-top: 0.82em;
-    font-weight: lighter;
 }
 
 .header.small {
@@ -103,6 +98,7 @@ h2 {
     padding-top: 0.3rem;
     line-height: 1.7rem;
     margin: 1.5rem 0;
+    cursor: pointer;
 }
 
 .menu ul {
@@ -329,7 +325,7 @@ h2 {
 .portfolio-overlay .btn {
     float: right;
     mix-blend-mode: lighten;
-    padding: 0.4em 1em 0.35em 1em;
+    /*padding: 0.4em 1em 0.35em 1em;*/
 }
 
 .portfolio-overlay .title {
@@ -453,7 +449,7 @@ a {
 .btn {
     border: 1px solid black;
     border-radius: 100px;
-    padding: 0.4em 1em;
+    padding: 0.4em 1em 0.35em 1em;
     display: inline-block;
     color: black;
     margin-top: 0.2em;
