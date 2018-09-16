@@ -1,5 +1,11 @@
 <?php
 $portfolio_items = array(
+    array(
+        'title' => 'CMIC',
+        'button_title' => 'Website',
+        'button_link' => 'https://www.victoria.ac.nz/engineering/research-centres/computational-media-innovation',
+        'content' => '<p>I\'m taking up a research associate position at the Computational Media Innovation Centre (CMIC) at the Victoria University of Wellington in New Zealand for three months starting in January 2019.</p><p>I\'ll be working with researchers and industry partners to help develop inovative augmented, virtual and mixed reality technologies.</p>'
+    ),
     //array(
     //    'title' => 'Leaf Identification',
     //    'button_title' => 'Read Paper',
@@ -11,14 +17,14 @@ $portfolio_items = array(
         'title' => 'CamGlyco Website',
         'button_title' => 'View Website',
         'button_link' => 'http://camglyco.com',
-        'content' => '<p>Website for Cambridge Glycoscience, a startup developing the next generation of sugar substitutes.</p>',
+        'content' => '<p>Website for Cambridge Glycoscience, a startup developing revolutionary sugar substitutes.</p>',
         'image' => 'CamGlyco'
     ),
     array(
         'title' => 'Microsoft Research',
         'button_title' => 'Website',
         'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
-        'content' => '<p>I\'m joining Microsoft Research in Cambridge for a six month research internship starting in summer 2018</p><p>I\'ll be working on the graphics pipeline for a <a target="-blank" href="https://www.microsoft.com/en-us/research/project/holographic-near-eye-displays-virtual-augmented-reality/">prototype near-eye holoraphic display</a>.</p>',
+        'content' => '<p>I\'m joining Microsoft Research in Cambridge for a six month research internship starting in summer 2018</p><p>I\'ll be helping to develop the next generation of head mounted displays using digital holography.</p><p>Some more details about the project are available <a target="-blank" href="https://www.microsoft.com/en-us/research/project/holographic-near-eye-displays-virtual-augmented-reality/">here</a>.</p>',
         'image' => 'MSR'
     ),
     array(

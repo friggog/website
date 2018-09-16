@@ -98,7 +98,7 @@ $social_icons = array(
                     document.write(age);
                 </script>
                 <noscript>
-                    22
+                    23
                 </noscript>
                 year old computer scientist living near London in the UK.</p>
             <p>I'm interested in graphics, computer vision and human-computer interaction.</p>
