@@ -72,8 +72,7 @@ h2 {
 
 .header>.content {
     text-align: center;
-    -webkit-transition: width 0.15s ease;
-    transition: width 0.15s ease;
+
     z-index: 3;
     width: 100%;
 }
@@ -172,6 +171,14 @@ h2 {
         margin-top: 1.5rem;
         overflow: hidden;
     }
+    .header>.content {
+        -webkit-transition: width 0.15s ease;
+        transition: width 0.15s ease;
+    }
+    .menu>.content {
+        -webkit-transition: width 0.15s ease;
+        transition: width 0.15s ease;
+    }
 }
 
 .menu ul li:hover {
@@ -183,8 +190,6 @@ h2 {
     box-sizing: border-box;
     padding: 0 1em;
     float: right;
-    -webkit-transition: width 0.15s ease;
-    transition: width 0.15s ease;
     width: 100%;
     text-align: center;
 }
