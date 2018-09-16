@@ -4,7 +4,7 @@ $portfolio_items = array(
         'title' => 'CMIC',
         'button_title' => 'Website',
         'button_link' => 'https://www.victoria.ac.nz/engineering/research-centres/computational-media-innovation',
-        'content' => '<p>I\'m taking up a research associate position at the Computational Media Innovation Centre (CMIC) at the Victoria University of Wellington in New Zealand for three months starting in January 2019.</p><p>I\'ll be working with researchers and industry partners to help develop inovative augmented, virtual and mixed reality technologies.</p>'
+        'content' => '<p>I\'m taking up a research associate position at the Computational Media Innovation Centre (CMIC) at the Victoria University of Wellington in New Zealand for three months starting in January 2019.</p><p>I\'ll be working with researchers and industry partners to help develop innovative augmented, virtual and mixed reality technologies.</p>'
     ),
     //array(
     //    'title' => 'Leaf Identification',
@@ -38,7 +38,7 @@ $portfolio_items = array(
         'title' => 'GP Confidences for CNNs',
         'button_title' => 'Read Paper',
         'button_link' => './Papers/CTH-CNN-Conf-2018.pdf',
-        'content' => '<p>Paper presenting a hybrid classification technique using Gaussian processes fitted on features extracted by a convolutional neural network to enable estimation of prediction confidence. The classifer is evaluated on the MNIST dataset and shown to have somewhat meaningful implications for confidence estimation.</p>',
+        'content' => '<p>Paper presenting a hybrid classification technique using Gaussian processes fitted on features extracted by a convolutional neural network to enable estimation of prediction confidence. The classifier is evaluated on the MNIST dataset and shown to have somewhat meaningful implications for confidence estimation.</p>',
         'image' => 'CNNConf'
     ),
     array(
