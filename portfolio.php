@@ -6,13 +6,13 @@ $portfolio_items = array(
         'button_link' => 'https://www.victoria.ac.nz/engineering/research-centres/computational-media-innovation',
         'content' => '<p>I\'m taking up a research associate position at the Computational Media Innovation Centre (CMIC) at the Victoria University of Wellington in New Zealand for three months starting in January 2019.</p><p>I\'ll be working with researchers and industry partners to help develop innovative augmented, virtual and mixed reality technologies.</p>'
     ),
-    //array(
-    //    'title' => 'Leaf Identification',
-    //    'button_title' => 'Read Paper',
-    //    'button_link' => './Papers/CTH-Tree-ID-2018.pdf',
-    //    'content' => '<p>Paper presenting a novel feature set for shape-only leaf identification from images. Over 90% accuracy is achieved on all but one public dataset, with top-four accuracy for these datasets over 98%.</p><p>Source code available <a href="https://github.com/friggog/tree-id" target="=_blank">on GitHub</a>.</p>',
-    //    'image' => 'TreeID'
-    //),
+    array(
+        'title' => 'Leaf Identification',
+        'button_title' => 'Read Paper',
+        'button_link' => 'TODO',
+        'content' => '<p>Paper presenting a novel feature set for shape-only leaf identification from images. Over 90% accuracy is achieved on all but one public dataset, with top-four accuracy for these datasets over 98%.</p><p>Source code available <a href="https://github.com/friggog/tree-id" target="=_blank">on GitHub</a>.</p>',
+        'image' => 'TreeID'
+    ),
     array(
         'title' => 'CamGlyco Website',
         'button_title' => 'View Website',
@@ -24,7 +24,7 @@ $portfolio_items = array(
         'title' => 'Microsoft Research',
         'button_title' => 'Website',
         'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
-        'content' => '<p>I\'m joining Microsoft Research in Cambridge for a six month research internship starting in summer 2018</p><p>I\'ll be helping to develop the next generation of head mounted displays using digital holography.</p><p>Some more details about the project are available <a target="-blank" href="https://www.microsoft.com/en-us/research/project/holographic-near-eye-displays-virtual-augmented-reality/">here</a>.</p>',
+        'content' => '<p>I\'m joining Microsoft Research in Cambridge for a <strike>three</strike> six month research internship starting in summer 2018</p><p>I\'ll be helping to develop the next generation of head mounted displays using digital holography.</p><p>Some more details about the project are available <a target="-blank" href="https://www.microsoft.com/en-us/research/project/holographic-near-eye-displays-virtual-augmented-reality/">here</a>.</p>',
         'image' => 'MSR'
     ),
     array(
