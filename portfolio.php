@@ -9,7 +9,7 @@ $portfolio_items = array(
     array(
         'title' => 'Leaf Identification',
         'button_title' => 'Read Paper',
-        'button_link' => 'TODO',
+        'button_link' => 'https://arxiv.org/pdf/1811.08398.pdf',
         'content' => '<p>Paper presenting a novel feature set for shape-only leaf identification from images. Over 90% accuracy is achieved on all but one public dataset, with top-four accuracy for these datasets over 98%.</p><p>Source code available <a href="https://github.com/friggog/tree-id" target="=_blank">on GitHub</a>.</p>',
         'image' => 'TreeID'
     ),
