@@ -120,10 +120,8 @@ $social_icons = array(
                 <noscript>
                     23
                 </noscript>
-                year old computer scientist living near London in the UK.</p>
-            <p>I'm interested in graphics, computer vision and human-computer interaction.</p>
-            <p>I like to design and code things - apps, websites, iOS tweaks, icons &amp; interfaces.</p>
-            <p>I also love to play and write music, travel &amp; row.</p>
+                year old computer scientist living in Cambridge, UK.</p>
+            <p>I'm interested in graphics, computer vision and human-computer interaction, particularly for mixed reality. Recently I've been working on holographic displays and telepresence.</p>
             <p>A full CV is available <a href="cv.html" target="_blank">here</a>.</p>
             <a class="btn white" href="mailto:contact@chewitt.me" target="_blank">
                 Get in touch

@@ -11,7 +11,7 @@ $portfolio_items = array(
         'title' => 'CMIC',
         'button_title' => 'Website',
         'button_link' => 'https://www.victoria.ac.nz/engineering/research-centres/computational-media-innovation',
-        'content' => '<p>I\'m taking up a research associate position at the Computational Media Innovation Centre (CMIC) at the Victoria University of Wellington in New Zealand for three months starting in January 2019.</p><p>I\'ll be working with researchers and industry partners to help develop innovative augmented, virtual and mixed reality technologies.</p>'
+        'content' => '<p>I\'m taking up a research assistant position at the Computational Media Innovation Centre (CMIC) at the Victoria University of Wellington in New Zealand for three months starting in January 2019.</p><p>I\'ll be working with researchers and industry partners to help develop innovative augmented, virtual and mixed reality technologies.</p>'
     ),
     array(
         'title' => 'Leaf Identification',
@@ -20,13 +20,13 @@ $portfolio_items = array(
         'content' => '<p>Paper presenting a novel feature set for shape-only leaf identification from images. Over 90% accuracy is achieved on all but one public dataset, with top-four accuracy for these datasets over 98%.</p><p>Source code available <a href="https://github.com/friggog/tree-id" target="=_blank">on GitHub</a>.</p>',
         'image' => 'TreeID'
     ),
-    array(
-        'title' => 'CamGlyco Website',
-        'button_title' => 'View Website',
-        'button_link' => 'http://camglyco.com',
-        'content' => '<p>Website for Cambridge Glycoscience, a startup developing revolutionary sugar substitutes.</p>',
-        'image' => 'CamGlyco'
-    ),
+    //array(
+    //    'title' => 'CamGlyco Website',
+    //    'button_title' => 'View Website',
+    //    'button_link' => 'http://camglyco.com',
+    //    'content' => '<p>Website for Cambridge Glycoscience, a startup developing revolutionary sugar substitutes.</p>',
+    //    'image' => 'CamGlyco'
+    //),
     array(
         'title' => 'Microsoft Research',
         'button_title' => 'Website',
