@@ -14,25 +14,25 @@ $portfolio_items = array(
         'content' => '<p>I\'m taking up a research assistant position at the Computational Media Innovation Centre (CMIC) at the Victoria University of Wellington in New Zealand for three months starting in January 2019.</p><p>I\'ll be working with researchers and industry partners to help develop innovative augmented, virtual and mixed reality technologies.</p>'
     ),
     array(
-        'title' => 'Leaf Identification',
-        'button_title' => 'Read Paper',
-        'button_link' => 'https://arxiv.org/abs/1811.08398',
-        'content' => '<p>Paper presenting a novel feature set for shape-only leaf identification from images. Over 90% accuracy is achieved on all but one public dataset, with top-four accuracy for these datasets over 98%.</p><p>Source code available <a href="https://github.com/friggog/tree-id" target="=_blank">on GitHub</a>.</p>',
-        'image' => 'TreeID'
-    ),
-    //array(
-    //    'title' => 'CamGlyco Website',
-    //    'button_title' => 'View Website',
-    //    'button_link' => 'http://camglyco.com',
-    //    'content' => '<p>Website for Cambridge Glycoscience, a startup developing revolutionary sugar substitutes.</p>',
-    //    'image' => 'CamGlyco'
-    //),
-    array(
         'title' => 'Microsoft Research',
         'button_title' => 'Website',
         'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
         'content' => '<p>I\'m joining Microsoft Research in Cambridge for a <strike>three</strike> six month research internship starting in summer 2018</p><p>I\'ll be helping to develop the next generation of head mounted displays using digital holography.</p><p>Some more details about the project are available <a target="-blank" href="https://www.microsoft.com/en-us/research/project/holographic-near-eye-displays-virtual-augmented-reality/">here</a>.</p>',
         'image' => 'MSR'
+    ),
+    array(
+        'title' => 'Animal Facial Alignment',
+        'button_title' => 'Read Paper',
+        'button_link' => './Papers/CTH-Dissertation-2018.pdf',
+        'content' => '<p>For my fourth year (masters) project I looked at head pose estimation and facial landmark detection for animals, specifically sheep. This included the adaption of deep learning models for sheep head pose estimation and combination with classical techniques to enable accurate facial alignment. This culminated in the implementation of a near real-time pipeline for farm survellience videos, the end-goal being automated livestock health monitoring.</p>',
+        'image' => 'Sheep'
+    ),
+    array(
+        'title' => 'Leaf Identification',
+        'button_title' => 'Read Paper',
+        'button_link' => 'https://arxiv.org/abs/1811.08398',
+        'content' => '<p>Paper presenting a novel feature set for shape-only leaf identification from images. Over 90% accuracy is achieved on all but one public dataset, with top-four accuracy for these datasets over 98%.</p><p>Source code available on <a href="https://github.com/friggog/tree-id" target="=_blank">GitHub</a>.</p>',
+        'image' => 'TreeID'
     ),
     array(
         'title' => 'Emosic',
@@ -70,12 +70,12 @@ $portfolio_items = array(
         <p>I will help to develop technologies for medical imaging to be used by surgeons during operations.</p>'
     ),
     array(
-        'title' => 'Part II Project',
+        'title' => 'Tree Generation',
         'image' => 'Trees',
         'button_link' => './Papers/CTH-Dissertation-2017.pdf',
         'button_title' => 'Read Paper',
-        'content' => '<p>For my third year project I\'ve explored the procedural modelling of trees for use in computer graphics.</p>
-                      <p>I\'ve implemented two systems which generate tree models of many types within the <a href="http://blender.org" target="_blank">Blender</a> modelling application.</p>
+        'content' => '<p>For my third year project I explored the procedural modelling of trees for use in computer graphics.</p>
+                      <p>I implemented two systems which generate tree models of many types within the <a href="http://blender.org" target="_blank">Blender</a> modelling application, one of which now forms the basis of a fully featured plugin.</p>
                       <p>Source code available on <a href="https://github.com/friggog/tree-gen" target="_blank">GitHub</a>.</p>'
 
     ),
