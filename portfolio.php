@@ -1,6 +1,19 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'OLM',
+        'button_title' => 'Website',
+        'button_link' => 'https://olm.co.jp/rd/?lang=en',
+        'content' => '<p>I\'m heading to Tokyo for a three month internship at the R&amp;D department of OLM Digital starting in September 2019. I\'ll be working on procedural modelling for computer graphics applications.</p>'
+    ),
+    array(
+        'title' => 'Mocrosoft HoloLens',
+        'button_title' => 'Website',
+        'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
+        'image' => 'HoloLens',
+        'content' => '<p>I\'m joining the Computer Vision Division of Microsoft HoloLens based at Microsoft\'s lab in Cambridge for an internship over the summer of 2019 working on application of machine learning to problems in computer graphics.</p>'
+    ),
+    array(
         'title' => 'The AVAM',
         'image' => 'AVAM',
         'button_title' => 'Read Paper',
@@ -10,7 +23,7 @@ $portfolio_items = array(
     array(
         'title' => 'CMIC',
         'button_title' => 'Website',
-        'button_link' => 'https://www.victoria.ac.nz/engineering/research-centres/computational-media-innovation',
+        'button_link' => 'https://www.victoria.ac.nz/cmic',
         'content' => '<p>I\'m taking up a research assistant position at the Computational Media Innovation Centre (CMIC) at the Victoria University of Wellington in New Zealand for three months starting in January 2019.</p><p>I\'ll be working with researchers and industry partners to help develop innovative augmented, virtual and mixed reality technologies.</p>'
     ),
     array(

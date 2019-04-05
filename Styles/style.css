@@ -228,8 +228,7 @@ h2 {
 
 #portfolio {
     text-align: center;
-    padding-top: 0.3em;
-    font-size: 11px;
+    font-size: 16px;
 }
 
 #portfolio:after {
@@ -239,24 +238,21 @@ h2 {
 }
 
 #portfolio>.content {
-    max-width: 1400px;
+    max-width: 1920px;
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: auto;
 }
 
 .portfolio-item {
-    max-width: 400px;
     width: 100%;
     position: relative;
-    box-sizing: border-box;
-    margin: 0 0.2em;
 }
 
 .portfolio-item>img {
     width: 100%;
     height: auto;
+    display: block;
 }
 
 .portfolio-overlay {
@@ -264,7 +260,7 @@ h2 {
     position: absolute;
     top: 0;
     left: 0;
-    height: calc(100% - 3px);
+    height: 100%;
     width: 100%;
     line-height: 1.4em;
     text-align: left;
@@ -347,11 +343,11 @@ h2 {
 /* Larger than phablet (also point when grid becomes active) */
 
 @media only screen and (min-width: 760px) {
-    .portfolio-item {
-        width: 49%;
+    #portfolio>.content {
+        grid-template-columns: auto auto;
     }
     #portfolio {
-        font-size: 12px;
+        font-size: 13px;
     }
 }
 
@@ -359,8 +355,11 @@ h2 {
 /* Larger than tablet */
 
 @media only screen and (min-width: 1100px) {
-    .portfolio-item {
-        width: 32%;
+    #portfolio>.content {
+        grid-template-columns: auto auto auto;
+    }
+    #portfolio {
+        font-size: 12px;
     }
 }
 
@@ -368,8 +367,8 @@ h2 {
 /* Larger than desktop */
 
 @media only screen and (min-width: 1300px) {
-    .portfolio-item {
-        width: 24%;
+   #portfolio>.content {
+        grid-template-columns: auto auto auto auto;
     }
     #portfolio {
         font-size: 11px;
