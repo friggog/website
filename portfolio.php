@@ -34,7 +34,7 @@ $portfolio_items = array(
         'image' => 'MSR'
     ),
     array(
-        'title' => 'Animal Facial Alignment',
+        'title' => 'Animal Face Alignment',
         'button_title' => 'Read Paper',
         'button_link' => './Papers/CTH-Dissertation-2018.pdf',
         'content' => '<p>For my fourth year (masters) project I looked at head pose estimation and facial landmark detection for animals, specifically sheep. This included the adaption of deep learning models for sheep head pose estimation and combination with classical techniques to enable accurate facial alignment. This culminated in the implementation of a near real-time pipeline for farm survellience videos, the end-goal being automated livestock health monitoring.</p>',
