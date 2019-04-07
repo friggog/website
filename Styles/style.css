@@ -209,6 +209,7 @@ h2 {
     display: flex;
     align-items: center;
     flex-direction: column;
+    min-width: 360px;
 }
 
 
@@ -228,7 +229,7 @@ h2 {
 
 #portfolio {
     text-align: center;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 #portfolio:after {
@@ -341,6 +342,12 @@ h2 {
 
 
 /* Larger than phablet (also point when grid becomes active) */
+
+@media only screen and (min-width: 480px) {
+    #portfolio {
+        font-size: 16px;
+    }
+}
 
 @media only screen and (min-width: 760px) {
     #portfolio>.content {
