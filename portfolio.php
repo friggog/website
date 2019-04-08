@@ -18,7 +18,7 @@ $portfolio_items = array(
         'image' => 'AVAM',
         'button_title' => 'Read Paper',
         'button_link' => './Papers/CTH-AVAM-2019.pdf',
-        'content' => '<p>Paper introducing the Autonomous Vehicle Acceptance Model (AVAM), a model of user acceptance for autonomous vehicles, adapted from existing models of user acceptance for generic technologies.</p><p>The AVAM questionnaire is used to assess current public perception of autonomous cars, with the model and questionnaire results intended to enable meaningful comparison between future studies of autonomous vehicles.</p><p>Presented at <a href="https://iui.acm.org/2019/" target="_blank">Intelligent User Interfaces 2019</a>.</p>'
+        'content' => '<p>Paper introducing the Autonomous Vehicle Acceptance Model (AVAM), a model of user acceptance for autonomous vehicles, adapted from existing models of user acceptance for generic technologies.</p><p>Presented at <a href="https://iui.acm.org/2019/" target="_blank">Intelligent User Interfaces 2019</a>.</p>'
     ),
     array(
         'title' => 'CMIC',
