@@ -41,20 +41,16 @@
                 text-align: justify;
             }
 
-            .col {
-                width: 50%;
-                float: left;
-                margin-bottom: 2em;
+            #refs>div {
+                display: grid;
+                grid-template-columns: 33% 33% 33%;
+                grid-column-gap: 1em;
+                grid-row-gap: 1em;
             }
 
-            .col:first-of-type {
-                width: calc(50% - 1em);
-                padding-right: 1em;
-            }
-
-            @media (max-width: 550px) {
-                .col {
-                    width: 100%;
+            @media (max-width: 750px) {
+                #refs>div {
+                    grid-template-columns: 100%;
                 }
             }
 
@@ -213,7 +209,7 @@
         <section id="exp">
             <h2>Experience</h2>
             <h3>Research Assistant - Computational Media Innovation Centre  - 2019</h3>
-            <p>Three month RA position at the CMIC, Victoria University of Wellington in New Zealand, working with researchers and industry partners. Independent project work on computer vision and deep learning for omnidirectional stereoscopic video and its application to immersive mixed reality experiences.</p>
+            <p>Three month RA position at the CMIC, Victoria University of Wellington in New Zealand, working with researchers and industry partners. Independent project work on computer vision techniques for omnidirectional stereoscopic video and its application to immersive mixed reality experiences.</p>
             <h3>Research Intern - Microsoft Research - 2018</h3>
             <p>Six month internship at Microsoft Research in Cambridge working on near-eye holographic display technologies for mixed reality. Development of hologram design algorithms and prototyping of holographic display systems, independent work within a small team.</p>
             <h3>Intern - Cydar - Summer 2017</h3>
@@ -254,37 +250,46 @@
             <h3>Assessing Public Perception of Self-Driving Cars: the Autonomous Vehicle Acceptance Model<a class="pdf" href="./Papers/CTH-AVAM-2019.pdf" target="_blank">PDF</a></h3>
             <p><i>Charlie Hewitt</i>, Ioannis Politis, Theo Amanatidis, Advait Sarkar - Intelligent User Interfaces 2019</p>
             <h3>Head Pose Estimation and Facial Landmark Localisation for Animals<a class="pdf" href="./Papers/CTH-Dissertation-2018.pdf" target="_blank">PDF</a></h3>
-            <p>Masters Dissertation - Supervised by Marwa Mahmoud - 2018</p>
+            <p>Masters Dissertation - Supervised by Marwa Mahmoud - University of Cambridge 2018</p>
             <h3>Shape-only Features for Plant Leaf Identification<a class="pdf" href="https://arxiv.org/abs/1811.08398" target="_blank">PDF</a></h3>
-            <p>Masters Project - Advised by Marwa Mahmoud - 2018</p>
+            <p>Masters Project - Advised by Marwa Mahmoud - University of Cambridge 2018</p>
             <h3>CNN-based Facial Affect Analysis on Mobile Devices<a class="pdf" href="https://arxiv.org/abs/1807.08775" target="_blank">PDF</a></h3>
-            <p>Masters Project - Advised by Hatice Gunes - 2018</p>
+            <p>Masters Project - Advised by Hatice Gunes - University of Cambridge 2018</p>
             <h3>Confidence measures for CNN classification using Gaussian processes<a class="pdf" href="./Papers/CTH-CNN-Conf-2018.pdf" target="_blank">PDF</a></h3>
-            <p>Masters Project - Advised by Damon Wischik - 2018</p>
+            <p>Masters Project - Advised by Damon Wischik - University of Cambridge 2018</p>
             <h3>Procedural generation of tree models for use in computer graphics<a class="pdf" href="./Papers/CTH-Dissertation-2017.pdf" target="_blank">PDF</a></h3>
-            <p>Undergraduate Dissertation - Supervised by Gyorgy Denes - 2017</p>
+            <p>Undergraduate Dissertation - Supervised by Gyorgy Denes - University of Cambridge 2017</p>
         </section>
         <section id="refs">
             <h2>References</h2>
-            <div class="col">
-                Dr Andreas Georgiou
-                <br/> Researcher
-                <br/> Microsoft Research
-                <br/> 21 Station Road
-                <br/> Cambridge
-                <br/> CB1 2FB
-                <br/> <a href="mailto:angeor@microsoft.com">angeor@microsoft.com</a>
-            </div>
-            <div class="col">
-                Prof. Simon Moore
-                <br/> Director of Studies, Computer Science
-                <br/> Trinity Hall
-                <br/> Trinity Lane
-                <br/> Cambridge
-                <br/> CB2 1TJ
-                <br/> <a href="mailto:simon.moore@cl.cam.ac.uk">simon.moore@cl.cam.ac.uk</a>
+            <div>
+                <div class="col">
+                    A/Prof Taehyun Rhee
+                    <br/> Deputy Director, CMIC
+                    <br/> Victoria University of Wellington
+                    <br/> 40 Taranaki Street
+                    <br/> Wellington, NZ
+                    <br/> <a href="mailto:taehyun.rhee@vuw.ac.nz">taehyun.rhee@vuw.ac.nz</a>
+                </div>
+                <div class="col">
+                    Dr Andreas Georgiou
+                    <br/> Researcher
+                    <br/> Microsoft Research
+                    <br/> 21 Station Road
+                    <br/> Cambridge, UK
+                    <br/> <a href="mailto:angeor@microsoft.com">angeor@microsoft.com</a>
+                </div>
+                <div class="col">
+                    Prof Simon Moore
+                    <br/> Director of Studies, Computer Science
+                    <br/> Trinity Hall
+                    <br/> Trinity Lane
+                    <br/> Cambridge, UK
+                    <br/> <a href="mailto:simon.moore@cl.cam.ac.uk">simon.moore@cl.cam.ac.uk</a>
+                </div>
             </div>
         </section>
+        <br/>
         <a class="pdf" href="Charlie-Hewitt-CV.pdf" download>PDF</a>
     </body>
 </html>
