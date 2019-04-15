@@ -11,7 +11,7 @@ $portfolio_items = array(
         'button_title' => 'Website',
         'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
         'image' => 'HoloLens',
-        'content' => '<p>I\'m joining the Computer Vision Division of Microsoft HoloLens based at Microsoft\'s lab in Cambridge for an internship over the summer of 2019 working on application of machine learning to problems in computer graphics.</p>'
+        'content' => '<p>I\'m joining the Computer Vision Division of Microsoft HoloLens based at Microsoft\'s lab in Cambridge as a research consultant over the summer of 2019, working on application of machine learning to problems in computer graphics.</p>'
     ),
     array(
         'title' => 'The AVAM',
