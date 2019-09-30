@@ -127,7 +127,7 @@ $social_icons = array(
                 Get in touch
             </a>
         </section>
-        <div class="copy">&copy; <?php echo date("Y"); ?></div>
+        <div class="copy">Copyright &copy; <?php echo date("Y"); ?> Charlie Hewitt</div>
     </div>
 </body>
 
