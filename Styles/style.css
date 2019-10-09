@@ -117,7 +117,7 @@ h2 {
     line-height: 1rem;
     padding: 0.45em 1em 0.3em 1em;
     display: inline-block;
-    color: black;
+    color: inherit;
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 100px;
     /*margin-right: 1em;*/
@@ -482,4 +482,36 @@ a {
 
 .hidden {
     display: none;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: black;
+        color: white;
+    }
+    .header-bg {
+        background-color: rgba(0, 0, 0, 0.95);
+    }
+    @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
+        .header-bg {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    }
+    .menu ul li:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+    @media only screen and (max-width: 760px) {
+        .menu.small ul {
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+        .menu.small ul li {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
+            .menu.small ul {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+        }
+    }
 }
