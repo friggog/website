@@ -94,8 +94,7 @@ h2 {
 .hamburger {
     display: none;
     font-size: 2rem;
-    padding-top: 0.3rem;
-    line-height: 1.7rem;
+    line-height: 2rem;
     margin: 1.5rem 0;
     cursor: pointer;
 }
@@ -495,7 +494,7 @@ a {
     }
     @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
         .header-bg {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(30, 30, 30, 0.7);
         }
     }
     .menu ul li:hover {
@@ -510,7 +509,7 @@ a {
         }
         @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
             .menu.small ul {
-                background-color: rgba(0, 0, 0, 0.8);
+                background-color: rgba(30, 30, 30, 0.7);
             }
         }
     }
