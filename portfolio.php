@@ -4,7 +4,7 @@ $portfolio_items = array(
         'title' => 'OLM',
         'button_title' => 'Website',
         'button_link' => 'https://olm.co.jp/rd/?lang=en',
-        'content' => '<p>I\'m heading to Tokyo for a three month internship at the R&amp;D department of OLM Digital starting in September 2019. I\'ll be working on procedural modelling for computer graphics applications.</p>'
+        'content' => '<p>I\'m heading to Tokyo for a three month internship with the R&amp;D department at OLM Digital, starting in September 2019. I\'ll be building in-house tooling for their 3D animation and visual effects pipelines, primarily developing custom modelling tools for Autodesk Maya.</p>'
     ),
     array(
         'title' => 'Mocrosoft HoloLens',
