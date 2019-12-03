@@ -1,6 +1,13 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'Mocrosoft Research',
+        'button_title' => 'Website',
+        'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
+        'image' => 'MSR2',
+        'content' => '<p>I\'m rejoining Microsoft\'s research lab in Cambridge at the start of 2020 to work as a contractor for six months. I\'ll be joining the graphics &amp; multimedia group working on future display technologies.</p>'
+    ),
+    array(
         'title' => 'OLM',
         'button_title' => 'Website',
         'button_link' => 'https://olm.co.jp/rd/?lang=en',

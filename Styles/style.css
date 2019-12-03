@@ -1,3 +1,7 @@
+html {
+    background-color: black;
+}
+
 body {
     font-family: 'Jost*', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -15,38 +19,18 @@ h2 {
 
 /* HEADER */
 
-.header, .menu {
+.header, .padder {
     width: 100%;
     height: 5rem;
-    position: relative;
     max-width: 1920px;
     margin: auto;
 }
 
-.header.small, .menu.small {
-    position: fixed;
-    top: 0;
-}
-
-@media only screen and (min-width: 1920px) {
-    .header.small, .menu.small {
-        left: calc( 50vw - 960px);
-        right: calc( 50vw - 960px);
-    }
-}
-
-.header h1 {
-    margin-top: 0.82em;
-}
-
-.header.small {
-    z-index: 2;
-}
-
-.header-bg {
-    -webkit-transition: opacity 0.15s ease;
-    transition: opacity 0.15s ease;
-    z-index: 1;
+.header{
+    display: flex;
+    justify-content: space-between;
+     -webkit-transition: background-color 0.15s ease;
+    transition: background-color 0.15s ease;
     height: 5em;
     position: fixed;
     left: 0;
@@ -55,15 +39,20 @@ h2 {
     background-color: rgba(255, 255, 255, 0.95);
     -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
     box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
-    opacity: 0;
+    z-index: 1;
 }
 
-.header-bg.active {
-    opacity: 1;
+.padder {
+    background-color: white;
+}
+
+.header h1 {
+    margin: 0;
+    line-height: 5rem;
 }
 
 @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
-    .header-bg {
+    .header {
         -webkit-backdrop-filter: saturate(180%) blur(20px);
         backdrop-filter: saturate(180%) blur(20px);
         background-color: rgba(255, 255, 255, 0.8);
@@ -72,22 +61,10 @@ h2 {
 
 .header>.content {
     text-align: center;
-
-    z-index: 3;
-    width: 100%;
-}
-
-.header.small>.content {
     width: 15em;
 }
 
-.header h1 {
-    margin: 0;
-    line-height: 5rem;
-}
-
 .menu {
-    z-index: 2;
     text-align: right;
 }
 
@@ -107,19 +84,15 @@ h2 {
     line-height: 2rem;
     margin-top: 0;
     margin-bottom: 1.5rem;
-    visibility: visible;
 }
 
 .menu ul li {
-    -webkit-transition: color 0.15s ease, border 0.15s ease, background-color 0.15s ease;
-    transition: color 0.15s ease, border 0.15s ease, background-color 0.15s ease;
     line-height: 1rem;
     padding: 0.45em 1em 0.3em 1em;
     display: inline-block;
     color: inherit;
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 100px;
-    /*margin-right: 1em;*/
     text-align: center;
 }
 
@@ -127,7 +100,7 @@ h2 {
 /* phablet only */
 
 @media only screen and (max-width: 760px) {
-    .menu.small ul {
+    .menu ul {
         -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
         box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
         background-color: rgba(255, 255, 255, 0.95);
@@ -137,7 +110,7 @@ h2 {
         text-align: center;
         height: auto;
     }
-    .menu.small ul li {
+    .menu ul li {
         margin: 0;
         border-radius: 0;
         display: block;
@@ -147,14 +120,14 @@ h2 {
         left: 0;
         right: 0;
     }
-    .menu.small .hamburger {
+    .menu .hamburger {
         display: block;
     }
-    .menu.small ul {
+    .menu ul {
         visibility: hidden;
     }
     @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
-        .menu.small ul {
+        .menu ul {
             backdrop-filter: saturate(180%) blur(20px);
             -webkit-backdrop-filter: saturate(180%) blur(20px);
             background-color: rgba(255, 255, 255, 0.8);
@@ -162,21 +135,22 @@ h2 {
     }
 }
 
+@media only screen and (min-width: 760px) {
+    .menu ul {
+        visibility: visible !important;
+    }
+}
+
+.menu ul.show {
+    visibility: visible !important;
+}
 
 /* normal size */
 
 @media only screen and (min-width: 760px) {
-    .menu.small ul {
+    .menu ul {
         margin-top: 1.5rem;
         overflow: hidden;
-    }
-    .header>.content {
-        -webkit-transition: width 0.15s ease;
-        transition: width 0.15s ease;
-    }
-    .menu>.content {
-        -webkit-transition: width 0.15s ease;
-        transition: width 0.15s ease;
     }
 }
 
@@ -188,13 +162,7 @@ h2 {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0 1em;
-    float: right;
-    width: 100%;
     text-align: center;
-}
-
-.menu.small>.content {
-    width: 24em;
 }
 
 .menu .contact {
@@ -203,26 +171,13 @@ h2 {
 
 .container {
     background-color: black;
-    min-height: calc(100vh - 12rem);
+    min-height: calc(100vh - 5rem);
     color: white;
     display: flex;
     align-items: center;
     flex-direction: column;
     min-width: 360px;
 }
-
-
-/* disable header animation on mobile */
-
-@media only screen and (max-width: 760px) {
-    .menu.small, .header.small {
-        left: 0;
-    }
-    .menu.small>.content {
-        width: 5em;
-    }
-}
-
 
 /* PORTFOLIO SECTION */
 
@@ -486,30 +441,32 @@ a {
 
 @media (prefers-color-scheme: dark) {
     html {
-        background-color: black;
         color: white;
     }
-    .header-bg {
+    .header {
         background-color: rgba(0, 0, 0, 0.95);
     }
+    .padder {
+        background-color: black;
+    }
     @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
-        .header-bg {
-            background-color: rgba(30, 30, 30, 0.7);
+        .header {
+            background-color: rgba(0, 0, 0, 0.7);
         }
     }
     .menu ul li:hover {
         background-color: rgba(255, 255, 255, 0.15);
     }
     @media only screen and (max-width: 760px) {
-        .menu.small ul {
+        .menu ul {
             background-color: rgba(0, 0, 0, 0.95);
         }
-        .menu.small ul li {
+        .menu ul li {
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
         @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
-            .menu.small ul {
-                background-color: rgba(30, 30, 30, 0.7);
+            .menu ul {
+                background-color: rgba(0, 0, 0, 0.7);
             }
         }
     }

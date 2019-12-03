@@ -52,7 +52,7 @@ $social_icons = array(
 <head>
     <title>Charlie Hewitt</title>
     <meta name="description" content="Charlie Hewitt's personal website."></meta>
-    <meta name="keywords" content="charlie hewitt"></meta>
+    <meta name="keywords" content="charlie,hewitt,computer,science,graphics,machine,learning,vision,blender,maya,microsoft,cambridge,olm digital,holography,HCI,research,researcher,jailbreak,developer,software,CMIC,AVAM,tweaks,cydia"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://indestructibletype-fonthosting.github.io/jost.css" type="text/css" charset="utf-8" />
     <link rel="stylesheet" href="Styles/normalize.css" type="text/css">
@@ -62,32 +62,31 @@ $social_icons = array(
 
 <body>
     <div id="top">
-        <div style="height:2rem"></div>
-        <div class="header-bg"></div>
-        <div class="header">
+        <nav class="header">
             <div class="content">
                 <h1>Charlie Hewitt</h1>
             </div>
-        </div>
-        <div class="padder"></div>
-        <nav class="menu">
-            <div class="content">
-                <div class="hamburger" onclick="showMenu()">&#9776;</div>
-                <ul class="menu-ul">
-                    <a href="#portfolio" onclick="goToPortfolio();return false;">
-                        <li>Portfolio</li>
-                    </a>
-                    <a href="#other" onclick="goToAbout();return false;">
-                        <li>About</li>
-                    </a>
-                    <a href="mailto:contact@chewitt.me">
-                        <li>Contact</li>
-                    </a>
-                </ul>
+            <div class="menu">
+                <div class="content">
+                    <div class="hamburger" onclick="showMenu()">&#9776;</div>
+                    <ul class="menu-ul">
+                        <a href="index.html">
+                            <li>Portfolio</li>
+                        </a>
+                        <a href="about.html">
+                            <li>About</li>
+                        </a>
+                        <a href="mailto:contact@chewitt.me">
+                            <li>Contact</li>
+                        </a>
+                    </ul>
+                </div>
             </div>
         </nav>
+        <div class="padder"></div>
     </div>
     <div class="container">
+        <?php if ($argc < 2) { ?>
         <section id="portfolio">
             <div class="content">
                 <?php
@@ -97,6 +96,7 @@ $social_icons = array(
                 ?>
             </div>
         </section>
+        <?php } else { ?>
         <section id="other">
             <img src="pic.jpg" class="pic" />
             <ul class="social-icons">
@@ -118,7 +118,7 @@ $social_icons = array(
                     document.write(age);
                 </script>
                 <noscript>
-                    23
+                    24
                 </noscript>
                 year old computer scientist living in Cambridge, UK.</p>
             <p>I'm interested in graphics, computer vision and human-computer interaction, particularly for mixed reality. Recently I've been working on holographic displays and telepresence.</p>
@@ -127,6 +127,7 @@ $social_icons = array(
                 Get in touch
             </a>
         </section>
+        <?php } ?>
         <div class="copy">Copyright &copy; <?php echo date("Y"); ?> Charlie Hewitt</div>
     </div>
 </body>
