@@ -1,7 +1,7 @@
 <?php
 $portfolio_items = array(
     array(
-        'title' => 'Mocrosoft Research',
+        'title' => 'Microsoft Research',
         'button_title' => 'Website',
         'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
         'image' => 'MSR2',
