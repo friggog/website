@@ -340,8 +340,8 @@ h2 {
 /* OTHER SECTION */
 
 .pic {
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
     border-radius: 90px;
     overflow: hidden;
 }
@@ -350,8 +350,17 @@ h2 {
     max-width: 700px;
     margin: auto;
     padding: 1.5rem;
-    padding-bottom: 5rem;
     text-align: center;
+}
+
+@media only screen and (min-width: 480px) {
+    #other {
+        padding-bottom: 5rem
+    }
+    .pic {
+        width: 180px;
+        height: 180px;
+    }
 }
 
 #other p a {
