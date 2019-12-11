@@ -61,9 +61,9 @@ $social_icons = array(
 </head>
 
 <body>
-    <div id="top">
-        <nav class="header">
-            <div class="content">
+    <nav class="header">
+        <div class="content">
+            <div class="title">
                 <h1>Charlie Hewitt</h1>
             </div>
             <div class="menu">
@@ -82,9 +82,9 @@ $social_icons = array(
                     </ul>
                 </div>
             </div>
-        </nav>
-        <div class="padder"></div>
-    </div>
+        </div>
+    </nav>
+    <div class="padder"></div>
     <div class="container">
         <?php if ($argc < 2) { ?>
         <section id="portfolio">
