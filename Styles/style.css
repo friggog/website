@@ -2,6 +2,15 @@ html {
     background-color: black;
 }
 
+html:before {
+  content: '';
+  position: fixed;
+  width: 100vw;
+  height: 1000px;
+  top: -999px;
+  background-color: white;
+}
+
 body {
     font-family: 'Jost*', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -24,7 +33,7 @@ h2 {
     height: 5rem;
 }
 
-.header{
+.header {
     -webkit-transition: background-color 0.15s ease;
     transition: background-color 0.15s ease;
     position: fixed;
@@ -454,6 +463,9 @@ a {
 @media (prefers-color-scheme: dark) {
     html {
         color: white;
+    }
+    html:before {
+        display: none;
     }
     .header {
         background-color: rgba(0, 0, 0, 0.95);
