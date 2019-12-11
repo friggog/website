@@ -55,8 +55,8 @@ $social_icons = array(
     <meta name="keywords" content="charlie,hewitt,computer,science,graphics,machine,learning,vision,blender,maya,microsoft,cambridge,olm digital,holography,HCI,research,researcher,jailbreak,developer,software,CMIC,AVAM,tweaks,cydia"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://indestructibletype-fonthosting.github.io/jost.css" type="text/css" charset="utf-8" />
-    <link rel="stylesheet" href="Styles/normalize.css" type="text/css">
-    <link rel="stylesheet" href="Styles/style.css?2" type="text/css">
+    <link rel="stylesheet" href="Styles/normalize.css?<?php echo rand(); ?>" type="text/css">
+    <link rel="stylesheet" href="Styles/style.css?<?php echo rand(); ?>" type="text/css">
     <script src="Scripts/main.js" type="text/javascript"></script>
 </head>
 
