@@ -1,6 +1,6 @@
 function showMenu() {
     "use strict"
-    var menuUl = document.getElementsByClassName('menu-ul')[0];
+    var menuUl = document.getElementById('navul');
     if (menuUl.classList.contains('show')) {
         menuUl.classList.remove('show');
     } else {

@@ -61,33 +61,33 @@ $social_icons = array(
 </head>
 
 <body>
-    <nav class="header">
+    <header>
         <div class="content">
             <div class="title">
                 <h1>Charlie Hewitt</h1>
             </div>
-            <div class="menu">
-                <div class="content">
-                    <div class="hamburger" onclick="showMenu()">&#9776;</div>
-                    <ul class="menu-ul">
-                        <a href="index.html">
-                            <li>Portfolio</li>
-                        </a>
-                        <a href="about.html">
-                            <li>About</li>
-                        </a>
-                        <a href="mailto:contact@chewitt.me">
-                            <li>Contact</li>
-                        </a>
-                    </ul>
-                </div>
-            </div>
+            <nav>
+                <div class="hamburger" onclick="showMenu()">&#9776;</div>
+                <ul id="navul">
+                    <a href="index.html">
+                        <li>Portfolio</li>
+                    </a>
+                    <a href="about.html">
+                        <li>About</li>
+                    </a>
+                    <a href="mailto:contact@chewitt.me">
+                        <li>Contact</li>
+                    </a>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
+
     <div class="padder"></div>
+
     <div class="container">
         <?php if ($argc < 2) { ?>
-        <section id="portfolio">
+        <main id="portfolio">
             <div class="content">
                 <?php
                     foreach ($portfolio_items as $item) {
@@ -95,9 +95,9 @@ $social_icons = array(
                     }
                 ?>
             </div>
-        </section>
+        </main>
         <?php } else { ?>
-        <section id="other">
+        <main id="other">
             <img src="pic.jpg" class="pic" />
             <ul class="social-icons">
                 <?php
@@ -126,7 +126,7 @@ $social_icons = array(
             <a class="btn white" href="mailto:contact@chewitt.me" target="_blank">
                 Get in touch
             </a>
-        </section>
+        </main>
         <?php } ?>
         <div class="copy">Copyright &copy; <?php echo date("Y"); ?> Charlie Hewitt</div>
     </div>

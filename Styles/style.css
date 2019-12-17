@@ -28,12 +28,12 @@ h2 {
 
 /* HEADER */
 
-.header, .padder {
+header, .padder {
     width: 100%;
     height: 5rem;
 }
 
-.header {
+header {
     -webkit-transition: background-color 0.15s ease;
     transition: background-color 0.15s ease;
     position: fixed;
@@ -46,7 +46,7 @@ h2 {
     z-index: 1;
 }
 
-.header>.content {
+header>.content {
     width: 100%;
     max-width: 1920px;
     margin: auto;
@@ -58,25 +58,29 @@ h2 {
     background-color: white;
 }
 
-.header h1 {
+header h1 {
     margin: 0;
     line-height: 5rem;
 }
 
 @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
-    .header {
+    header {
         -webkit-backdrop-filter: saturate(180%) blur(20px);
         backdrop-filter: saturate(180%) blur(20px);
         background-color: rgba(255, 255, 255, 0.8);
     }
 }
 
-.header .title {
+header .title {
     padding: 0 1em;
 }
 
-.menu {
+nav {
     text-align: right;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 1em;
+    text-align: center;
 }
 
 .hamburger {
@@ -87,7 +91,7 @@ h2 {
     cursor: pointer;
 }
 
-.menu ul {
+nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -97,7 +101,7 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
-.menu ul li {
+nav ul li {
     line-height: 1rem;
     padding: 0.45em 1em 0.3em 1em;
     display: inline-block;
@@ -111,7 +115,7 @@ h2 {
 /* phablet only */
 
 @media only screen and (max-width: 760px) {
-    .menu ul {
+    nav ul {
         -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
         box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
         background-color: rgba(255, 255, 255, 0.95);
@@ -121,7 +125,7 @@ h2 {
         text-align: center;
         height: auto;
     }
-    .menu ul li {
+    nav ul li {
         margin: 0;
         border-radius: 0;
         display: block;
@@ -131,14 +135,14 @@ h2 {
         left: 0;
         right: 0;
     }
-    .menu .hamburger {
+    nav .hamburger {
         display: block;
     }
-    .menu ul {
+    nav ul {
         visibility: hidden;
     }
     @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
-        .menu ul {
+        nav ul {
             -webkit-backdrop-filter: saturate(180%) blur(20px);
             backdrop-filter: saturate(180%) blur(20px);
             background-color: rgba(255, 255, 255, 0.8);
@@ -147,36 +151,29 @@ h2 {
 }
 
 @media only screen and (min-width: 760px) {
-    .menu ul {
+    nav ul {
         visibility: visible !important;
     }
 }
 
-.menu ul.show {
+nav ul.show {
     visibility: visible !important;
 }
 
 /* normal size */
 
 @media only screen and (min-width: 760px) {
-    .menu ul {
+    nav ul {
         margin-top: 1.5rem;
         overflow: hidden;
     }
 }
 
-.menu ul li:hover {
+nav ul li:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-.menu>.content {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 0 1em;
-    text-align: center;
-}
-
-.menu .contact {
+nav .contact {
     margin-right: 0;
 }
 
@@ -465,29 +462,29 @@ a {
     html:before {
         display: none;
     }
-    .header {
+    header {
         background-color: rgba(0, 0, 0, 0.95);
     }
     .padder {
         background-color: black;
     }
     @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
-        .header {
+        header {
             background-color: rgba(0, 0, 0, 0.7);
         }
     }
-    .menu ul li:hover {
+    nav ul li:hover {
         background-color: rgba(255, 255, 255, 0.15);
     }
     @media only screen and (max-width: 760px) {
-        .menu ul {
+        nav ul {
             background-color: rgba(0, 0, 0, 0.95);
         }
-        .menu ul li {
+        nav ul li {
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
         @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
-            .menu ul {
+            nav ul {
                 background-color: rgba(0, 0, 0, 0.7);
             }
         }

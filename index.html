@@ -8,41 +8,41 @@
     <meta name="keywords" content="charlie,hewitt,computer,science,graphics,machine,learning,vision,blender,maya,microsoft,cambridge,olm digital,holography,HCI,research,researcher,jailbreak,developer,software,CMIC,AVAM,tweaks,cydia"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://indestructibletype-fonthosting.github.io/jost.css" type="text/css" charset="utf-8" />
-    <link rel="stylesheet" href="Styles/normalize.css?1781190341" type="text/css">
-    <link rel="stylesheet" href="Styles/style.css?1432765766" type="text/css">
+    <link rel="stylesheet" href="Styles/normalize.css?526659705" type="text/css">
+    <link rel="stylesheet" href="Styles/style.css?2138646577" type="text/css">
     <script src="Scripts/main.js" type="text/javascript"></script>
 </head>
 
 <body>
-    <nav class="header">
+    <header>
         <div class="content">
             <div class="title">
                 <h1>Charlie Hewitt</h1>
             </div>
-            <div class="menu">
-                <div class="content">
-                    <div class="hamburger" onclick="showMenu()">&#9776;</div>
-                    <ul class="menu-ul">
-                        <a href="index.html">
-                            <li>Portfolio</li>
-                        </a>
-                        <a href="about.html">
-                            <li>About</li>
-                        </a>
-                        <a href="mailto:contact@chewitt.me">
-                            <li>Contact</li>
-                        </a>
-                    </ul>
-                </div>
-            </div>
+            <nav>
+                <div class="hamburger" onclick="showMenu()">&#9776;</div>
+                <ul id="navul">
+                    <a href="index.html">
+                        <li>Portfolio</li>
+                    </a>
+                    <a href="about.html">
+                        <li>About</li>
+                    </a>
+                    <a href="mailto:contact@chewitt.me">
+                        <li>Contact</li>
+                    </a>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
+
     <div class="padder"></div>
+
     <div class="container">
-                <section id="portfolio">
+                <main id="portfolio">
             <div class="content">
-                <div class="portfolio-item">
-    <img src="Folio/MSR2.jpg" />
+                <article class="portfolio-item">
+    <img src="Folio/MSR2.jpg" alt="Microsoft Research"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/MSR2.jpg')"></div>
         <div class="content">
@@ -52,9 +52,9 @@
             <p>I'm rejoining Microsoft's research lab in Cambridge at the start of 2020 to work as a contractor for six months. I'll be joining the graphics &amp; multimedia group working on future display technologies.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/OLM.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/OLM.jpg" alt="OLM"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/OLM.jpg')"></div>
         <div class="content">
@@ -64,9 +64,9 @@
             <p>I'm heading to Tokyo for a three month internship with the R&amp;D department at OLM Digital, starting in September 2019. I'll be building in-house tooling for their 3D animation and visual effects pipelines, primarily developing custom modelling tools for Autodesk Maya.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/HoloLens.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/HoloLens.jpg" alt="Mocrosoft HoloLens"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/HoloLens.jpg')"></div>
         <div class="content">
@@ -76,9 +76,9 @@
             <p>I'm joining the Cognition research and development team based at Microsoft's lab in Cambridge as a research consultant over the summer of 2019, working on application of machine learning to problems in computer graphics and vision.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/AVAM.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/AVAM.jpg" alt="The AVAM"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/AVAM.jpg')"></div>
         <div class="content">
@@ -88,9 +88,9 @@
             <p>Paper introducing the Autonomous Vehicle Acceptance Model (AVAM), a model of user acceptance for autonomous vehicles, adapted from existing models of user acceptance for generic technologies.</p><p>Presented at <a href="https://iui.acm.org/2019/" target="_blank">Intelligent User Interfaces 2019</a>.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/CMIC.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/CMIC.jpg" alt="CMIC"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/CMIC.jpg')"></div>
         <div class="content">
@@ -100,9 +100,9 @@
             <p>I'm taking up a research assistant position at the Computational Media Innovation Centre (CMIC) at the Victoria University of Wellington in New Zealand for three months starting in January 2019.</p><p>I'll be working with researchers and industry partners to help develop innovative augmented, virtual and mixed reality technologies.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/MSR.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/MSR.jpg" alt="Microsoft Research"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/MSR.jpg')"></div>
         <div class="content">
@@ -112,9 +112,9 @@
             <p>I'm joining Microsoft Research in Cambridge for a <strike>three</strike> six month research internship starting in summer 2018</p><p>I'll be helping to develop the next generation of head mounted displays using digital holography.</p><p>Some more details about the project are available <a target="-blank" href="https://www.microsoft.com/en-us/research/project/holographic-near-eye-displays-virtual-augmented-reality/">here</a>.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/Sheep.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/Sheep.jpg" alt="Animal Face Alignment"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/Sheep.jpg')"></div>
         <div class="content">
@@ -124,9 +124,9 @@
             <p>For my fourth year (masters) project I looked at head pose estimation and facial landmark detection for animals, specifically sheep. This included the adaption of deep learning models for sheep head pose estimation and combination with classical techniques to enable accurate facial alignment. This culminated in the implementation of a near real-time pipeline for farm survellience videos, the end-goal being automated livestock health monitoring.</p><p>A <a href="./Papers/CTH-PIFA-2019.pdf" target="_bblank">condensed version</a> of the dissertation was presented at ACII 2019.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/TreeID.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/TreeID.jpg" alt="Leaf Identification"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/TreeID.jpg')"></div>
         <div class="content">
@@ -136,9 +136,9 @@
             <p>Paper presenting a novel feature set for shape-only leaf identification from images. Over 90% accuracy is achieved on all but one public dataset, with top-four accuracy for these datasets over 98%.</p><p>Source code available on <a href="https://github.com/friggog/tree-id" target="=_blank">GitHub</a>.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/Emosic.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/Emosic.jpg" alt="Emosic"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/Emosic.jpg')"></div>
         <div class="content">
@@ -149,9 +149,9 @@
         <p>Source code is available on <a href="https://github.com/friggog/Emosic" target="_blank">GitHub</a>.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/CNNConf.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/CNNConf.jpg" alt="GP Confidences for CNNs"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/CNNConf.jpg')"></div>
         <div class="content">
@@ -161,9 +161,9 @@
             <p>Paper presenting a hybrid classification technique using Gaussian processes fitted on features extracted by a convolutional neural network to enable estimation of prediction confidence. The classifier is evaluated on the MNIST dataset and shown to have somewhat meaningful implications for confidence estimation.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/THJE.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/THJE.jpg" alt="THJE Website"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/THJE.jpg')"></div>
         <div class="content">
@@ -173,9 +173,9 @@
             <p>Website design and other graphics for the 2018 Trinity Hall June Event, in addition to managing the ticketing service provided through <a href="https://getqpay.com" target="_blank">Qpay</a>.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/Cydar.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/Cydar.jpg" alt="Cydar"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/Cydar.jpg')"></div>
         <div class="content">
@@ -186,9 +186,9 @@
         <p>I will help to develop technologies for medical imaging to be used by surgeons during operations.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/Trees.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/Trees.jpg" alt="Tree Generation"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/Trees.jpg')"></div>
         <div class="content">
@@ -200,9 +200,9 @@
                       <p>Source code available on <a href="https://github.com/friggog/tree-gen" target="_blank">GitHub</a>.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/Jagex.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/Jagex.jpg" alt="Jagex"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/Jagex.jpg')"></div>
         <div class="content">
@@ -213,9 +213,9 @@
                       <p>I'll be working on a project as part of a small team aimed at exploring new areas which Jagex may be interested in expanding into in the future.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/THBC.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/THBC.jpg" alt="THBC Site Redesign"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/THBC.jpg')"></div>
         <div class="content">
@@ -226,9 +226,9 @@
                       <p>I also wrote a new voting system to be used for captaincy elections, as well as updating the content of many of the site's pages and adding some new ones.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/Fingal.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/Fingal.jpg" alt="Fingal"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/Fingal.jpg')"></div>
         <div class="content">
@@ -239,9 +239,9 @@
                       <p>Available for free from the ModMyi Cydia repo. Source code available <a href="https://github.com/friggog/Fingal" target="=_blank">on GitHub</a>.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/Seng.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/Seng.jpg" alt="seng"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/Seng.jpg')"></div>
         <div class="content">
@@ -252,9 +252,9 @@
                       <p>Available to purchase from the Cydia Store.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/CustomCover.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/CustomCover.jpg" alt="CustomCover"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/CustomCover.jpg')"></div>
         <div class="content">
@@ -266,9 +266,9 @@
                       <p><a href="http://chewitt.me/Info/CustomCoverAPI.html" target="_blank">Developer Info</a></p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/MC.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/MC.jpg" alt="Messages Customiser"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/MC.jpg')"></div>
         <div class="content">
@@ -279,9 +279,9 @@
                       <p>Free and Premium version available from the Cydia Store.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/Subtle7.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/Subtle7.jpg" alt="Subtle7"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/Subtle7.jpg')"></div>
         <div class="content">
@@ -293,9 +293,9 @@
                       <p>Available from my <a href="http://chewitt.me/repo" target="_blank">personal repo</a>.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/Tinct.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/Tinct.jpg" alt="Tinct &amp;amp; Chroma"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/Tinct.jpg')"></div>
         <div class="content">
@@ -306,9 +306,9 @@
                       <p>Chroma is available for free from Cydia (source on <a href="https://github.com/friggog/chroma">GitHub</a>), and Tinct is available to purchase from the Cydia Store.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/Linen.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/Linen.jpg" alt="Linen Growl Style"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/Linen.jpg')"></div>
         <div class="content">
@@ -319,9 +319,9 @@
                       <p>Inspired by the iOS 5 and OSX Mountain Lion interface styling and with custom slide in animation.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/Flippers.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/Flippers.jpg" alt="Flippers Ain&#039;t Wings"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/Flippers.jpg')"></div>
         <div class="content">
@@ -332,9 +332,9 @@
                       <p>Follow the story of Percy the Penguin in his adventure to discover the source of mysterious ice blocks falling from the sky.</p>
         </div>
     </div>
-</div>
-<div class="portfolio-item">
-    <img src="Folio/Tryst.jpg" />
+</article>
+<article class="portfolio-item">
+    <img src="Folio/Tryst.jpg" alt="Tryst"/>
     <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
         <div class="background" style="background-image:url('Folio/Tryst.jpg')"></div>
         <div class="content">
@@ -353,9 +353,9 @@
                       <p>Available from the Cydia Store</p>
         </div>
     </div>
-</div>
+</article>
             </div>
-        </section>
+        </main>
                 <div class="copy">Copyright &copy; 2019 Charlie Hewitt</div>
     </div>
 </body>
