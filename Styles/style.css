@@ -187,6 +187,7 @@ h2 {
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: space-between;
     min-width: 360px;
 }
 
@@ -195,6 +196,7 @@ h2 {
 #portfolio {
     text-align: center;
     font-size: 12px;
+    margin-bottom: 0.5rem;
 }
 
 #portfolio:after {
@@ -365,9 +367,6 @@ h2 {
 }
 
 @media only screen and (min-width: 480px) {
-    #other {
-        padding-bottom: 5rem
-    }
     .pic {
         width: 180px;
         height: 180px;
@@ -419,7 +418,6 @@ h2 {
 
 .copy {
     font-size: 10px;
-    margin: 0.5em 0 0 0;
     color: #444;
 }
 
