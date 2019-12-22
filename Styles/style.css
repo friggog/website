@@ -1,14 +1,5 @@
 html {
-    background-color: black;
-}
-
-html:before {
-  content: '';
-  position: fixed;
-  width: 100vw;
-  height: 1000px;
-  top: -999px;
-  background-color: white;
+    background: linear-gradient(black, white);
 }
 
 body {
@@ -29,6 +20,11 @@ h2 {
 /* HEADER */
 
 header {
+    width: 100%;
+    min-width: 320px;
+}
+
+.padder {
     width: 100%;
     height: 5rem;
 }
@@ -52,13 +48,11 @@ header>.content {
     margin: auto;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .padder {
     background-color: white;
-    width: 100%;
-    height: 105rem;
-    margin-top: -100rem;
 }
 
 header h1 {
@@ -92,6 +86,7 @@ nav {
     line-height: 2rem;
     margin: 1.5rem 0;
     cursor: pointer;
+    padding-right: 0.5em;
 }
 
 nav ul {
@@ -118,15 +113,15 @@ nav ul li {
 /* phablet only */
 
 @media only screen and (max-width: 760px) {
+    nav {
+        flex-basis: 100%;
+        padding: 0;
+    }
     nav ul {
-        -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
-        box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
-        background-color: rgba(255, 255, 255, 0.95);
-        position: fixed;
-        left: 0;
-        right: 0;
         text-align: center;
         height: auto;
+        width: 100%;
+        margin: 0;
     }
     nav ul li {
         margin: 0;
@@ -138,29 +133,22 @@ nav ul li {
         left: 0;
         right: 0;
     }
-    nav .hamburger {
+    .hamburger {
         display: block;
     }
     nav ul {
-        visibility: hidden;
-    }
-    @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
-        nav ul {
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            backdrop-filter: saturate(180%) blur(20px);
-            background-color: rgba(255, 255, 255, 0.8);
-        }
+        display: none;
     }
 }
 
 @media only screen and (min-width: 760px) {
     nav ul {
-        visibility: visible !important;
+        display: block;
     }
 }
 
 nav ul.show {
-    visibility: visible !important;
+    display: block;
 }
 
 /* normal size */
@@ -188,7 +176,7 @@ nav .contact {
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    min-width: 360px;
+    min-width: 320px;
 }
 
 /* PORTFOLIO SECTION */
@@ -461,9 +449,7 @@ a {
 @media (prefers-color-scheme: dark) {
     html {
         color: white;
-    }
-    html:before {
-        display: none;
+        background: black;
     }
     header {
         background-color: rgba(0, 0, 0, 0.95);
@@ -480,16 +466,8 @@ a {
         background-color: rgba(255, 255, 255, 0.15);
     }
     @media only screen and (max-width: 760px) {
-        nav ul {
-            background-color: rgba(0, 0, 0, 0.95);
-        }
         nav ul li {
             border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
-            nav ul {
-                background-color: rgba(0, 0, 0, 0.7);
-            }
         }
     }
 }

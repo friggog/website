@@ -66,8 +66,8 @@ $social_icons = array(
             <div class="title">
                 <h1>Charlie Hewitt</h1>
             </div>
+            <div class="hamburger" onclick="showMenu()">&#9776;</div>
             <nav>
-                <div class="hamburger" onclick="showMenu()">&#9776;</div>
                 <ul id="navul">
                     <a href="index.html">
                         <li>Portfolio</li>
