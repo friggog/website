@@ -12,6 +12,10 @@ function toggleVisibilty(el) {
     "use strict";
     var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
     if (isMobile) {
+        var menuUl = document.getElementById('navul');
+        if (menuUl.classList.contains('show')) {
+            menuUl.classList.remove('show');
+        }
         var a, i;
         if (el.style.opacity == 1) {
             el.style.opacity = 0;
