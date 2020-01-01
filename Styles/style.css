@@ -1,8 +1,8 @@
 html {
-    background: linear-gradient(black, white);
 }
 
 body {
+    background-color: white;
     font-family: 'Jost*', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -439,9 +439,9 @@ a {
 
 
 @media (prefers-color-scheme: dark) {
-    html {
+    body {
         color: white;
-        background: black;
+        background-color: black !important;
     }
     header {
         background-color: rgba(0, 0, 0, 0.95);
