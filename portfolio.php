@@ -5,7 +5,7 @@ $portfolio_items = array(
         'button_title' => 'Website',
         'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
         'image' => 'MSR2',
-        'content' => '<p>I\'m rejoining Microsoft\'s research lab in Cambridge at the start of 2020 to work as a contractor for six months. I\'ll be joining the graphics &amp; multimedia group working on future display technologies.</p>'
+        'content' => '<p>I\'m rejoining Microsoft\'s research lab in Cambridge at the start of 2020 as a contractor for <strike>six</strike> eighteen months. I\'ll be working with the graphics &amp; multimedia group working on future display technologies.</p>'
     ),
     array(
         'title' => 'OLM',
