@@ -1,6 +1,13 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'Face Synthetics',
+        'button_title' => 'Read Paper',
+        'button_link' => 'https://arxiv.org/pdf/2007.08364.pdf',
+        'image' => 'Faces',
+        'content' => '<p>Technical report describing the synthetic faces system which I worked on while with Microsoft over the summer of 2019.</p>'
+    ),
+    array(
         'title' => 'Microsoft Research',
         'button_title' => 'Website',
         'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
@@ -25,7 +32,7 @@ $portfolio_items = array(
         'image' => 'AVAM',
         'button_title' => 'Read Paper',
         'button_link' => './Papers/CTH-AVAM-2019.pdf',
-        'content' => '<p>Paper introducing the Autonomous Vehicle Acceptance Model (AVAM), a model of user acceptance for autonomous vehicles, adapted from existing models of user acceptance for generic technologies.</p><p>Presented at <a href="https://iui.acm.org/2019/" target="_blank">Intelligent User Interfaces 2019</a>.</p>'
+        'content' => '<p>Paper introducing the Autonomous Vehicle Acceptance Model (AVAM), a model of user acceptance for autonomous vehicles, adapted from existing models of user acceptance for generic technologies.</p><p>Presented at <a href="https://iui.acm.org/2019/" target="_blank">Intelligent User Interfaces 2019</a>.</p><p>The complete data and analysis code can be downloaded <a href="./Files/AVAM_res.zip">here</a></p>.'
     ),
     array(
         'title' => 'CMIC',
