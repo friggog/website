@@ -361,7 +361,7 @@ nav .contact {
     margin-top: 1em;
 }
 
-.social-icons {
+.links {
     text-align: center;
     list-style: none;
     padding: 0;
@@ -369,12 +369,12 @@ nav .contact {
     color: white;
 }
 
-.social-icons li {
+.links li {
     display: inline-block;
     margin: 0 0.3em;
 }
 
-.social-icons li svg {
+.links li svg {
     width: 1.5em;
     height: 1.5em;
     fill: white;
@@ -383,13 +383,13 @@ nav .contact {
     transition: fill 0.15s ease, background-color 0.15s ease;
 }
 
-.social-icons li svg.padded {
+.links li svg.padded {
     width: 1.3em;
     height: 1.3em;
     padding: 0.1em;
 }
 
-.social-icons li svg:hover {
+.links li svg:hover {
     background-color: white;
     fill: black;
 }

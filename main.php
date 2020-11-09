@@ -99,7 +99,7 @@ $social_icons = array(
         <?php } else { ?>
         <main id="other">
             <img src="pic.jpg" class="pic" />
-            <ul class="social-icons">
+            <ul class="links">
                 <?php
                     foreach ($social_icons as $item) {
                         echo $twig->render('social_icon.html', $item);
@@ -118,7 +118,7 @@ $social_icons = array(
                     document.write(age);
                 </script>
                 <noscript>
-                    24
+                    25
                 </noscript>
                 year old computer scientist living in Cambridge, UK.</p>
             <p>I'm interested in graphics, computer vision and human-computer interaction, particularly for mixed reality. Recently I've been working on holographic displays and telepresence.</p>
