@@ -1,6 +1,13 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'Microsoft',
+        'button_title' => 'Website',
+        'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
+        'image' => 'MSFT',
+        'content' => '<p>I\'m joining the <i>Presence AI</i> group at Microsoft as a research scientist. The group is led by Jamie Shotton and based at Microsoft\'s research lab in Cambridge, UK. I interned with the group over the summer of 2019 and will be returning permanently to work at the intersection of computer graphics, computer vision and machine learning.</p>'
+    ),
+    array(
         'title' => 'Face Synthetics',
         'button_title' => 'Read Paper',
         'button_link' => 'https://arxiv.org/pdf/2007.08364.pdf',
