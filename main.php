@@ -121,7 +121,7 @@ $social_icons = array(
                     25
                 </noscript>
                 year old computer scientist living in Cambridge, UK.</p>
-            <p>I'm interested in graphics, computer vision and human-computer interaction, particularly for mixed reality. Recently I've been working on holographic displays and telepresence.</p>
+            <p>I'm interested in graphics, computer vision and human-computer interaction, particularly for mixed reality. Recently I've been working on head-mounted displays and telepresence.</p>
             <p>A full CV is available <a href="cv.html" target="_blank">here</a>.</p>
             <a class="btn white" href="mailto:contact@chewitt.me" target="_blank">
                 Get in touch
