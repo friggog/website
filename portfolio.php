@@ -1,6 +1,13 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'OpticSim.jl',
+        'button_title' => 'GitHub',
+        'button_link' => 'https://github.com/microsoft/OpticSim.jl',
+        'image' => 'OpticSim',
+        'content' => '<p>OpticSim.jl is a <a href="https://julialang.org/" target="_blank">Julia</a> package for simulation and optimization of complex optical systems developed by the Microsoft Research Interactive Media Group and the Microsoft HART group.</p><p>I spent most of 2020 working with Brian Guenter on the package and it has now been open sourced on GitHub.</p>'
+    ),
+    array(
         'title' => 'Microsoft',
         'button_title' => 'Website',
         'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
