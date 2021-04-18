@@ -10,9 +10,9 @@ $portfolio_items = array(
     array(
         'title' => 'Microsoft',
         'button_title' => 'Website',
-        'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
+        'button_link' => 'https://aka.ms/MRAILabCam',
         'image' => 'MSFT',
-        'content' => '<p>I\'m joining the <i>Presence AI</i> group at Microsoft as a research scientist. The group is led by Jamie Shotton and based at Microsoft\'s research lab in Cambridge, UK. I interned with the group over the summer of 2019 and will be returning permanently to work at the intersection of computer graphics, computer vision and machine learning.</p>'
+        'content' => '<p>I\'m joining the <i>Presence AI</i> team at Microsoft as a research scientist. The group is led by Jamie Shotton and based at Microsoft\'s research lab in Cambridge, UK. I interned with the group over the summer of 2019 and will be returning permanently to work at the intersection of computer graphics, computer vision and machine learning.</p>'
     ),
     array(
         'title' => 'Face Synthetics',
@@ -24,9 +24,9 @@ $portfolio_items = array(
     array(
         'title' => 'Microsoft Research',
         'button_title' => 'Website',
-        'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
+        'button_link' => 'https://www.microsoft.com/en-us/research/group/graphics/',
         'image' => 'MSR2',
-        'content' => '<p>I\'m rejoining Microsoft\'s research lab in Cambridge at the start of 2020 as a contractor for <strike>six</strike> eighteen months. I\'ll be working with the graphics &amp; multimedia group working on future display technologies.</p>'
+        'content' => '<p>I\'m rejoining Microsoft\'s research lab in Cambridge at the start of 2020 as a research consultant for <strike>six</strike> eighteen months. I\'ll be working with the <i>Interactive Media Group</i> on future display technologies.</p>'
     ),
     array(
         'title' => 'OLM',
@@ -37,7 +37,7 @@ $portfolio_items = array(
     array(
         'title' => 'Mocrosoft HoloLens',
         'button_title' => 'Website',
-        'button_link' => 'https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/',
+        'button_link' => 'https://aka.ms/MRAILabCam',
         'image' => 'HoloLens',
         'content' => '<p>I\'m joining the Cognition research and development team based at Microsoft\'s lab in Cambridge as a research consultant over the summer of 2019, working on application of machine learning to problems in computer graphics and vision.</p>'
     ),
