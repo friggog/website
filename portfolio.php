@@ -1,6 +1,13 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'Fake It Till You Make It',
+        'button_title' => 'Project Page',
+        'button_link' => 'https://microsoft.github.io/FaceSynthetics',
+        'image' => 'FaceSX',
+        'content' => '<p>We demonstrate that it is possible to perform face-related computer vision in the wild <b>using synthetic data alone</b>.</p><p>The community has long enjoyed the benefits of synthesizing training data with graphics, but the domain gap between real and synthetic data has remained a problem, especially for human faces. Researchers have tried to bridge this gap with data mixing, domain adaptation, and domain-adversarial training, but we show that it is possible to synthesize data with minimal domain gap, so that models trained on synthetic data generalize to real in-the-wild datasets.</p>'
+    ),
+    array(
         'title' => 'OpticSim.jl',
         'button_title' => 'GitHub',
         'button_link' => 'https://github.com/microsoft/OpticSim.jl',
@@ -12,7 +19,7 @@ $portfolio_items = array(
         'button_title' => 'Website',
         'button_link' => 'https://aka.ms/MRAILabCam',
         'image' => 'MSFT',
-        'content' => '<p>I\'m joining the <i>Presence AI</i> team at Microsoft as a research scientist. The group is led by Jamie Shotton and based at Microsoft\'s research lab in Cambridge, UK. I interned with the group over the summer of 2019 and will be returning permanently to work at the intersection of computer graphics, computer vision and machine learning.</p>'
+        'content' => '<p>I\'m joining Microsoft\'s Mixed Reality &amp; AI Labs in Cambridge as a research scientist.</p><p>I interned with the group over the summer of 2019 and will be returning permanently to work at the intersection of computer graphics, computer vision and machine learning.</p>'
     ),
     array(
         'title' => 'Face Synthetics',
