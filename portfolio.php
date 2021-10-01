@@ -251,18 +251,18 @@ $portfolio_items = array(
         'content' => '<p>Block jumping, arcade style game for all iOS devices.</p>
                       <p>Follow the story of Percy the Penguin in his adventure to discover the source of mysterious ice blocks falling from the sky.</p>'
     ),
-    array(
-        'title' => 'Tryst',
-        'content' => '<p>Winterboard theme for retina iPad on iOS 6.</p>
-                      <p>Includes:</p>
-                      <ul>
-                          <li>All stock icons</li>
-                          <li>AppStore Icon Mask</li>
-                          <li>Springboard Elements</li>
-                          <li>App Switcher</li>
-                          <li>Notification Centre</li>
-                      </ul>
-                      <p>Available from the Cydia Store</p>'
-    ),
+    // array(
+    //     'title' => 'Tryst',
+    //     'content' => '<p>Winterboard theme for retina iPad on iOS 6.</p>
+    //                   <p>Includes:</p>
+    //                   <ul>
+    //                       <li>All stock icons</li>
+    //                       <li>AppStore Icon Mask</li>
+    //                       <li>Springboard Elements</li>
+    //                       <li>App Switcher</li>
+    //                       <li>Notification Centre</li>
+    //                   </ul>
+    //                   <p>Available from the Cydia Store</p>'
+    // ),
 );
 ?>
