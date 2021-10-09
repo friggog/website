@@ -5,6 +5,17 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+body:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    z-index: -1;
+    background: black;
+}
+
 h1, h3 {
     font-weight: normal;
 }

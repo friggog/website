@@ -60,7 +60,7 @@ $social_icons = array(
     <script src="Scripts/main.js" type="text/javascript"></script>
 </head>
 
-<body onload="scrollSetup();">
+<body>
     <header>
         <div class="content">
             <div class="title">
