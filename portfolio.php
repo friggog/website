@@ -1,6 +1,13 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => '3D face reconstruction with dense landmarks',
+        'button_title' => 'Read Paper',
+        'button_link' => 'https://arxiv.org/abs/2204.02776',
+        'image' => 'DenseLandmarks',
+        'content' => '<p>We present the first method that accurately predicts ten times as many landmarks as usual, covering the whole head, including the eyes and teeth. This is accomplished using synthetic training data, which guarantees perfect landmark annotations. By fitting a morphable model to these dense landmarks, we achieve state-of-the-art results for monocular 3D face reconstruction in the wild.</p>'
+    ),
+    array(
         'title' => 'Fake It Till You Make It',
         'button_title' => 'Project Page',
         'button_link' => 'https://microsoft.github.io/FaceSynthetics',

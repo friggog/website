@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php
+error_reporting(E_ALL ^ E_DEPRECATED);
 
 require_once 'vendor/autoload.php';
 
@@ -121,7 +122,7 @@ $social_icons = array(
                     26
                 </noscript>
                 year old computer scientist living in Cambridge, UK.</p>
-            <p>I'm interested in graphics, computer vision and human-computer interaction, particularly for mixed reality. Recently I've been working on head-mounted displays and telepresence.</p>
+            <p>I'm interested in graphics, computer vision and machine learning, particularly for mixed reality. Recently I've been working on digital humans and virtual presence.</p>
             <p>A full CV is available <a href="cv.html" target="_blank">here</a>.</p>
             <a class="btn white" href="mailto:contact@chewitt.me" target="_blank">
                 Get in touch
