@@ -1,7 +1,7 @@
 <?php
 $portfolio_items = array(
     array(
-        'title' => '3D face reconstruction with dense landmarks',
+        'title' => '3D Face Reconstruction',
         'button_title' => 'Read Paper',
         'button_link' => 'https://arxiv.org/abs/2204.02776',
         'image' => 'DenseLandmarks',
