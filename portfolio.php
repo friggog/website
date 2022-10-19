@@ -1,6 +1,21 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'DigiFace-1M',
+        'button_title' => 'Project Page',
+        'button_link' => 'https://microsoft.github.io/DigiFace1M/',
+        'image' => 'DigiFace',
+        'content' => '<p>State-of-the-art face recognition models show impressive accuracy, but these models are trained on large-scale datasets that contain millions of real human face images collected from the internet. Web-crawled face images are severely biased (in terms of race, lighting, make-up, etc) and often contain labeling noise. Most importantly, these face images are collected without explicit consent, raising more pressing privacy and ethical concerns.</p>
+                      <p>To avoid the problems associated with real face datasets, we introduce a large-scale synthetic dataset for face recognition, obtained by photo-realistic rendering of diverse and high-quality digital faces using a computer graphics pipeline.</p>'
+    ),
+    array(
+        'title' => 'Synthetic Wrinkles',
+        'button_title' => 'Read Paper',
+        'button_link' => 'https://arxiv.org/abs/2210.03529',
+        'image' => 'Wrinkles',
+        'content' => '<p>We boost the realism of our synthetic faces by introducing dynamic skin wrinkles in response to facial expressions and observe significant performance improvements in downstream computer vision tasks. Previous approaches for producing such wrinkles either required prohibitive artist effort to scale across identities and expressions or were not capable of reconstructing high-frequency skin details with sufficient fidelity. Our key contribution is an approach that produces realistic wrinkles across a large and diverse population of digital humans.</p>'
+    ),
+    array(
         'title' => '3D Face Reconstruction',
         'button_title' => 'Project Page',
         'button_link' => 'https://microsoft.github.io/DenseLandmarks',
