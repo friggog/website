@@ -119,7 +119,7 @@ $social_icons = array(
                     document.write(age);
                 </script>
                 <noscript>
-                    26
+                    27
                 </noscript>
                 year old computer scientist living in Cambridge, UK.</p>
             <p>I'm interested in graphics, computer vision and machine learning, particularly for mixed reality. Recently I've been working on digital humans and virtual presence.</p>

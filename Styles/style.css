@@ -287,6 +287,14 @@ nav .contact {
     content: '';
 }
 
+/* only phablet */
+
+@media only screen and (max-width: 480px) {
+    .portfolio-item {
+        margin-bottom: 1px;
+    }
+}
+
 
 /* Larger than phablet (also point when grid becomes active) */
 
