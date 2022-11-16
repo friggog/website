@@ -10,8 +10,8 @@ $portfolio_items = array(
     ),
     array(
         'title' => 'Synthetic Wrinkles',
-        'button_title' => 'Read Paper',
-        'button_link' => 'https://arxiv.org/abs/2210.03529',
+        'button_title' => 'Project Page',
+        'button_link' => 'http://microsoft.github.io/DynamicWrinkles',
         'image' => 'Wrinkles',
         'content' => '<p>We boost the realism of our synthetic faces by introducing dynamic skin wrinkles in response to facial expressions and observe significant performance improvements in downstream computer vision tasks. Previous approaches for producing such wrinkles either required prohibitive artist effort to scale across identities and expressions or were not capable of reconstructing high-frequency skin details with sufficient fidelity. Our key contribution is an approach that produces realistic wrinkles across a large and diverse population of digital humans.</p>'
     ),
