@@ -1,6 +1,13 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'Synthetic Humans',
+        'button_title' => 'Read Paper',
+        'button_link' => 'https://arxiv.org/abs/2301.01161',
+        'image' => 'HumanSX',
+        'content' => '<o>In this report we describe how we construct a parametric model of the face and body, including articulated hands; our rendering pipeline to generate realistic images of humans based on this body model; an approach for training DNNs to regress a dense set of landmarks covering the entire body; and a method for fitting our body model to dense landmarks predicted from multiple views.<p>'
+    ),
+    array(
         'title' => 'DigiFace-1M',
         'button_title' => 'Project Page',
         'button_link' => 'https://microsoft.github.io/DigiFace1M/',
@@ -44,7 +51,7 @@ $portfolio_items = array(
         'content' => '<p>I\'m joining Microsoft\'s Mixed Reality &amp; AI Labs in Cambridge as a research scientist.</p><p>I interned with the group over the summer of 2019 and will be returning permanently to work at the intersection of computer graphics, computer vision and machine learning.</p>'
     ),
     array(
-        'title' => 'Face Synthetics',
+        'title' => 'Synthetic Faces',
         'button_title' => 'Read Paper',
         'button_link' => 'https://arxiv.org/pdf/2007.08364.pdf',
         'image' => 'Faces',
