@@ -1,11 +1,23 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'Scribble',
+        'button_title' => 'Read Abstract',
+        'button_link' => 'https://dl.acm.org/doi/fullHtml/10.1145/3641234.3671045',
+        'content' => '<p>"Scribble" automatically generates animated 2D avatars from a selfie, stylized based on inclusive art direction. While many face stylizations are biased or inherently limit diversity, we semantically stylize specific facial features to ensure representation. Our diversity-first art direction and stylization approach enables highly stylized yet recognizable 2D avatars.</p>'
+    ),
+    array(
+        'title' => 'SimpleEgo',
+        'button_title' => 'Project Page',
+        'button_link' => 'https://aka.ms/SimpleEgo',
+        'content' =>'<p>Our work addresses the problem of egocentric human pose estimation from downwards-facing cameras on head-mounted devices (HMD). This presents a challenging scenario, as parts of the body often fall outside of the image or are occluded. We introduce the SynthEgo dataset, a synthetic dataset with 60K stereo images containing high diversity of pose, shape, clothing and skin tone.</p>',
+    ),
+    array(
         'title' => 'Synthetic Humans',
         'button_title' => 'Read Paper',
         'button_link' => 'https://arxiv.org/abs/2301.01161',
         'image' => 'HumanSX',
-        'content' => '<o>In this report we describe how we construct a parametric model of the face and body, including articulated hands; our rendering pipeline to generate realistic images of humans based on this body model; an approach for training DNNs to regress a dense set of landmarks covering the entire body; and a method for fitting our body model to dense landmarks predicted from multiple views.<p>'
+        'content' => '<p>In this report we describe how we construct a parametric model of the face and body, including articulated hands; our rendering pipeline to generate realistic images of humans based on this body model; an approach for training DNNs to regress a dense set of landmarks covering the entire body; and a method for fitting our body model to dense landmarks predicted from multiple views.<p>'
     ),
     array(
         'title' => 'DigiFace-1M',
