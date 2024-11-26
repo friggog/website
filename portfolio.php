@@ -1,6 +1,27 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'Look Ma, no markers!',
+        'button_title' => 'Project Page',
+        'button_link' => 'https://aka.ms/SynthMoCap',
+        'image' => 'lookma',
+        'content' => '<p>We introduce the first technique for marker-free, high-quality reconstruction of the complete human body, including eyes and tongue, without requiring any calibration, manual intervention or custom hardware. Our approach produces stable world-space results from arbitrary camera rigs as well as supporting varied capture environments and clothing. We achieve this through a hybrid approach that leverages machine learning models trained exclusively on synthetic data and powerful parametric models of human shape and motion. </p>'
+    ),
+    array(
+        'title' => 'Hairmony',
+        'button_title' => 'Project Page',
+        'button_link' => 'https://aka.ms/hairmony',
+        'content' => '<p>We present a method for prediction of a person\'s hairstyle from a single image. e introduce a novel hairstyle taxonomy developed in collaboration with a diverse group of domain experts which we use to balance our training data, supervise our model, and directly measure fairness. We employ an architecture based on a pre-trained feature extraction network in order to improve generalization of our method to real data and predict taxonomy attributes as an auxiliary task to improve accuracy. </p>'
+    ),
+    array(
+        'title' => 'Eyelid Fold Consistency',
+        'button_title' => 'Read Paper',
+        'button_link' => 'https://dl.acm.org/doi/10.1145/3681758.3697987',
+        'image' => 'eyelids',
+        'content' => '<p>Eyelid shape is integral to identity and likeness in human facial modeling. Human eyelids are diverse in appearance with varied skin fold and epicanthal fold morphology between individuals.</p>
+                      <p>Existing parametric face models express eyelid shape variation to an extent, but do not preserve sufficient likeness across a diverse range of individuals. We propose a new definition of eyelid fold consistency and implement geometric processing techniques to model diverse eyelid shapes in a unified topology.</p>'
+    ),
+    array(
         'title' => 'Scribble',
         'button_title' => 'Read Abstract',
         'button_link' => 'https://dl.acm.org/doi/fullHtml/10.1145/3641234.3671045',
