@@ -1,6 +1,12 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'GASP',
+        'button_title' => 'Project Page',
+        'button_link' => 'https://aka.ms/GASP',
+        'content' => '<p>We propose GASP: Gaussian Avatars with Synthetic Priors. To overcome the limitations of existing datasets, we exploit the pixel-perfect nature of synthetic data to train a Gaussian Avatar prior. By fitting this prior model to a single photo or video and fine-tuning it, we get a high-quality Gaussian Avatar, which supports 360-degree rendering.</p>'
+    ),
+    array(
         'title' => 'Look Ma, no markers!',
         'button_title' => 'Project Page',
         'button_link' => 'https://aka.ms/SynthMoCap',
