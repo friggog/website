@@ -311,14 +311,14 @@ $portfolio_items = array(
         'content' => '<p>Custom style for the popular Growl notification management app.</p>
                       <p>Inspired by the iOS 5 and OSX Mountain Lion interface styling and with custom slide in animation.</p>'
     ),
-    array(
-        'title' => 'Flippers Ain\'t Wings',
-        'image' => 'Flippers',
-        'button_link' => './Files/Flippers/',
-        'button_title' => 'More Info',
-        'content' => '<p>Block jumping, arcade style game for all iOS devices.</p>
-                      <p>Follow the story of Percy the Penguin in his adventure to discover the source of mysterious ice blocks falling from the sky.</p>'
-    ),
+    // array(
+    //     'title' => 'Flippers Ain\'t Wings',
+    //     'image' => 'Flippers',
+    //     'button_link' => './Files/Flippers/',
+    //     'button_title' => 'More Info',
+    //     'content' => '<p>Block jumping, arcade style game for all iOS devices.</p>
+    //                   <p>Follow the story of Percy the Penguin in his adventure to discover the source of mysterious ice blocks falling from the sky.</p>'
+    // ),
     // array(
     //     'title' => 'Tryst',
     //     'content' => '<p>Winterboard theme for retina iPad on iOS 6.</p>
