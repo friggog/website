@@ -15,14 +15,14 @@
                 h4 {
                     font-weight: normal;
                 }
-                #research .small, .pdf {
-                    display: none;
-                }
                 .latex {
                     margin-bottom: -0.2em !important;
                 }
                 #refs .col {
                     margin-bottom: 0;
+                }
+                #info {
+                    margin-bottom: 0 !important;
                 }
             }
 
@@ -163,7 +163,7 @@
     <body>
         <section id="info">
             <div class="info-address">
-                <a href="mailto:charlie@thehewitts.biz">charlie@thehewitts.biz</a>
+                <a href="mailto:cthewitt13@gmail.com">cthewitt13@gmail.com</a>
                 <br/>
                 <a href="http://chewitt.me" target="_blank">chewitt.me</a>
                 <br/>
@@ -174,24 +174,17 @@
         </section>
         <section id="profile">
             <h2>Profile</h2>
-            <p>I'm a
-                <script type="text/javascript">
-                    var currentTime = new Date();
-                    var month = currentTime.getMonth() + 1;
-                    var day = currentTime.getDate();
-                    var year = currentTime.getFullYear();
-                    var age = currentTime.getFullYear() - 1995;
-                    if (month < 9 || (day < 13 && month == 9))
-                        age -= 1;
-                    document.write(age);
-                </script>
-                <noscript>
-                    26
-                </noscript> year old computer scientist based in the UK. I graduated in 2018 with a master's degree in computer science from the University of Cambridge and have been involved in a number of projects at a variety of institutions around the world since then. I'm currently working as a research scientist with a focus on computer graphics, computer vision and machine learning at Microsoft's lab in Cambridge, UK. A portfolio of my recent work is available at <a href="http://chewitt.me" target="_blank">chewitt.me</a>.</p>
+            <p>
+                I'm a computer scientist working at Microsoft's lab in Cambridge in the UK.
+                I currently work on human understanding tasks in computer vision, enabled by high fidelity synthetic data.
+                Since getting my masters in Computer Science from the University of Cambridge I've worked on optical design at Microsoft Research, been an RA at Victoria University of Wellington and had a brief stint at an animation studio in Tokyo.
+                A portfolio of my recent work is available at <a href="http://chewitt.me" target="_blank">chewitt.me</a>.
+            </p>
         </section>
         <section id="exp">
             <h2>Experience</h2>
-            <h3>Research Scientist - Microsoft <span class="small">Dec 2020-present</span></h3>
+            <h3>Senior Research Scientist - Microsoft <span class="small">Sept 2023-present</span></h3>
+            <h3>Research Scientist - Microsoft <span class="small">Dec 2020-Sept 2023</span></h3>
             <p>Working at the intersection of computer graphics, computer visions and machine learning as part of the Mixed Reality &amp; AI lab in Cambridge, UK.</p>
             <h3>Research Consultant - Microsoft Research <span class="small">Jan-Dec 2020</span></h3>
             <p>Eighteen month consultancy position with the Graphics &amp; Multimedia group at Microsoft's research lab in Cambridge. Helping to build the next generation of head mounted displays.</p>
@@ -207,6 +200,30 @@
             <p>Two month internship working at Cydar in Cambridge, helping to develop imaging technologies for surgeons to use in the OR. Software development work focussing on web-based technologies and user interaction.</p>
             <h3>Intern - Jagex Game Studios <span class="small">Summer 2016</span></h3>
             <p>Three month internship within the web team at Jagex, focussed on projects involving the exploration of potential future business opportunities. Working as part of a small team to develop prototype web-based software.</p>
+        </section>
+        <section id="research">
+            <h2>Selected Publications</h2>
+
+            <h3>
+                GASP: Gaussian Avatars with Synthetic Priors - CVPR 2025
+                <a class="small" href="http://aka.ms/GASP" target="_blank">Project Site</a>
+            </h3>
+            <h3>
+                Look Ma, No Markers: Holistic performance capture without the hassle - ToG 2024
+                <a class="small" href="http://aka.ms/SynthMoCap" target="_blank">Project Site</a>
+            </h3>
+            <h3>
+                Hairmony: Fairness-aware hairstyle classification - SIGGRAPH ASIA 2024
+                <a class="small" href="http://aka.ms/hairmony" target="_blank">Project Site</a>
+            </h3>
+            <h3>
+                3D face reconstruction with dense landmarks - ECCV 2022
+                <a class="small" href="https://aka.ms/DenseLandmarks" target="_blank">Project Site</a>
+            </h3>
+            <h3>
+                Fake it till you make it: face analysis in the wild using synthetic data alone - ICCV 2021
+                <a class="small" href="https://microsoft.github.io/FaceSynthetics/" target="_blank">Project Site</a>
+            </h3>
         </section>
         <section id="edu">
             <h2>Education</h2>
@@ -232,58 +249,5 @@
                 <li>Extensive experience with Microsoft Excel, as well as word processing including use of <img src="Fonts/latex.svg" class="latex" alt="LaTeX"/>.</li>
             </ul>
         </section>
-        <!-- <section id="research">
-            <h2>Publications</h2>
-            <h3>
-                3D face reconstruction with dense landmarks - Microsoft 2022
-                <a class="small" href="https://arxiv.org/pdf/2204.02776.pdf" target="_blank">PDF</a>
-            </h3>
-            <p>E. Wood, T. Baltru&scaron;aitis, <i>C. Hewitt</i>, M, Johnson, J. Shen, N. Milosavljevic, D. Wilde, S. Garbin, T. Sharp, I. Stojiljkovi&#263;, T. Cashman, J. Valentin</p>
-            <h3>
-                Fake it till you make it: face analysis in the wild using synthetic data alone - ICCV 2021
-                <a class="small" href="https://arxiv.org/pdf/2109.15102.pdf" target="_blank">PDF</a>
-            </h3>
-            <p>E. Wood, T. Baltru&scaron;aitis, <i>C. Hewitt</i>, S. Dziadzio, M. Johnson, V. Estellers, T. Cashman, and J. Shotton</p>
-            <h3>
-                A high fidelity synthetic face framework for computer vision - Microsoft 2020
-                <a class="small" href="https://arxiv.org/pdf/2007.08364.pdf" target="_blank">PDF</a>
-            </h3>
-            <p>T. Baltru&scaron;aitis, E. Wood, V. Estellers, <i>C. Hewitt</i>, S. Dziadzio, M. Kowalski, M. Johnson, T. Cashman, and J. Shotton</p>
-            <h3>
-                Pose-Informed Face Alignment for Extreme Head Pose Variations in Animals - Affective Computing &amp; Intelligent Interaction 2019
-                <a class="small" href="./Papers/CTH-PIFA-2019.pdf" target="_blank">PDF</a>
-            </h3>
-            <p><i>Charlie Hewitt</i>, Marwa Mahmoud</p>
-            <h3>
-                Assessing Public Perception of Self-Driving Cars: the Autonomous Vehicle Acceptance Model - IUI 2019
-                <a class="small" href="./Papers/CTH-AVAM-2019.pdf" target="_blank">PDF</a>
-            </h3>
-            <p><i>Charlie Hewitt</i>, Ioannis Politis, Theo Amanatidis, Advait Sarkar</p>
-            <h3>
-                CNN-based Facial Affect Analysis on Mobile Devices - University of Cambridge 2018
-                <a class="small" href="https://arxiv.org/pdf/1807.08775" target="_blank">PDF</a>
-            </h3>
-            <p><i>Charlie Hewitt</i>, Hatice Gunes</p>
-            <h3>
-                Shape-only Features for Plant Leaf Identification - University of Cambridge 2018
-                <a class="small" href="https://arxiv.org/pdf/1811.08398" target="_blank">PDF</a>
-            </h3>
-            <p><i>Charlie Hewitt</i>, Marwa Mahmoud</p>
-            <h3>
-                Head Pose Estimation and Facial Landmark Localisation for Animals - University of Cambridge 2018
-                <a class="small" href="./Papers/CTH-Dissertation-2018.pdf" target="_blank">PDF</a>
-            </h3>
-            <p>Masters Dissertation - Supervised by Marwa Mahmoud</p>
-            <h3>
-                Procedural generation of tree models for use in computer graphics - University of Cambridge 2017
-                <a class="small" href="./Papers/CTH-Dissertation-2017.pdf" target="_blank">PDF</a>
-            </h3>
-            <p>Undergraduate Dissertation - Supervised by Gyorgy Denes</p>
-            <h2>Patents</h2>
-            <h3>Fitting 3D models of composite objects - Microsoft, 2021<a class="small" href="https://patentimages.storage.googleapis.com/3d/a1/d4/117edc04e5b6da/US11127225.pdf" target="_blank">patent</a></h3>
-            <h3>Head Mounted Display Device with Double Faceted Optics - Microsoft, 2021<a class="small" href="https://patentimages.storage.googleapis.com/ff/0b/85/1fdb9b082eed14/US20210239883A1.pdf" target="_blank">patent</a></h3>
-            <h3>Near-eye peripheral display device - Microsoft, 2019<a class="small" href="https://patentimages.storage.googleapis.com/40/4e/db/ce3c559cc184df/US20200348518A1.pdf" target="_blank">patent</a></h3>
-            <h3>Holographic image generated based on eye position - Microsoft, 2019<a class="small" href="https://patentimages.storage.googleapis.com/35/d7/88/e81244322431cb/US11068052.pdf" target="_blank">patent</a></h3>
-        </section> -->
     </body>
 </html>
