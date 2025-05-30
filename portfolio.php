@@ -164,13 +164,13 @@ $portfolio_items = array(
         'content' => '<p>Paper presenting a hybrid classification technique using Gaussian processes fitted on features extracted by a convolutional neural network to enable estimation of prediction confidence. The classifier is evaluated on the MNIST dataset and shown to have somewhat meaningful implications for confidence estimation.</p>',
         'image' => 'CNNConf'
     ),
-    array(
-        'title' => 'THJE Website',
-        'button_title' => 'View Website',
-        'button_link' => './Files/THJE',
-        'content' => '<p>Website design and other graphics for the 2018 Trinity Hall June Event, in addition to managing the ticketing service provided through <a href="https://getqpay.com" target="_blank">Qpay</a>.</p>',
-        'image' => 'THJE'
-    ),
+    // array(
+    //     'title' => 'THJE Website',
+    //     'button_title' => 'View Website',
+    //     'button_link' => './Files/THJE',
+    //     'content' => '<p>Website design and other graphics for the 2018 Trinity Hall June Event, in addition to managing the ticketing service provided through <a href="https://getqpay.com" target="_blank">Qpay</a>.</p>',
+    //     'image' => 'THJE'
+    // ),
     //array(
     //    'title' => 'AirPi',
     //    'content' => '<p><a href="https://www.raspberrypi.org/products/raspberry-pi-zero-w/" target="_blank">Raspberry Pi Zero W</a> based AirPlay and Spotify
@@ -236,14 +236,14 @@ $portfolio_items = array(
     //                  <p>The site was created as part of the Cambridge CST group project programme. The group worked with clients Matt Johnson and Eddy Ashton from
     //                  <a href="http://www.frontier.co.uk/" target="=_blank">Frontier</a>, a games company based in Cambridge.</p>'
     //),
-    array(
-        'title' => 'THBC Site Redesign',
-        'image' => 'THBC',
-        'button_link' => 'http://thbc.soc.srcf.net/',
-        'button_title' => 'View Website',
-        'content' => '<p>Trinity Hall Boat Club\'s original website was designed in the 90s and was starting to show its age. I carried out a complete visual redesign and tidied up many aspects of the website code.</p>
-                      <p>I also wrote a new voting system to be used for captaincy elections, as well as updating the content of many of the site\'s pages and adding some new ones.</p>'
-    ),
+    // array(
+    //     'title' => 'THBC Site Redesign',
+    //     'image' => 'THBC',
+    //     'button_link' => 'http://thbc.soc.srcf.net/',
+    //     'button_title' => 'View Website',
+    //     'content' => '<p>Trinity Hall Boat Club\'s original website was designed in the 90s and was starting to show its age. I carried out a complete visual redesign and tidied up many aspects of the website code.</p>
+    //                   <p>I also wrote a new voting system to be used for captaincy elections, as well as updating the content of many of the site\'s pages and adding some new ones.</p>'
+    // ),
     array(
         'title' => 'Fingal',
         'button_link' => 'http://cydia.saurik.com/package/me.chewitt.fingal/',
@@ -303,14 +303,14 @@ $portfolio_items = array(
         'content' => '<p>Chroma, and the more fully featured Tinct, are a duo of UI tweaks for iOS 7 and 8. Both allow for extensive customisation of the colours of various elements of the iOS interface, while remaining lightweight and simple to use.</p>
                       <p>Chroma is available for free from Cydia (source on <a href="https://github.com/friggog/chroma">GitHub</a>), and Tinct is available to purchase from the Cydia Store.</p>'
     ),
-    array(
-        'title' => 'Linen Growl Style',
-        'image' => 'Linen',
-        'button_link' => 'http://friggog.deviantart.com/art/Linen-GrowlStyle-292018277',
-        'button_title' => 'Download',
-        'content' => '<p>Custom style for the popular Growl notification management app.</p>
-                      <p>Inspired by the iOS 5 and OSX Mountain Lion interface styling and with custom slide in animation.</p>'
-    ),
+    // array(
+    //     'title' => 'Linen Growl Style',
+    //     'image' => 'Linen',
+    //     'button_link' => 'http://friggog.deviantart.com/art/Linen-GrowlStyle-292018277',
+    //     'button_title' => 'Download',
+    //     'content' => '<p>Custom style for the popular Growl notification management app.</p>
+    //                   <p>Inspired by the iOS 5 and OSX Mountain Lion interface styling and with custom slide in animation.</p>'
+    // ),
     // array(
     //     'title' => 'Flippers Ain\'t Wings',
     //     'image' => 'Flippers',
