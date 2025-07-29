@@ -1,6 +1,12 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'DAViD',
+        'button_title' => 'Project Page',
+        'button_link' => 'https://aka.ms/DAViD',
+        'content' => '<p>The state of the art in human-centric computer vision achieves high accuracy and robustness across a diverse range of tasks. The most effective models in this domain have billions of parameters. In this paper, we demonstrate that it is possible to train models on much smaller but high-fidelity synthetic datasets, with no loss in accuracy and higher efficiency. Using synthetic training data provides us with excellent levels of detail and perfect labels, while providing strong guarantees for data provenance, usage rights, and user consent.<p>'
+    ),
+    array(
         'title' => 'GASP',
         'button_title' => 'Project Page',
         'button_link' => 'https://aka.ms/GASP',
