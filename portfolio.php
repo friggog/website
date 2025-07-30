@@ -1,6 +1,12 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'VoluMe',
+        'button_title' => 'Project Page',
+        'button_link' => 'https://aka.ms/VoluMe',
+        'content' => '<p>We present the first method to predict 3D Gaussian reconstructions in real time from a single 2D webcam feed, where the 3D representation is not only live and realistic, but also <i>authentic</i> to the input video. By conditioning the 3D representation on each video frame independently, our reconstruction faithfully recreates the input video from the captured viewpoint (a property we call <i>authenticity</i>), while generalizing realistically to novel viewpoints.<p>'
+    ),
+    array(
         'title' => 'DAViD',
         'button_title' => 'Project Page',
         'button_link' => 'https://aka.ms/DAViD',
