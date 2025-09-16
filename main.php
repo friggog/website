@@ -107,21 +107,7 @@ $social_icons = array(
                     }
                 ?>
             </ul>
-            <p>I'm a
-                <script type="text/javascript">
-                    var currentTime = new Date();
-                    var month = currentTime.getMonth() + 1;
-                    var day = currentTime.getDate();
-                    var year = currentTime.getFullYear();
-                    var age = currentTime.getFullYear() - 1995;
-                    if (month < 9 || (day < 13 && month == 9))
-                        age -= 1;
-                    document.write(age);
-                </script>
-                <noscript>
-                    29
-                </noscript>
-                year old computer scientist living in Cambridge, UK.</p>
+            <p>I'm a computer scientist living in Cambridge in the UK.</p>
             <p>I'm interested in graphics, computer vision and machine learning, particularly for mixed reality. Recently I've been working on digital humans and virtual presence.</p>
             <p>A full CV is available <a href="cv.html" target="_blank">here</a>.</p>
             <a class="btn white" href="mailto:contact@chewitt.me" target="_blank">

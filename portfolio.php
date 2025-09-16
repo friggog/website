@@ -1,6 +1,12 @@
 <?php
 $portfolio_items = array(
     array(
+        'title' => 'Google',
+        'button_title' => 'Website',
+        'button_link' => 'https://blog.google/products/android/android-xr/',
+        'content' => '<p>I\'m joining the Android XR org at Google as a research engineer. I\'ll be working on synthetic human data for on-device sensing and supporting generative AI applications.<p>'
+    ),
+    array(
         'title' => 'VoluMe',
         'button_title' => 'Project Page',
         'button_link' => 'https://aka.ms/VoluMe',
