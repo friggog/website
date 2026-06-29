@@ -76,7 +76,7 @@ $social_icons = array(
                     <a href="about.html">
                         <li>About</li>
                     </a>
-                    <a href="mailto:contact@chewitt.me">
+                    <a href="mailto:cthewitt13@gmail.com">
                         <li>Contact</li>
                     </a>
                 </ul>
