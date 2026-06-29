@@ -110,7 +110,7 @@ $social_icons = array(
             <p>I'm a computer scientist living in Cambridge in the UK.</p>
             <p>I'm interested in graphics, computer vision and machine learning, particularly for mixed reality. Recently I've been working on digital humans and virtual presence.</p>
             <p>A full CV is available <a href="cv.html" target="_blank">here</a>.</p>
-            <a class="btn white" href="mailto:contact@chewitt.me" target="_blank">
+            <a class="btn white" href="mailto:cthewitt13@gmail.com" target="_blank">
                 Get in touch
             </a>
         </main>
